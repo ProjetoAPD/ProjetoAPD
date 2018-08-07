@@ -197,7 +197,7 @@ l{
     text-align: left;
     min-height:10px;
 
-    width:100%;
+    width:60%;
     background-color: white;
     border:3px black ridge;
     border-radius:5px;
@@ -246,14 +246,13 @@ l{
 }
 
 #idcom{
-  color: red ;
-       border:4px red ridge;
+       text-decoration: underline;
+       font-size: 200%;
        border-radius: 20px;
        width:20%;
 
 }
 #contcom{
-   border:4px red ridge;
    border-radius: 20px;
    width:98%;
 }
@@ -275,6 +274,9 @@ l{
 #rolagem{
     height: 370px;
     overflow: auto;
+}
+#rodape{
+  text-align:
 }
 
 #corpo_formulario{

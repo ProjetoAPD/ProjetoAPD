@@ -13,7 +13,7 @@ class CrudComentario
 
     public function getComentarios(int $cod_postagem){
 
-        $sql = "SELECT * FROM comentario where postagem_cod_postagem = '{$cod_postagem}' order by dt_comentario desc";
+        $sql = "SELECT * FROM comentario where postagem_cod_postagem = '{$cod_postagem}' order by dt_comentario";
         $resultado = $this->conexao->query($sql);
 
         $comentarios = $resultado->fetchAll(PDO::FETCH_ASSOC);

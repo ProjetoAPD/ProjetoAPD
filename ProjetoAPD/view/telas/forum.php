@@ -308,14 +308,11 @@ if (isset($_SESSION['logado'])) {
                     <li><a href="../../controller/acoesFor.php?acao=excluir&cod_postagem="<?= $postagem['cod_postagem'] ?>>Excluir</a></li>
 
                 </ul>
-<?php if (isset($_SESSION['logado'])) {  ?>
-                <form method="post" action="../../controller/acoesFor.php?acao=comentar">
-                    <input type="text" name="comentario" placeholder="Comente aqui...">
-                    <input type="hidden" name="cod_postagem" value="<?= $postagem['cod_postagem'] ?>">
-                    <input type="submit" name="Enviar">
-                </form>
-<?php } ?>
+
+
+
                 <?php
+
                 $crudcoment = new CrudComentario();
                 $comentarios = $crudcoment->getComentarios($postagem['cod_postagem']);
 
@@ -323,27 +320,36 @@ if (isset($_SESSION['logado'])) {
                     $usucomentario = $crudcoment->getUsuarioComentario($comentario['cod_comentario'])
                 ?>
 
+<div id="comment">
+                <li id="idcom"><?= $usucomentario['nome'] ?></li>
+                <li id="contcom" ><?= $comentario['texto_comentario'] ?></li>
 
-                <li><?= $usucomentario['nome'] ?></li>
-                <li><?= $comentario['texto_comentario'] ?></li>
-
-
+</div>
                 <?php } ?>
 
 
                 <hr>
+                <?php if (isset($_SESSION['logado'])) {  ?>
+                                <form method="post" action="../../controller/acoesFor.php?acao=comentar">
+                                    <input type="text" name="comentario" placeholder="Comente aqui...">
+                                    <input type="hidden" name="cod_postagem" value="<?= $postagem['cod_postagem'] ?>">
+                                    <input type="submit" name="Enviar">
+                                </form>
+                <?php } ?>
 
             <?php endforeach; ?>
 
 
-            <div class="ui vertically divided grid">
-                <div class="two column row">
 
-                    <h4 class="ui horizontal header divider">
-                        <a href="forum.php">Voltar ao topo</a>
-                    </h4>
-                </div>
+
+            <div class="ui vertically divided grid">
+
             </div>
+        </div>
+        <div class="two column row">
+          <footer class="ui horizontal header divider">
+                <a href="forum.php">Voltar ao topo</a>
+            </footer>
         </div>
     </div>
 
