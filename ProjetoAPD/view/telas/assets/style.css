@@ -1,0 +1,291 @@
+l{
+    color: #FFFFF0;
+    background-color:#4C2C63;
+}
+.ui.vertically.divided.grid{
+    color: #000000;
+
+}
+.ui.vertically.divided.grid div {
+    background-color: #FFFFF0;
+    border-radius:5px;
+    padding:15px;
+    border: 3px grey;
+}
+
+.ui.vertically.divided.grid img{
+    width: 15%;
+    height: auto;
+}
+
+.ui.medium.circular.image{
+    width: 40px;
+    height:40px;
+}
+
+#lforum a{
+    text-decoration: none;
+    color: black;
+}
+
+#lforum a:hover{
+    color: #4C2C63;
+}
+
+#but {
+    display:inline;
+    text-align:center;
+
+}
+
+#but img{
+    display:inline-block;
+    width:25%;
+}
+
+#but li{
+    list-style:none;
+
+}
+
+
+#but button:active {
+    color:white;
+    background-color: black;
+    transform: translateY(5px);
+}
+
+
+#chat a{
+    width: 10%;
+    border-radius:5px;
+    padding: 5px 5px;
+    text-align:center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    text-decoration:none;
+    color:#ffffff;
+    background-color:#ffffff;
+}
+
+#conteudo{
+    background-color: white;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-right:20%;
+    padding-left:20%;
+    border: 3px solid;
+
+}
+
+#tela{
+    margin-top: 30px;
+    border: 2px solid #4C2C63;
+    border-radius: 1.5%;
+    color: black;
+}
+
+#tela h3{
+    margin-top: 10px;
+
+}
+
+#fakechat{
+
+    font-size: 150%;
+    background-color: white;
+
+    text-align:center;
+    padding:0px;
+    list-style:none;
+}
+
+#fakechat ul{
+    width: 100%;
+}
+
+#vai{
+    margin-left:20%;
+}
+
+#vai, #vol{
+    margin-top: 0.5%;
+    background-color: #4C2C63;
+    color:#ffffff;
+    width:80%;
+    border-radius:10px;
+    border:1px ridge;
+}
+
+
+
+#vai h6{
+    background-color: #4C2C63;
+    color:#ffffff;
+    text-align:right;
+    padding-right:15px;
+}
+
+
+#vol h6{
+    background-color: #4C2C63;
+    color:#ffffff;
+    text-align:left;
+    padding-left:15px
+}
+
+#vol img{
+    padding:5px;
+    width:5%;
+    text-align:left
+
+}
+
+#barra{
+    text-align:center;
+}
+
+#barra input{
+    width:80%
+}
+#barra button{
+    width:19%;
+
+}
+
+#barra textarea{
+    padding-left: 60%;
+    border-radius: 5%;
+}
+
+#bgforum{
+    padding:5% ;
+    list-style:none;
+    color:black;
+}
+#poster{
+    border-radius:20px;
+    text-align:left;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding:1px 20px 1px 20px;
+}
+#titulo{
+    border-radius: 12px;
+    width:100%;
+    height:40px;
+}
+#texto{
+    text-align: initial;
+    border-radius: 12px;
+    width:100%;
+    height:150px;
+}
+#comentarios{
+    color: white;
+}
+
+#lforum{
+    background-color: white;
+
+
+}
+#forum{
+    list-style: none;
+    text-align: left;
+    min-height:10px;
+
+    width:100%;
+    background-color: white;
+    border:3px black ridge;
+    border-radius:5px;
+
+}
+
+#perf{
+    list-style:none;
+    text-decoration: underline;
+
+    text-align:left;
+}
+
+#preenche{
+    text-indent:2em ;
+    list-style:none;
+    text-align:left;
+}
+
+#lermais{
+
+    text-align-last: end;
+    padding: 10px;
+    font-style: italic;
+    font-size: 20px;
+    text-decoration:underline;
+}
+
+#espaco{
+    width: 30px;
+}
+
+#tela hr{
+    border-width: 200%;
+    border-color: #4C2C63;
+}
+#comment{
+    text-align:left;
+    background-color: white;
+    border:1px black solid;
+    padding-left:2.5%;
+    border-radius: 60px;
+    border-top-left-radius: 00;
+    min-width:10%;
+
+}
+
+#idcom{
+  color: red ;
+       border:4px red ridge;
+       border-radius: 20px;
+       width:20%;
+
+}
+#contcom{
+   border:4px red ridge;
+   border-radius: 20px;
+   width:98%;
+}
+
+#commake{
+    background-color: white;
+
+}
+
+.ui.form{
+    margin-bottom: 10px;
+}
+
+.ui.form input{
+    height: 35px;
+    border-radius: 5px;
+}
+
+#rolagem{
+    height: 370px;
+    overflow: auto;
+}
+
+#corpo_formulario{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+
+#ui_segment_perfil{
+    border: 1px solid;
+    border-color: #4C2C63;
+
+}
