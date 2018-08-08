@@ -35,6 +35,12 @@ if (isset($_SESSION['logado'])) {
 
 
     <style type="text/css">
+
+        .ui.button{
+            background-color: #4C2C63;
+        }
+
+
         .hidden.menu {
             display: none;
         }
@@ -242,9 +248,11 @@ if (isset($_SESSION['logado'])) {
             <?php
         } else {
             ?>
-            <div class="ui massive purple buttons">
-                <button class="ui button">Fale com um psicólogo</button>
-            </div>
+            <a href="chat.php">
+                <div class="ui massive purple buttons">
+                    <button class="ui button">Fale com um psicólogo</button>
+                </div>
+            </a>
             <?php
         }
         ?>

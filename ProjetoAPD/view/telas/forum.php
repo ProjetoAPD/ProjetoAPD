@@ -304,7 +304,6 @@ if (isset($_SESSION['logado'])) {
 
                     <hr style="width: 90%;">
                     <li id="preenche"><p> <?= $postagem['texto_postagem'] ?> </p></li>
-                    <li><a href="#" id="lermais">Ler mais</a></li>
                     <li><a href="../../controller/acoesFor.php?acao=excluir&cod_postagem="<?= $postagem['cod_postagem'] ?>>Excluir</a></li>
 
                 </ul>

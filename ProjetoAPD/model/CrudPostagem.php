@@ -61,7 +61,7 @@ class CrudPostagem
 
     }
 
-    public function deletePostagem(int $codigo){
+    public function deletePostagem($codigo){
 
         $sql = "DELETE FROM postagens_forum WHERE cod_postagem=".$codigo;
 
