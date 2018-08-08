@@ -13,9 +13,11 @@ class CrudUsuario
         $this->conexao = DBConnection::getConexao();
     }
 
-    public function getUsuarios(){
+    public function getUsuarios( $id_tipo_usuario){
 
-        $sql = "SELECT * FROM usuario";
+        $sql = "SELECT * FROM usuario WHERE cod_tipo_usuario = ". $id_tipo_usuario;
+
+
         $resultado = $this->conexao->query($sql);
         $usuarios = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
