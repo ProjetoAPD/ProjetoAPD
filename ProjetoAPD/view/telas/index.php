@@ -242,13 +242,9 @@ if (isset($_SESSION['logado'])) {
             <?php
         } else {
             ?>
-            <h4>TA LOGADO PORRA
-
-
-                //INSERIR AQUI O CONTEÚDO CASO ESTEJA LOGADO
-
-
-            </h4>
+            <div class="ui massive purple buttons">
+                <button class="ui button">Fale com um psicólogo</button>
+            </div>
             <?php
         }
         ?>
