@@ -13,9 +13,29 @@ class CrudUsuario
         $this->conexao = DBConnection::getConexao();
     }
 
-    public function getUsuarios( $id_tipo_usuario){
+    public function getUsuarios(){
 
-        $sql = "SELECT * FROM usuario WHERE cod_tipo_usuario = ". $id_tipo_usuario;
+        $sql = "SELECT * FROM usuario";
+
+
+        $resultado = $this->conexao->query($sql);
+        $usuarios = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($usuarios as $usuario) {
+            $cod = $usuario['cod_usuario'];
+            $nome = $usuario['nome'];
+            $email = $usuario['email'];
+            $senha = $usuario['senha'];
+            $tipo_usuario = $usuario['cod_tipo_usuario'];
+            $obj = new Usuario( $nome, $email, $senha, $tipo_usuario, $cod);
+            $listaUsuarios[] = $obj;
+        }
+        return $listaUsuarios;
+    }
+
+    public function getPsicologos(){
+
+        $sql = "SELECT * FROM usuario WHERE cod_tipo_usuario = 2";
 
 
         $resultado = $this->conexao->query($sql);

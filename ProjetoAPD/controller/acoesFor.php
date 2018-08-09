@@ -28,12 +28,10 @@ if (isset($_GET['acao'])){
 
             $cod_postagem = $_GET['cod_postagem'];
 
-
-
             $c1 = new CrudPostagem();
             $c1->deletePostagem($cod_postagem);
 
-
+            header('Location: ../view/telas/forum.php');
 
             break;
 

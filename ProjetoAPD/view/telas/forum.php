@@ -304,7 +304,12 @@ if (isset($_SESSION['logado'])) {
 
                     <hr style="width: 90%;">
                     <li id="preenche"><p> <?= $postagem['texto_postagem'] ?> </p></li>
-                    <li><a href="../../controller/acoesFor.php?acao=excluir&cod_postagem="<?= $postagem['cod_postagem'] ?>>Excluir</a></li>
+
+                    <?php if ($postagem['usuario_cod_usuario'] == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
+
+                        <li><a href="../../controller/acoesFor.php?acao=excluir&cod_postagem=<?= $postagem['cod_postagem'] ?>">Excluir</a></li>
+
+                    <?php } ?>
 
                 </ul>
 
