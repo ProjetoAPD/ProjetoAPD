@@ -227,7 +227,7 @@
 	        </a>
 	        <a class="active item" href="index.php">Home</a>
 	        <a class="item" href="forum.php">Fórum</a>
-	        <a class="item" href="chat.php">Chat</a>
+	        <a class="item" href="chat.html">Chat</a>
 	        <a class="item">
 	        <div class="right item">
 

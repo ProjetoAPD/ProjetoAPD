@@ -225,30 +225,6 @@ if (!isset($_SESSION['logado'])) {
             })
         ;
     </script>
-    <script>
-        $(function() {
-            $("#voltar").hide();
-
-            $("#tabela_psicologo").hide();
-
-            $('#nova_conversa').click(function () {
-                $("#nova_conversa").hide();
-                $("#tabela_mensagens").hide();
-                $("#voltar").fadeIn();
-                $("#tabela_psicologo").fadeIn();
-            });
-
-            $('#voltar').click(function () {
-                $("#nova_conversa").fadeIn();
-                $("#tabela_mensagens").fadeIn();
-                $("#voltar").hide();
-                $("#tabela_psicologo").hide();
-            });
-
-        });
-
-
-    </script>
 
 </head>
 
@@ -307,7 +283,7 @@ if (!isset($_SESSION['logado'])) {
 
 
                 <div class="ui two column middle aligned very relaxed stackable grid">
-                    <!-- coluna das mensagens -->
+
                     <div class="column">
 
                         <br>
@@ -315,102 +291,25 @@ if (!isset($_SESSION['logado'])) {
                         <div class="ui comments">
 
                             <table class="ui selectable unstackable table">
-
-                                <!-- cabecalho //////////////////////////////////////////////////////// -->
                                 <thead>
                                     <th>
                                         <div>
                                             <h3>
                                                 MENSAGENS
-                                                <div  style="float: right">
-
-                                                    <button class="ui basic red button" id="nova_conversa">NOVA CONVERSA</button>
-                                                </div>
-
-                                                <div  style="float: right">
-
-                                                    <button class="ui basic red button" id="voltar">VOLTAR</button>
-                                                </div>
-
                                             </h3>
                                         </div>
 
-
+                                        <div>
+                                            <button class="ui basic red button">NOVAS MENSAGENS</button>
+                                        </div>
                                     </th>
                                 </thead>
-                                <!-- cabecalho //////////////////////////////////////////////////////// -->
 
                                 <td>
-
-                                    <!-- AQUI EMBAIXO TTEM A TABELA DO PSCIOLOGO PRA COLOCAR NOA AJX TLG -->
-
                                     <div class="ui vertical segments">
 
-                                        <div class="column" id="tabela_psicologo">
-                                            <div class="ui comments">
-
-                                                <br>
-                                                <table class="ui selectable unstackable table">
-                                                    <thead>
-                                                    <tr>
-
-                                                        <th>Nome</th>
-                                                        <th>Email</th>
-                                                        <th>Iniciar Conversa</th>
-                                                        <th class="center aligned"><i class="address card icon"></i></th>
-                                                    </tr>
-                                                    </thead>
-
-                                                    <tr>
-                                                        <?php foreach($listaUsuarios as $usuario): ?>
-
-                                                        <td><?= $usuario->getNome() ?></td>
-                                                        <td><?= $usuario->getEmail() ?></td>
-
-
-                                                        <td>
-                                                            <button class="ui green button">
-                                                                <i class="comments icon"></i>
-                                                            </button>
-
-                                                        </td>
-
-                                                        <td>
-                                                            Psicólogo
-                                                        </td>
-
-                                                        <!--<td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario= <*****= $usuario->getCodUsuario()?> ">Excluir</a></td>-->
-                                                    </tr>
-                                                    <?php endforeach; ?>
-                                                </table>
-
-
-                                            </div>
-                                        </div>
-                                        <!-- /////////////////////////////////////////////////////////////-->
-
-                                        <div id="tabela_mensagens">
-
-                                            <div class="column">
-                                                <div class="ui horizontal segments">
-
-                                                        <div class="column">
-                                                            <button class="ui basic red button">
-
-                                                                <i class="icon red user"></i>
-                                                            </button>
-                                                        </div>
-
-                                                        <div class="column">
-                                                            <h2>
-                                                               Carlinhos Curandeiro
-                                                            </h2>
-                                                        </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="column">
-                                                <div class="ui horizontal segments">
+                                        <div class="column">
+                                            <div class="ui horizontal segments">
 
                                                     <div class="column">
                                                         <button class="ui basic red button">
@@ -421,62 +320,99 @@ if (!isset($_SESSION['logado'])) {
 
                                                     <div class="column">
                                                         <h2>
-                                                            Jesus Cristo
+                                                           Carlinhos Curandeiro
                                                         </h2>
                                                     </div>
-                                                </div>
                                             </div>
+                                        </div>
 
+                                        <div class="column">
+                                            <div class="ui horizontal segments">
 
-                                            <div class="column">
-                                                <div class="ui horizontal segments">
+                                                <div class="column">
+                                                    <button class="ui basic red button">
 
-                                                    <div class="column">
-                                                        <button class="ui basic red button">
+                                                        <i class="icon red user"></i>
+                                                    </button>
+                                                </div>
 
-                                                            <i class="icon red user"></i>
-                                                        </button>
-                                                    </div>
-
-                                                    <div class="column">
-                                                        <h2>
-                                                            Rogério Ceni
-                                                        </h2>
-                                                    </div>
+                                                <div class="column">
+                                                    <h2>
+                                                        Jesus Cristo
+                                                    </h2>
                                                 </div>
                                             </div>
                                         </div>
 
+                                        <div class="column">
+                                            <div class="ui horizontal segments">
+
+                                                <div class="column">
+                                                    <button class="ui basic red button">
+
+                                                        <i class="icon red user"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="column">
+                                                    <h2>
+                                                        Rogério Ceni
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
-                            </table>
 
+
+
+
+                            </table>
                         </div>
                     </div>
-                    <!-- ///////////////////////////////////////////////////////////// -->
+
 
                     <div class="column">
-                        <div class="ui two column middle aligned very relaxed stackable grid">
+                        <div class="ui comments">
 
-                            <div class="column" style="float: right; background-color: #3D0301;">
-                                <div class="ui visible message">
-                                    <p>You can always see me</p>
-                                </div>
-                            </div>
+                            <br>
+                            <table class="ui selectable unstackable table">
+                                <thead>
+                                <tr>
 
-                            <div class="column" style="float: right; background-color: #3D0301;">
-                                <div class="ui visible message">
-                                    <p>You can always see me</p>
-                                </div>
-                            </div>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Iniciar Conversa</th>
+                                    <th class="center aligned"><i class="address card icon"></i></th>
+                                </tr>
+                                </thead>
+
+                                <tr>
+                                    <?php foreach($listaUsuarios as $usuario): ?>
+
+                                    <td><?= $usuario->getNome() ?></td>
+                                    <td><?= $usuario->getEmail() ?></td>
+
+
+                                    <td>
+                                        <button class="ui green button">
+                                            <i class="comments icon"></i>
+                                        </button>
+
+                                    </td>
+
+                                    <td>
+                                        Psicólogo
+                                    </td>
+
+                                    <!--<td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario= <*****= $usuario->getCodUsuario()?> ">Excluir</a></td>-->
+                                </tr>
+                                <?php endforeach; ?>
+                            </table>
+
 
                         </div>
-
                     </div>
-
-
-
-
-
                 </div>
 
             </div>

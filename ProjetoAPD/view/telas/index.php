@@ -179,7 +179,7 @@ if (isset($_SESSION['logado'])) {
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
     <a class="active item" href="index.php">Home</a>
-    <a class="item" href="chat.php">Chat</a>
+    <a class="item" href="chat.html">Chat</a>
     <a class="item" href="forum.php">Fórum</a>
     <a class="item" href="login.php">Login</a>
 
@@ -198,7 +198,7 @@ if (isset($_SESSION['logado'])) {
                 </a>
                 <a class="active item" href="index.php">Home</a>
                 <a class="item" href="forum.php">Fórum</a>
-                <a class="item" href="chat.php">Chat</a>
+                <a class="item" href="chat.html">Chat</a>
 
                 <?php if (!isset($_SESSION['logado'])) { ?>
 

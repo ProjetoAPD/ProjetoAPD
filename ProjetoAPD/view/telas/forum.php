@@ -215,7 +215,7 @@ if (isset($_SESSION['logado'])) {
 <div class="ui vertical inverted sidebar menu left">
     <a class="item" href="index.php">Home</a>
     <a class="active item" href="forum.php">Fórum</a>
-    <a class="item" href="chat.php">Chat</a>
+    <a class="item" href="chat.html">Chat</a>
     <a class="item" href="login.php">Login</a>
     <a class="item" href="cadastro.php">Cadastre-se</a>
 </div>
@@ -232,7 +232,7 @@ if (isset($_SESSION['logado'])) {
                 </a>
                 <a class="item" href="index.php">Home</a>
                 <a class="active item" href="forum.php">Fórum</a>
-                <a class="item" href="chat.php">Chat</a>
+                <a class="item" href="chat.html">Chat</a>
 
                 <?php if (!isset($_SESSION['logado'])){ ?>
 
@@ -305,11 +305,12 @@ if (isset($_SESSION['logado'])) {
                     <hr style="width: 90%;">
                     <li id="preenche"><p> <?= $postagem['texto_postagem'] ?> </p></li>
 
-                    <?php if ($postagem['usuario_cod_usuario'] == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
+                    <?php if (isset($_SESSION['logado'])){
+                            if ($postagem['usuario_cod_usuario'] == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
 
                         <li><a href="../../controller/acoesFor.php?acao=excluir&cod_postagem=<?= $postagem['cod_postagem'] ?>">Excluir</a></li>
 
-                    <?php } ?>
+                    <?php }} ?>
 
                 </ul>
 
@@ -324,11 +325,18 @@ if (isset($_SESSION['logado'])) {
                     $usucomentario = $crudcoment->getUsuarioComentario($comentario['cod_comentario'])
                 ?>
 
-<div id="comment">
-                <li id="idcom"><?= $usucomentario['nome'] ?></li>
-                <li id="contcom" ><?= $comentario['texto_comentario'] ?></li>
+                <div id="comment">
+                                <li id="idcom"><?= $usucomentario['nome'] ?></li>
+                                <li id="contcom" ><?= $comentario['texto_comentario'] ?></li>
 
-</div>
+                                <?php if (isset($_SESSION['logado'])){
+                                        if ($comentario['usuario_cod_usuario'] == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
+
+                                            <li><a href="../../controller/acoesFor.php?acao=excluirComent&cod_comentario=<?= $comentario['cod_comentario'] ?>">Excluir</a></li>
+
+                                        <?php }} ?>
+
+                </div>
                 <?php } ?>
 
 

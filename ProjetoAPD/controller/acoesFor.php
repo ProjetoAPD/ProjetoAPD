@@ -49,5 +49,16 @@ if (isset($_GET['acao'])){
             header('Location: ../view/telas/forum.php');
             break;
 
+        case "excluirComent":
+
+            $cod_comentario = $_GET['cod_comentario'];
+
+            $c1 = new CrudComentario();
+            $c1->deleteComentario($cod_comentario);
+
+            header('Location: ../view/telas/forum.php');
+
+            break;
+
     }
 }
