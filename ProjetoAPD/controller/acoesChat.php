@@ -19,10 +19,7 @@ if (isset($_GET['acao'])){
             $obj = new CrudMensagem();
             $obj->insertMensagem($c1);
 
-            header('Location: ../view/telas/chat.php?usuario2=');
-
-
-
+            header("Location: ../view/telas/chat.php?usuario2=$usuario2");
 
             break;
 

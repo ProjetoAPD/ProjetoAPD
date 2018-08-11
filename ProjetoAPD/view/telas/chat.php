@@ -39,26 +39,15 @@ if (!isset($_SESSION['logado'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properties -->
-    <title>Chat</title>
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/reset.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/site.css">
+    <title>ProjetoAPD</title>
 
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/container.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/grid.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/header.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/image.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/menu.css">
-
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/divider.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/dropdown.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/segment.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/button.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/list.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/icon.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/sidebar.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/transition.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/components/table.css">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="../semantic/dist/semantic.min.js"></script>
 
 
     <!------ Include the above in your HEAD tag ---------->
@@ -383,8 +372,14 @@ if (!isset($_SESSION['logado'])) {
                                 </thead>
 
                                 <tr>
-                                    <?php foreach($listaPsicologos as $usuario): ?>
+                                    <?php foreach($listaPsicologos as $usuario):
+                                    $cod_usuario1 = $_SESSION['cod_usuario'];
+                                    $cod_usuario2 = $usuario->getCodUsuario();
 
+                                    $c1 = new CrudMensagem();
+                                    $obj = $c1->verificaConversa($cod_usuario1, $cod_usuario2);
+
+                                    if ($obj == false){ ?>
                                     <td><?= $usuario->getNome() ?></td>
                                     <td><?= $usuario->getEmail() ?></td>
 
@@ -401,7 +396,7 @@ if (!isset($_SESSION['logado'])) {
                                     </td>
 
                                 </tr>
-                                <?php endforeach; ?>
+                                <?php } endforeach; ?>
                             </table>
 
 
