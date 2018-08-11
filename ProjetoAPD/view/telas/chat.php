@@ -4,14 +4,18 @@ session_start();
 
 require_once("../../model/Usuario.php");
 require_once("../../model/CrudUsuario.php");
+require_once("../../model/CrudMensagem.php");
 
 $user = new CrudUsuario();
-$listaUsuarios = $user->getPsicologos();
+//pega apenas usuarios do tipo psicologos
+$listaPsicologos = $user->getPsicologos();
+
 //pega apenas usuarios do tipo comum
+$listaUsuarios = $user->getUsuarios();
 
 if (!isset($_SESSION['logado'])) {
 
-    header('Location: index.php?acao=naologado');
+    header('Location: index.php?erro=naologado');
 
 
 }else{
@@ -66,6 +70,21 @@ if (!isset($_SESSION['logado'])) {
 
 
     <style type="text/css">
+
+        /*/////////////////////////////////////////*/
+
+        #mensagens{
+            width: 50%;
+            background-color: red;
+        }
+        #enviada{
+            text-align: left;
+        }
+        #recebida{
+            text-align: right;
+        }
+        /*////////////////////////////////////////////*/
+
 
         .hidden.menu {
             display: none;
@@ -306,62 +325,38 @@ if (!isset($_SESSION['logado'])) {
                                 </thead>
 
                                 <td>
+                                    <?php foreach($listaUsuarios as $usuario):
+
+                                        $cod_usuario1 = $_SESSION['cod_usuario'];
+                                        $cod_usuario2 = $usuario->getCodUsuario();
+
+                                        $c1 = new CrudMensagem();
+                                        $obj = $c1->verificaConversa($cod_usuario1, $cod_usuario2);
+
+                                        if ($obj == true){
+
+                                        ?>
                                     <div class="ui vertical segments">
 
                                         <div class="column">
                                             <div class="ui horizontal segments">
 
                                                     <div class="column">
-                                                        <button class="ui basic red button">
-
+                                                        <a href="?usuario2=<?= $usuario->getCodUsuario() ?>"><button class="ui basic red button">
                                                             <i class="icon red user"></i>
-                                                        </button>
+                                                        </button></a>
                                                     </div>
 
                                                     <div class="column">
                                                         <h2>
-                                                           Carlinhos Curandeiro
+                                                           <?= $usuario->getNome(); ?>
                                                         </h2>
                                                     </div>
                                             </div>
                                         </div>
 
-                                        <div class="column">
-                                            <div class="ui horizontal segments">
-
-                                                <div class="column">
-                                                    <button class="ui basic red button">
-
-                                                        <i class="icon red user"></i>
-                                                    </button>
-                                                </div>
-
-                                                <div class="column">
-                                                    <h2>
-                                                        Jesus Cristo
-                                                    </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="column">
-                                            <div class="ui horizontal segments">
-
-                                                <div class="column">
-                                                    <button class="ui basic red button">
-
-                                                        <i class="icon red user"></i>
-                                                    </button>
-                                                </div>
-
-                                                <div class="column">
-                                                    <h2>
-                                                        Rogério Ceni
-                                                    </h2>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
+                                    <?php } endforeach; ?>
                                 </td>
 
 
@@ -388,16 +383,16 @@ if (!isset($_SESSION['logado'])) {
                                 </thead>
 
                                 <tr>
-                                    <?php foreach($listaUsuarios as $usuario): ?>
+                                    <?php foreach($listaPsicologos as $usuario): ?>
 
                                     <td><?= $usuario->getNome() ?></td>
                                     <td><?= $usuario->getEmail() ?></td>
 
 
                                     <td>
-                                        <button class="ui green button">
+                                        <a href="?usuario2=<?= $usuario->getCodUsuario() ?>"><button class="ui green button">
                                             <i class="comments icon"></i>
-                                        </button>
+                                        </button></a>
 
                                     </td>
 
@@ -405,7 +400,6 @@ if (!isset($_SESSION['logado'])) {
                                         Psicólogo
                                     </td>
 
-                                    <!--<td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario= <*****= $usuario->getCodUsuario()?> ">Excluir</a></td>-->
                                 </tr>
                                 <?php endforeach; ?>
                             </table>
@@ -419,9 +413,47 @@ if (!isset($_SESSION['logado'])) {
 
 
         </div>
+        <div>
+            <div>
+
+                <div id="mensagens">
+                    <?php
+
+                    if (isset($_GET['usuario2'])){
+                            $usuario1 = $_SESSION['cod_usuario'];
+                            $usuario2 = $_GET['usuario2'];
+
+                            $c1 = new CrudMensagem();
+                            $mensagens = $c1->getMensagens($usuario1, $usuario2);
+
+
+                            foreach ($mensagens as $mensagem):
+                                if ($mensagem['cod_usuario1'] == $usuario1){ ?>
+
+                                    <p id="enviada"><?= $mensagem['texto'] ?></p>
+                                <?php }else{ ?>
+                                    <p id="recebida"><?= $mensagem['texto'] ?></p>
+
+                                <?php } ?>
+
+                            <?php endforeach; }?>
+                </div>
+
+
+        </div>
+            <div>
+                <form method="post" action="../../controller/acoesChat.php?acao=enviar">
+                    <input type="text" name="mensagem">
+                    <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
+                    <input type="submit" name="Enviar">
+                </form>
+            </div>
+        </div>
+
     </div>
 
 </div>
+
 
 </body>
 </html>

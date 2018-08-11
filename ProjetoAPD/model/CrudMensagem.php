@@ -17,14 +17,30 @@ class CrudMensagem
         $this->conexao->exec($sql);
     }
 
-    public function getMensagensEnviadas($cod_usuario1, $cod_usuario2){
+    public function getMensagens($cod_usuario1, $cod_usuario2){
 
-        $sql = "SELECT * FROM conversa where cod_usuario1 = '{$cod_usuario1}' and cod_usuario2 = '[$cod_usuario2]' OR cod_usuario1 = '{$cod_usuario2}' and cod_usuario2 = '[$cod_usuario1]' order by dt_mensagem desc";
+        $sql = "SELECT * FROM conversa where cod_usuario1 = '{$cod_usuario1}' and cod_usuario2 = '{$cod_usuario2}' OR cod_usuario1 = '{$cod_usuario2}' and cod_usuario2 = '{$cod_usuario1}'";
         $resultado = $this->conexao->query($sql);
 
         $conversa = $resultado->fetchAll(PDO::FETCH_ASSOC);
         return $conversa;
     }
 
+    public function verificaConversa($cod_usuario1, $cod_usuario2){
+
+        $sql = "SELECT texto FROM conversa WHERE cod_usuario1 = '{$cod_usuario1}' and cod_usuario2 = '{$cod_usuario2}' OR cod_usuario1 = '{$cod_usuario2}' and cod_usuario2 = '{$cod_usuario1}'";
+        $resultado = $this->conexao->query($sql);
+
+        $convesas = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        $count = count($convesas);
+
+
+        if ($count != 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
 }

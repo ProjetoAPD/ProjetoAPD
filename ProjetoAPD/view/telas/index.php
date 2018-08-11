@@ -174,7 +174,13 @@ if (isset($_SESSION['logado'])) {
     </script>
 </head>
 <body>
-
+<!---->
+<?php
+//if (isset($_GET['erro'])){
+//    if ($_GET['erro'] == 'naologado'){
+//        alerta();
+//    }
+//}   ?>
 
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
