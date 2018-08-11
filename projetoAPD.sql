@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10-Ago-2018 às 04:05
+-- Generation Time: 11-Ago-2018 às 04:46
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -31,8 +31,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `cfp` (
   `registro` int(11) NOT NULL,
   `nome_psicologo` varchar(100) NOT NULL,
-  `cpf` int(11) NOT NULL
+  `cpf` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cfp`
+--
+
+INSERT INTO `cfp` (`registro`, `nome_psicologo`, `cpf`) VALUES
+(11111, 'Carol Psicologa', 11111111111);
 
 -- --------------------------------------------------------
 
@@ -185,7 +192,8 @@ INSERT INTO `usuario` (`cod_usuario`, `nome`, `email`, `senha`, `cod_tipo_usuari
 (4, 'a', 'admin@admin.admin', 'a', 3),
 (15, 'admin', 'admin@admin', 'admin', 1),
 (335, 'alo', 'BOING@BOING.BOING', 'alo', 2),
-(336, 'fgtfgh', 'leo@leo', 'gfhfgh', 2);
+(338, 'Carol Psicologa', 'carol@psicologa', 'carol', 2),
+(339, 'admin@admin', 'f', 'admin', 3);
 
 --
 -- Indexes for dumped tables
@@ -280,7 +288,7 @@ ALTER TABLE `postagens_forum`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=337;
+  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=340;
 
 --
 -- Constraints for dumped tables
