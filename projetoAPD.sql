@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 11-Ago-2018 às 04:46
+-- Generation Time: 11-Ago-2018 às 17:59
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -60,7 +60,8 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`cod_comentario`, `dt_comentario`, `texto_comentario`, `postagem_cod_postagem`, `usuario_cod_usuario`) VALUES
-(1, '2018-08-08 01:11:45', 'fghf', 17, 15);
+(1, '2018-08-08 01:11:45', 'fghf', 17, 15),
+(2, '2018-08-11 15:56:40', 'fghfgh', 18, 335);
 
 -- --------------------------------------------------------
 
@@ -71,10 +72,27 @@ INSERT INTO `comentario` (`cod_comentario`, `dt_comentario`, `texto_comentario`,
 CREATE TABLE `conversa` (
   `cod_usuario1` int(11) NOT NULL,
   `cod_usuario2` int(11) NOT NULL,
-  `texto` varchar(250) NOT NULL,
+  `texto` varchar(1000) NOT NULL,
   `cod_mensagem` int(11) NOT NULL,
   `dt_mensagem` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `conversa`
+--
+
+INSERT INTO `conversa` (`cod_usuario1`, `cod_usuario2`, `texto`, `cod_mensagem`, `dt_mensagem`) VALUES
+(15, 335, 'alo', 1, '2018-08-11 13:48:28'),
+(15, 335, 'fsdfewsfsdfserfsefs', 2, '2018-08-11 13:51:07'),
+(15, 335, 'fstghvgfhgcvh', 3, '2018-08-11 13:53:09'),
+(15, 335, 'gdrgfdgdr', 4, '2018-08-11 13:56:56'),
+(15, 335, 'dfgdfggdfg', 5, '2018-08-11 13:59:56'),
+(15, 335, '', 6, '2018-08-11 14:02:02'),
+(15, 335, '', 7, '2018-08-11 14:02:29'),
+(15, 335, '', 8, '2018-08-11 14:03:45'),
+(15, 335, '', 9, '2018-08-11 14:05:05'),
+(15, 335, '', 10, '2018-08-11 14:17:59'),
+(335, 15, 'fghfghfg', 11, '2018-08-11 14:35:35');
 
 -- --------------------------------------------------------
 
@@ -148,7 +166,8 @@ INSERT INTO `postagens_forum` (`cod_postagem`, `status_postagem`, `texto_postage
 (14, 1, 'aa', 'aa', '2018-07-03 11:19:03', 0),
 (15, 1, 'wdsad', 'asdwad', '2018-07-03 11:19:29', 0),
 (16, 1, '123', '142', '2018-07-03 11:43:26', 0),
-(17, 1, 'dfgfdg', 'dfgfdg', '2018-08-08 01:11:34', 15);
+(17, 1, 'dfgfdg', 'dfgfdg', '2018-08-08 01:11:34', 15),
+(18, 1, 'fthfg', 'ftghfgh', '2018-08-11 15:56:34', 335);
 
 -- --------------------------------------------------------
 
@@ -270,19 +289,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `cod_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `conversa`
 --
 ALTER TABLE `conversa`
-  MODIFY `cod_mensagem` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_mensagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `postagens_forum`
 --
 ALTER TABLE `postagens_forum`
-  MODIFY `cod_postagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `cod_postagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `usuario`
