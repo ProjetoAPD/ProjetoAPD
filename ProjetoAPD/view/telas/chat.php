@@ -6,7 +6,7 @@ require_once("../../model/Usuario.php");
 require_once("../../model/CrudUsuario.php");
 
 $user = new CrudUsuario();
-$listaUsuarios = $user->getUsuarios(2);
+$listaUsuarios = $user->getPsicologos();
 //pega apenas usuarios do tipo comum
 
 if (!isset($_SESSION['logado'])) {

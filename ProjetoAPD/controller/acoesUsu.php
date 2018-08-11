@@ -1,20 +1,45 @@
 <?php
 
 require_once ("../model/CrudUsuario.php");
+require_once ("../model/CrudCfp.php");
 
 if (isset($_GET['acao'])){
     switch ($_GET['acao']){
 
         case "cadastrar":
+
+            if (!isset($_POST['usuario']) OR !isset($_POST['email']) OR !isset($_POST['senha']) OR !isset($_POST['tipo_usuario'])){
+                header('Location: ../view/telas/cadastro.php?erro=3');
+            }
+
             $nome = $_POST['usuario'];
             $email = $_POST['email'];
             $senha = $_POST['senha'];
             $tipo_usuario = $_POST['tipo_usuario'];
 
-            $c1 = new Usuario($nome, $email, $senha, $tipo_usuario);
-            $objusu = new CrudUsuario();
-            $objusu->insertUsuario($c1);
-            header('Location: ../view/telas/index.php');
+            if ($tipo_usuario == 3) {
+                $c1 = new Usuario($nome, $email, $senha, $tipo_usuario);
+                $objusu = new CrudUsuario();
+                $objusu->insertUsuario($c1);
+                header('Location: ../view/telas/login.php');
+
+            }elseif ($tipo_usuario == 2){
+                $nome_registro = $_POST['nome_registro'];
+                $registro = $_POST['cfp'];
+                $cpf = $_POST['cpf'];
+
+                $c2 = new Cfp($registro, $nome_registro, $cpf);
+                $obj = new CrudCfp();
+                $a = $obj->verificaCfp($c2);
+
+                if ($a == true){
+                    $c1 = new Usuario($nome_registro, $email, $senha, $tipo_usuario);
+                    $objusu = new CrudUsuario();
+                    $objusu->insertUsuario($c1);
+                    header('Location: ../view/telas/login.php');
+                }
+            }
+
 
             break;
 
