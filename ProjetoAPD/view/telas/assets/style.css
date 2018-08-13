@@ -166,21 +166,41 @@ l{
     color:black;
 }
 #poster{
+  color: white;
     border-radius:20px;
-    text-align:left;
+    text-align:block;
     margin-left: 10%;
     margin-right: 10%;
     padding:1px 20px 1px 20px;
 }
+#branco{
+  color: white;
+}
+#outset{
+  border:1px white solid;
+  border-radius:20px;
+  background-color: #301742;
+  margin: 0 2%;
+}
+#post{
+  background-color: white;
+  margin: 2% 20% 0 20%;
+  padding: 1% 2%;
+  border-radius:8px;
+
+}
+
 #titulo{
     border-radius: 12px;
-    width:100%;
+    width:50%;
+    align-items: center;
     height:40px;
 }
 #texto{
     text-align: initial;
     border-radius: 12px;
-    width:100%;
+    width:50%;
+
     height:150px;
 }
 #comentarios{
@@ -194,7 +214,7 @@ l{
 }
 #forum{
     list-style: none;
-    text-align: left;
+
     min-height:10px;
 
     width:60%;
@@ -235,13 +255,9 @@ l{
     border-color: #4C2C63;
 }
 #comment{
-    text-align:left;
-    background-color: white;
-    border:1px black solid;
-    padding-left:2.5%;
-    border-radius: 60px;
-    border-top-left-radius: 00;
-    min-width:10%;
+  background-color: #e0e0e0;
+
+  border-radius:8px;
 
 }
 
@@ -257,8 +273,8 @@ l{
    width:98%;
 }
 
-#commake{
-    background-color: white;
+#comake{
+    margin: 0 2% 0 2%;
 
 }
 
