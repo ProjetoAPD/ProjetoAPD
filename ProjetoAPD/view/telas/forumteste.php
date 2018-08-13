@@ -261,7 +261,13 @@ if (isset($_SESSION['logado'])) {
         <!-- Postar -->
         <?php
         if (isset($_SESSION['logado'])) {
+
+
+
             ?>
+            <div background="red">
+  aaaaaaaaaaaaaaaaaaaaaaaaaa
+            </div>
 
             <div id="poster">
               <br>
@@ -331,8 +337,7 @@ if (isset($_SESSION['logado'])) {
 
          <?php if (isset($_SESSION['logado'])){
                 if ($postagem['usuario_cod_usuario'] == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
-        <a type="button" class="right floated ui red labeled icon button" href="../../controller/acoesFor.php?acao=excluir&cod_postagem=<?= $postagem['cod_postagem'] ?>" >
-          <i class="large trash icon"></i><p>excluir</p></a>
+        <a type="button" class="mini ui red labeled icon button" href="../../controller/acoesFor.php?acao=excluir&cod_postagem=<?= $postagem['cod_postagem'] ?>" ><i class="small trash icon"></i><p>excluir</p></a>
 
   <?php }} ?>
 
