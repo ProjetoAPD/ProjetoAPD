@@ -28,6 +28,11 @@ if (isset($_GET['acao'])){
 
             $cod_postagem = $_GET['cod_postagem'];
 
+            //exclui comentario
+            $crudCom = new CrudComentario();
+            $crudCom->deleteComentario($cod_postagem);
+
+            //exclui postagem
             $c1 = new CrudPostagem();
             $c1->deletePostagem($cod_postagem);
 

@@ -2,6 +2,8 @@
 
 require_once ("../model/CrudUsuario.php");
 require_once ("../model/CrudCfp.php");
+require_once ("../model/CrudPostagem.php");
+require_once ("../model/CrudComentario.php");
 
 if (isset($_GET['acao'])){
     switch ($_GET['acao']){

@@ -317,7 +317,7 @@ if (isset($_SESSION['logado'])) {
       <?php $usu = $crud->getUsuarioPostagem($postagem['cod_postagem']); ?>
       <a class="ui header author "><?= $usu['nome'] ?></a>
       <div class="metadata">
-        <div class="date">tempo</div>
+<!--        <div class="date"><a href="">denunciar</a></div>-->
       </div>
       <div class="ui fitted divider"></div>
 

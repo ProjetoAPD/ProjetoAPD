@@ -176,6 +176,11 @@ l{
 #branco{
   color: white;
 }
+#nome{
+    color: #000;
+
+}
+
 #outset{
   border:1px white solid;
   border-radius:20px;

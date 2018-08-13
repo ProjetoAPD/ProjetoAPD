@@ -65,7 +65,8 @@ if (!isset($_SESSION['logado'])) {
 
         #mensagens{
             width: 100%;
-            background-color: #e5e3e3;
+
+            background-color: white;
             height: 500px;
             overflow: auto;
         }
@@ -74,10 +75,12 @@ if (!isset($_SESSION['logado'])) {
         #enviada{
             text-align: left;
             color: black;
-            background: #09BB43;
+            background: #adadad;
+            border:1px black solid;
             border-radius: 2px;
             margin-left: 2px;
             margin-right: 20px;
+            min-width: 10%;
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
             word-wrap: break-word;
@@ -89,14 +92,16 @@ if (!isset($_SESSION['logado'])) {
 
         #recebida{
             text-align: right;
-            color: black;
-            background: #9100AB;
+            color: white;
+            border:1px white solid;
+            background: #4c2c63;
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
             margin-left: 20px;
             margin-right: 2px;
             word-wrap: break-word;
             margin-bottom: 10px;
+            margin-top:1px;
         }
 
 
@@ -481,7 +486,16 @@ if (!isset($_SESSION['logado'])) {
                                     $c1 = new CrudMensagem();
                                     $mensagens = $c1->getMensagens($usuario1, $usuario2);
 
+                                    $c2 = new CrudUsuario();
+                                    $usuarioConversa = $c2->getUsuario($usuario2);
+                                    ?> <div class="ui horizontal divider">
+                                        <p id="nome" class="middle aligned"> <?= $usuarioConversa->getNome()?>
+                                        </p>
 
+                                    </div>
+                                    <hr>
+
+                                    <?php
                                     foreach ($mensagens as $mensagem):
                                         if ($mensagem['cod_usuario1'] == $usuario1){ ?>
 
@@ -493,8 +507,8 @@ if (!isset($_SESSION['logado'])) {
                                             </h3>
 
                                         <?php }else{ ?>
-                                            <h3 id="recebida">
 
+                                            <h3 id="recebida">
 
                                                 <?= $mensagem['texto'] ?>
 
@@ -516,10 +530,7 @@ if (!isset($_SESSION['logado'])) {
                                     <div class="ui input">
                                         <input type="text" name="mensagem">
                                     </div>
-
                                     <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
-
-
                                     <input class="ui simple green button" type="submit" name="Enviar">
 
 

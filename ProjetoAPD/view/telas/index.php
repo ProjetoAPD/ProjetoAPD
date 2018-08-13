@@ -110,13 +110,12 @@ if (isset($_SESSION['logado'])) {
             background-color: #4C2C63;
         }
         .center.aligned.row {
+            padding:1% 0%;
             text-align: center;
+            background-color:#fff;
             margin-top: 20px;
         }
-        #aviso_nao_logado {
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
+
         @media only screen and (max-width: 700px) {
             .ui.fixed.menu {
                 display: none !important;
@@ -267,33 +266,34 @@ if (isset($_SESSION['logado'])) {
             <?php
         }
         ?>
-        <hr>
+
 
         <div class="center aligned row">
-            <h4><i class="arrow down icon"></i>Conheça nosso fórum<i class="arrow down icon"></i></h4>
+            <h4 class="ui horizontal divider"><i class="arrow down icon"></i>Conheça nosso fórum<i class="arrow down icon"></i></h4>
         </div>
+        <div id="lforum">
+
+
+            <div class="ui text container">
+                <a href="forum.php">
+                    <div class="ui segment">
+                        <h3 class="ui header">
+                            <i class="users icon"></i>Fórum
+                        </h3>
+                        <p>Aqui poderá ver debates, publicações e problemas que já foram solucionados ou precisam de
+                            soluções. Veja e tente ajudar alguém ou procure alguém que já tenha o mesmo problema que o
+                            seu!</p>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
 
     </div>
 
 
-    <div id="lforum">
 
-
-        <div class="ui text container">
-            <a href="forum.php">
-                <div class="ui segment">
-                    <h3 class="ui header">
-                        <i class="users icon"></i>Fórum
-                    </h3>
-                    <p>Aqui poderá ver debates, publicações e problemas que já foram solucionados ou precisam de
-                        soluções. Veja e tente ajudar alguém ou procure alguém que já tenha o mesmo problema que o
-                        seu!</p>
-            </a>
-        </div>
-    </div>
-
-
-</div>
 <h4 class="ui horizontal header divider">
     <a href="#">Voltar ao topo</a>
 </h4>
