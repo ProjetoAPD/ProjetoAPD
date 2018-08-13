@@ -384,7 +384,7 @@ if (isset($_SESSION['logado'])) {
 
 
 
-    <a type="button" class="mini ui  red labeled icon button" href="href="../../controller/acoesFor.php?acao=excluirComent&cod_comentario=<?= $comentario['cod_comentario'] ?>"" >
+    <a type="button" class="mini ui  red labeled icon button" href="../../controller/acoesFor.php?acao=excluirComent&cod_comentario=<?= $comentario['cod_comentario'] ?>"" >
       <i class=" trash icon"></i><p>excluir</p>
 
       <?php }} ?>
