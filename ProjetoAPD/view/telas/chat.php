@@ -62,16 +62,53 @@ if (!isset($_SESSION['logado'])) {
 
         /*/////////////////////////////////////////*/
 
+
         #mensagens{
-            width: 50%;
-            background-color: red;
+            width: 100%;
+            background-color: #e5e3e3;
+            height: 500px;
+            overflow: auto;
         }
+
+
         #enviada{
             text-align: left;
+            color: black;
+            background: #09BB43;
+            border-radius: 2px;
+            margin-left: 2px;
+            margin-right: 20px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            word-wrap: break-word;
+            margin-bottom: 10px;
+            margin-top: 10px;
         }
+
+
+
         #recebida{
             text-align: right;
+            color: black;
+            background: #9100AB;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            margin-left: 20px;
+            margin-right: 2px;
+            word-wrap: break-word;
+            margin-bottom: 10px;
         }
+
+
+
+        #chat{
+            background-color: #4C2C63;
+            padding-top:1px;
+            padding-bottom:1px;
+            border-color: grey;
+            border-radius: 2px;
+        }
+
         /*////////////////////////////////////////////*/
 
 
@@ -232,6 +269,7 @@ if (!isset($_SESSION['logado'])) {
 
             })
         ;
+
         $(function() {
             $("#voltar").hide();
             $("#psicologos").hide();
@@ -426,53 +464,74 @@ if (!isset($_SESSION['logado'])) {
                                     </div>
                         </div>
                                 </td>
-
-
-
-
                             </table>
+                        </div></div>
+
+                    <div class=" column">
+                        <!-- CHAAAAT -->
+
+                        <div class="ui container" id="chat">
+                            <div class="ui comments" id="mensagens" style="border-radius: 4px;">
+                                <?php
+
+                                if (isset($_GET['usuario2'])){
+                                    $usuario1 = $_SESSION['cod_usuario'];
+                                    $usuario2 = $_GET['usuario2'];
+
+                                    $c1 = new CrudMensagem();
+                                    $mensagens = $c1->getMensagens($usuario1, $usuario2);
+
+
+                                    foreach ($mensagens as $mensagem):
+                                        if ($mensagem['cod_usuario1'] == $usuario1){ ?>
+
+                                            <h3 id="enviada">
+                                                <div class="ui comment">
+                                                    <?= $mensagem['texto'] ?>
+
+                                                </div>
+                                            </h3>
+
+                                        <?php }else{ ?>
+                                            <h3 id="recebida">
+
+
+                                                <?= $mensagem['texto'] ?>
+
+
+                                            </h3>
+
+
+                                        <?php } ?>
+
+                                    <?php endforeach; }?>
+
+                            </div>
+
+                            <br>
+
+                            <div class="ui header" id="formulario_mensagem">
+                                <form class="ui form" method="post" action="../../controller/acoesChat.php?acao=enviar">
+
+                                    <div class="ui input">
+                                        <input type="text" name="mensagem">
+                                    </div>
+
+                                    <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
+
+
+                                    <input class="ui simple green button" type="submit" name="Enviar">
+
+
+                                </form>
+                            </div>
                         </div>
                     </div>
+                    <!-- CHAAAAT -->
 
             </div>
 
 
-        </div>
-        <div>
-            <div>
-
-                <div id="mensagens">
-                    <?php
-
-                    if (isset($_GET['usuario2'])){
-                            $usuario1 = $_SESSION['cod_usuario'];
-                            $usuario2 = $_GET['usuario2'];
-
-                            $c1 = new CrudMensagem();
-                            $mensagens = $c1->getMensagens($usuario1, $usuario2);
-
-
-                            foreach ($mensagens as $mensagem):
-                                if ($mensagem['cod_usuario1'] == $usuario1){ ?>
-
-                                    <p id="enviada"><?= $mensagem['texto'] ?></p>
-                                <?php }else{ ?>
-                                    <p id="recebida"><?= $mensagem['texto'] ?></p>
-
-                                <?php } ?>
-
-                            <?php endforeach; }?>
-                </div>
-
-
-        </div>
-            <div>
-                <form method="post" action="../../controller/acoesChat.php?acao=enviar">
-                    <input type="text" name="mensagem">
-                    <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
-                    <input type="submit" name="Enviar">
-                </form>
-            </div>
         </div>
 
     </div>
