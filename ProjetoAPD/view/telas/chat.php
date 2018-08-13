@@ -232,6 +232,30 @@ if (!isset($_SESSION['logado'])) {
 
             })
         ;
+        $(function() {
+            $("#voltar").hide();
+            $("#psicologos").hide();
+
+            $('#novas_msg').click(function () {
+                $("#novas_msg").hide();
+                $("#voltar").fadeIn();
+                $("#psicologos").fadeIn();
+                $("#usuarios").hide();
+
+
+            });
+
+            $('#voltar').click(function () {
+                $("#voltar").hide();
+                $("#novas_msg").fadeIn();
+                $("#usuarios").fadeIn();
+                $("#psicologos").hide();
+
+
+            });
+        });
+
+
     </script>
 
 </head>
@@ -289,7 +313,7 @@ if (!isset($_SESSION['logado'])) {
             <div class="container">
 
 
-
+                <!--------------------------------- USUARIOS -------------------------------->
                 <div class="ui two column middle aligned very relaxed stackable grid">
 
                     <div class="column">
@@ -307,13 +331,19 @@ if (!isset($_SESSION['logado'])) {
                                             </h3>
                                         </div>
 
-                                        <div>
-                                            <button class="ui basic red button">NOVAS MENSAGENS</button>
+                                        <div style="float: right">
+                                            <div>
+                                                <button class="ui basic red button" id="novas_msg">NOVAS MENSAGENS</button>
+                                            </div>
+                                            <div>
+                                                <button class="ui basic red button" id="voltar">VOLTAR</button>
+                                            </div>
                                         </div>
                                     </th>
                                 </thead>
 
                                 <td>
+                                    <div id="usuarios">
                                     <?php foreach($listaUsuarios as $usuario):
 
                                         $cod_usuario1 = $_SESSION['cod_usuario'];
@@ -346,6 +376,55 @@ if (!isset($_SESSION['logado'])) {
 
                                     </div>
                                     <?php } endforeach; ?>
+                                    </div>
+                                    <!---------------------- PSICOLOGOS ----------------------------------------------------->
+                                    <div class="column" id="psicologos">
+                                        <div class="ui comments">
+
+                                            <br>
+                                            <table class="ui selectable unstackable table">
+                                                <thead>
+                                                <tr>
+
+                                                    <th>Nome</th>
+                                                    <th>Email</th>
+                                                    <th>Iniciar Conversa</th>
+                                                    <th class="center aligned"><i class="address card icon"></i></th>
+                                                </tr>
+                                                </thead>
+
+                                                <tr>
+                                                    <?php foreach($listaPsicologos as $usuario):
+                                                    $cod_usuario1 = $_SESSION['cod_usuario'];
+                                                    $cod_usuario2 = $usuario->getCodUsuario();
+
+                                                    $c1 = new CrudMensagem();
+                                                    $obj = $c1->verificaConversa($cod_usuario1, $cod_usuario2);
+
+                                                    if ($obj == false){ ?>
+                                                    <td><?= $usuario->getNome() ?></td>
+                                                    <td><?= $usuario->getEmail() ?></td>
+
+
+                                                    <td>
+                                                        <a href="?usuario2=<?= $usuario->getCodUsuario() ?>"><button class="ui green button">
+                                                                <i class="comments icon"></i>
+                                                            </button></a>
+
+                                                    </td>
+
+                                                    <td>
+                                                        Psicólogo
+                                                    </td>
+
+                                                </tr>
+                                                <?php } endforeach; ?>
+                                            </table>
+
+
+                                        </div>
+                                    </div>
+                        </div>
                                 </td>
 
 
@@ -354,55 +433,6 @@ if (!isset($_SESSION['logado'])) {
                             </table>
                         </div>
                     </div>
-
-
-                    <div class="column">
-                        <div class="ui comments">
-
-                            <br>
-                            <table class="ui selectable unstackable table">
-                                <thead>
-                                <tr>
-
-                                    <th>Nome</th>
-                                    <th>Email</th>
-                                    <th>Iniciar Conversa</th>
-                                    <th class="center aligned"><i class="address card icon"></i></th>
-                                </tr>
-                                </thead>
-
-                                <tr>
-                                    <?php foreach($listaPsicologos as $usuario):
-                                    $cod_usuario1 = $_SESSION['cod_usuario'];
-                                    $cod_usuario2 = $usuario->getCodUsuario();
-
-                                    $c1 = new CrudMensagem();
-                                    $obj = $c1->verificaConversa($cod_usuario1, $cod_usuario2);
-
-                                    if ($obj == false){ ?>
-                                    <td><?= $usuario->getNome() ?></td>
-                                    <td><?= $usuario->getEmail() ?></td>
-
-
-                                    <td>
-                                        <a href="?usuario2=<?= $usuario->getCodUsuario() ?>"><button class="ui green button">
-                                            <i class="comments icon"></i>
-                                        </button></a>
-
-                                    </td>
-
-                                    <td>
-                                        Psicólogo
-                                    </td>
-
-                                </tr>
-                                <?php } endforeach; ?>
-                            </table>
-
-
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
