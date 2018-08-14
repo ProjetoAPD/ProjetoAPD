@@ -168,7 +168,7 @@ l{
 #poster{
   color: white;
     border-radius:20px;
-    text-align:block;
+    /*text-align: block;*/
     margin-left: 10%;
     margin-right: 10%;
     padding:1px 20px 1px 20px;
@@ -266,12 +266,17 @@ l{
 
 }
 
+
 #idcom{
        text-decoration: underline;
        font-size: 200%;
        border-radius: 20px;
        width:20%;
 
+}
+#textin{
+    margin-bottom: 0px;
+    text-decoration: unset;
 }
 #contcom{
    border-radius: 20px;
@@ -296,9 +301,7 @@ l{
     height: 370px;
     overflow: auto;
 }
-#rodape{
-  text-align:
-}
+
 
 #corpo_formulario{
     margin-left: 10px;

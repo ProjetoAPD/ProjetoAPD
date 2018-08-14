@@ -46,7 +46,7 @@ if (isset($_SESSION['logado'])) {
         }
         .masthead.segment {
             min-height: 500px;
-            padding: 1em 0em;
+            padding-top: 1em;
         }
         .masthead .logo.item img {
             margin-right: 1em;
@@ -95,7 +95,9 @@ if (isset($_SESSION['logado'])) {
             padding-bottom: 5em;
         }
         .footer.segment {
-            padding: 5em 0em;
+
+            padding-top: 0px;
+            padding-bottom: 0px;
         }
         .secondary.pointing.menu .toc.item {
             display: none;
@@ -110,7 +112,7 @@ if (isset($_SESSION['logado'])) {
             background-color: #4C2C63;
         }
         .center.aligned.row {
-            padding:1% 0%;
+            padding-top:0.25%;
             text-align: center;
             background-color:#fff;
             margin-top: 20px;
@@ -215,7 +217,7 @@ if (isset($_SESSION['logado'])) {
                 <?php } else { ?>
 
                     <div class="right item">
-                        <p>Olá <?= $user->getNome() ?></p>
+                        <h4 id="textin">Olá <?= $user->getNome() ?></h4>
 
                         <?php if ($user->getCodTipoUsuario() == 1) { ?>
                             <a class="ui inverted button" href="listausuarios.php">Lista de usuários</a>
@@ -294,32 +296,34 @@ if (isset($_SESSION['logado'])) {
 
 
 
-<h4 class="ui horizontal header divider">
-    <a href="#">Voltar ao topo</a>
-</h4>
+<div class="ui inverted vertical footer segment" id="footer">
 
 
-<div class="ui inverted vertical footer segment">
-    <div class="ui container">
-        <div class="ui stackable inverted divided equal height stackable grid">
 
-            <div class="four wide column">
+    <div class="ui internally celled grid middle aligned">
+        <div class="row">
+            <div class="three wide column">
+                <img src="assets/images/logo_ifc_branco.png" width="35%">
+            </div>
 
-                <div class="ui inverted link list">
+            <div class="ten wide column ">
+                <h4 class="ui inverted header">ProjetoAPD: IFC-Araquari 2018</h4>
+            </div>
 
-                    <a href="#" class="item"><i class="asl interpreting icon"></i></a>
+            <div class="three wide column">
+                <p>Guilherme Henrique Boing</p>
 
-                </div>
+                    <p>Leonardo Adriano Viera</p>
+                    <p>Leonardo Edenir Rodrigues Graciano</p>
 
+            </div>
+        </div>
             </div>
 
 
-            <div class="four wide column">
-                <h4 class="ui inverted header">ProjetoAPD: Los Tansos</h4>
-            </div>
 
         </div>
-    </div>
+
 </div>
 
 </body>
