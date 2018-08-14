@@ -45,45 +45,6 @@
 }
 
   </style>
-  <script>
-  $(document)
-    .ready(function() {
-      $('.ui.form')
-        .form({
-          fields: {
-            email: {
-              identifier  : 'email',
-              rules: [
-                  {
-                      type: 'empty',
-                      prompt: 'favor prencher o E-mail'
-                  }
-                // },
-                // {
-                //   type   : 'email',
-                //   prompt : 'favor colocar um email válido'
-                // }
-              ]
-            },
-            password: {
-              identifier  : 'password',
-              rules: [
-                {
-                  type   : 'empty',
-                  prompt : 'favor prencher a senha'
-                },
-                {
-                  type   : 'length[6]',
-                  prompt : 'favor colocar senha válida(verifique a capslock)'
-                }
-              ]
-            }
-          }
-        })
-      ;
-    })
-  ;
-  </script>
 </head>
 <body>
 
@@ -114,12 +75,16 @@
           </div>
         </div>
           <button class="ui fluid large teal submit button" type="submit">Login</button>
+          <?php if (isset($_GET['erro']) and $_GET['erro'] == 1){ ?>
+
+              <h4 style="color: red">Erro ao validar os dados, tente novamente</h4>
+
+          <?php } ?>
       </div>
 
 
 
 
-      <div class="ui error message"></div>
 
     </form>
 

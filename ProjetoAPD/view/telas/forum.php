@@ -311,7 +311,9 @@ if (isset($_SESSION['logado'])) {
 
   <div class="comment" id="post">
     <a class="avatar">
+
             <img src="assets/images/avatar/tom.jpg">
+
     </a>
     <div class="content">
       <?php $usu = $crud->getUsuarioPostagem($postagem['cod_postagem']); ?>

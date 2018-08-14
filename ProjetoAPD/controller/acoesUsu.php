@@ -4,6 +4,7 @@ require_once ("../model/CrudUsuario.php");
 require_once ("../model/CrudCfp.php");
 require_once ("../model/CrudPostagem.php");
 require_once ("../model/CrudComentario.php");
+require_once ("../model/CrudMensagem.php");
 
 if (isset($_GET['acao'])){
     switch ($_GET['acao']){
@@ -46,8 +47,24 @@ if (isset($_GET['acao'])){
             break;
 
         case "delete":
+
+            $cod_usuario = $_GET['cod_usuario'];
+
+            //deleta comentarios do usuario
+            $a = new CrudComentario();
+            $a->deleteComentarioUsu($cod_usuario);
+
+            //deleta postagens do usuario
+            $b = new CrudPostagem();
+            $b->deletePostagemUsu($cod_usuario);
+
+            //deleta mensagens do usuario
+            $c = new CrudMensagem();
+            $c->deleteMesagensUsu($cod_usuario);
+
+            //deleta o usuario
             $c1 = new CrudUsuario();
-            $c1->deleteUsuario($_GET['cod_usuario']);
+            $c1->deleteUsuario($cod_usuario);
 
             header('Location: ../view/telas/listausuarios.php');
 
@@ -59,7 +76,6 @@ if (isset($_GET['acao'])){
             $c1->loginUsuario($user);
 
             if ($_SESSION['logado'] == 'sim'){
-
                 header('Location: ../view/telas/index.php');
             }
 
@@ -68,6 +84,20 @@ if (isset($_GET['acao'])){
 
         case "excluir":
             $id = $_GET['id'];
+
+            //deleta comentarios do usuario
+            $a = new CrudComentario();
+            $a->deleteComentarioUsu($id);
+
+            //deleta postagens do usuario
+            $b = new CrudPostagem();
+            $b->deletePostagemUsu($id);
+
+            //deleta mensagens do usuario
+            $c = new CrudMensagem();
+            $c->deleteMesagensUsu($id);
+
+            //deleta o usuario
             $c1 = new CrudUsuario();
             $c1->deleteUsuario($id);
 

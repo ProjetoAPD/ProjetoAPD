@@ -71,7 +71,7 @@
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="email" placeholder="E-mail">
+              <input type="email" name="email" placeholder="E-mail">
             </div>
           </div>
           <!-- senha -->

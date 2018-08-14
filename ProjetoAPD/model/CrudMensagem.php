@@ -43,4 +43,15 @@ class CrudMensagem
 
     }
 
+    public function deleteMesagensUsu($cod_usuario){
+
+        $sql = "DELETE FROM conversa WHERE cod_usuario1='{$cod_usuario}' OR cod_usuario2 = '{$cod_usuario}'";
+
+        try{
+            $this->conexao->exec($sql);
+        }catch (PDOException $e){
+            return $e;
+        }
+    }
+
 }

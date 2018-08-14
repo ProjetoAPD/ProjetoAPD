@@ -72,4 +72,16 @@ class CrudPostagem
         }
 
     }
+
+    public function deletePostagemUsu($cod_usuario){
+
+        $sql = "DELETE FROM postagens_forum WHERE usuario_cod_usuario=".$cod_usuario;
+
+        try{
+            $this->conexao->exec($sql);
+        }catch (PDOException $e){
+            return $e;
+        }
+
+    }
 }

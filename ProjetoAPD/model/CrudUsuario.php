@@ -95,11 +95,10 @@ class CrudUsuario
 
     }
 
-    public function deleteUsuario(int $codigo)
-    {
+    public function deleteUsuario(int $codigo){
+
 
         $sql = "DELETE FROM usuario WHERE cod_usuario=" . $codigo;
-
         try {
             $this->conexao->exec($sql);
         } catch (PDOException $e) {

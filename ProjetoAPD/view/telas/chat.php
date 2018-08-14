@@ -444,6 +444,9 @@ if (!isset($_SESSION['logado'])) {
                                                     $c1 = new CrudMensagem();
                                                     $obj = $c1->verificaConversa($cod_usuario1, $cod_usuario2);
 
+                                                    if ($cod_usuario1 == $cod_usuario2){
+                                                        $obj = true;
+                                                    }
                                                     if ($obj == false){ ?>
                                                     <td><?= $usuario->getNome() ?></td>
                                                     <td><?= $usuario->getEmail() ?></td>
