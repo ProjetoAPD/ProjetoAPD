@@ -317,9 +317,9 @@ if (isset($_SESSION['logado'])) {
     </a>
     <div class="content">
       <?php $usu = $crud->getUsuarioPostagem($postagem['cod_postagem']); ?>
-      <a class="ui header author "><?= $usu['nome'] ?></a>
+      <a class="ui header author"><?= $usu['nome'] ?></a>
       <div class="metadata">
-<!--        <div class="date"><a href="">denunciar</a></div>-->
+        <div class="date"><?= $postagem['data_postagem'] ?></div>
       </div>
       <div class="ui fitted divider"></div>
 
@@ -334,7 +334,7 @@ if (isset($_SESSION['logado'])) {
          <?php if (isset($_SESSION['logado'])){
                 if ($postagem['usuario_cod_usuario'] == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
         <a type="button" class="right floated ui red labeled icon button" href="../../controller/acoesFor.php?acao=excluir&cod_postagem=<?= $postagem['cod_postagem'] ?>" >
-          <i class="large trash icon"></i><p>excluir</p></a>
+          <i class="large trash icon"></i><p>Excluir</p></a>
 
   <?php }} ?>
 
@@ -375,7 +375,16 @@ if (isset($_SESSION['logado'])) {
     </a>
     <div class="content">
       <a class="author"><?= $usucomentario['nome'] ?></a>
-      <div class="ui fitted divider"></div>
+
+
+
+<!--        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRUMAR A DATA COMENTARIO-->
+        <div class="date"><?= $postagem['data_postagem'] ?></div>
+<!--        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRUMAR A DATA COMENTARIO-->
+
+
+
+        <div class="ui fitted divider"></div>
       <div class="text">
         <?= $comentario['texto_comentario'] ?>
       </div>
@@ -387,7 +396,7 @@ if (isset($_SESSION['logado'])) {
 
 
     <a type="button" class="mini ui  red labeled icon button" href="../../controller/acoesFor.php?acao=excluirComent&cod_comentario=<?= $comentario['cod_comentario'] ?>"" >
-      <i class=" trash icon"></i><p>excluir</p>
+      <i class=" trash icon"></i><p>Excluir</p>
 
       <?php }} ?>
     </a>
