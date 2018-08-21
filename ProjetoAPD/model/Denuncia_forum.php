@@ -6,12 +6,14 @@ class Denuncia_forum
     private $cod_postagem;
     private $cod_usuario;
     private $data_hora;
+    private $cod_den_forum;
 
-    public function __construct($text_den_f=null, $cod_postagem=null, $cod_usuario=null, $data_hora=null){
+    public function __construct($text_den_f=null, $cod_postagem=null, $cod_usuario=null, $data_hora=null, $cod_den_forum=null){
         $this->text_den_f = $text_den_f;
         $this->cod_postagem = $cod_postagem;
         $this->cod_usuario = $cod_usuario;
         $this->data_hora = $data_hora;
+        $this->cod_den_forum = $cod_den_forum;
     }
 
     public function getTextDenF(){
@@ -43,5 +45,13 @@ class Denuncia_forum
     }
     public function setDataHora($data_hora){
         $this->data_hora = $data_hora;
+    }
+
+
+    public function getCodDenForum(){
+        return $this->cod_den_forum;
+    }
+    public function setCodDenForum($cod_den_forum){
+        $this->cod_den_forum = $cod_den_forum;
     }
 }

@@ -34,13 +34,11 @@ class CrudMensagem
         $convesas = $resultado->fetchAll(PDO::FETCH_ASSOC);
         $count = count($convesas);
 
-
         if ($count != 0){
             return true;
         }else{
             return false;
         }
-
     }
 
     public function deleteMesagensUsu($cod_usuario){
