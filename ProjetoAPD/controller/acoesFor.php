@@ -65,5 +65,13 @@ if (isset($_GET['acao'])){
 
             break;
 
+        case "denuncia":
+
+            $cod_postagem = $_GET['cod_postagem'];
+
+            $denuncia = new Denuncia_forum()
+            $c1 = new CrudDenuncias();
+            $ci =
+
     }
 }
