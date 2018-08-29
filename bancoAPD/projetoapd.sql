@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 28/08/2018 às 08:26
+-- Tempo de geração: 29/08/2018 às 15:13
 -- Versão do servidor: 5.7.21-0ubuntu0.16.04.1
 -- Versão do PHP: 7.0.22-0ubuntu0.16.04.1
 
@@ -113,7 +113,8 @@ INSERT INTO `comentario` (`cod_comentario`, `dt_comentario`, `texto_comentario`,
 (4, '2018-08-13 18:15:10', 'Oi Marcia.. eu sofro com depressÃ£o e acho q se eu tivesse em um relacionamento eu gostaria mto q a pessoa ficasse do meu lado para me apoiar.. mas isso digo por mim e hipoteticamente (jÃ¡ q eu n tenho ngm, pode ser q se eu tivesse eu pensaria diferente)..  mas tem mta gente q tem depressÃ£o e acaba se afastando de td mundo.. pode ser q teu namorado sÃ³ preferisse ficar sozinho, mesmo q ele goste de vc.. q de alguma maneira ele ache q nÃ£o merece vc ou q vc nÃ£o merece passar por isso com ele.. faz tempo q ele terminou com vc??', 21, 341),
 (9, '2018-08-13 23:25:55', 'Muitos foram os autores e pensadores que tentaram explicar os sonhos. Por que sonhamos? Eles representam alguma coisa? Jung acreditava que os sonhos consistiam em puras e verdadeiras vontades do nosso inconsciente. E vocÃª, jÃ¡ parou para refletir sobre o motivo de sonharmos?', 22, 345),
 (10, '2018-08-13 23:33:26', 'Caro leitor, a crise econÃ´mica acertou em cheio o Brasil em 2015. Em meio a este complexo cenÃ¡rio, a avicultura e a suinocultura foram impactadas em diversos momentos ao longo do ano. Por um lado, custos de produÃ§Ã£o apresentaram elevaÃ§Ã£o, em especial, no segundo semestre, com a alta dos preÃ§os de milho e de soja. Por outro, greves dos caminhoneiros e dos fiscais federais agropecuÃ¡rios reduziram, momentaneamente, o fluxo das exportaÃ§Ãµes. O clima tambÃ©m afetou o ritmo dos embarques, com o fechamento parcial e total do Porto de ItajaÃ­.', 20, 345),
-(12, '2018-08-14 11:19:38', 'asdawdsdwdasdawdadas', 28, 349);
+(12, '2018-08-14 11:19:38', 'asdawdsdwdasdawdadas', 28, 349),
+(13, '2018-08-29 18:02:20', '30', 30, 343);
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,8 @@ CREATE TABLE `den_chat` (
   `cod_usuario` int(11) NOT NULL,
   `texto_den_chat` varchar(250) NOT NULL,
   `dt_den_chat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `conversa_cod_mensagem` int(11) NOT NULL
+  `conversa_cod_mensagem` int(11) NOT NULL,
+  `cod_den_chat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -162,7 +164,8 @@ CREATE TABLE `den_coment` (
   `cod_comentario` int(11) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   `data_hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `tex_den_c` varchar(200) NOT NULL
+  `tex_den_c` varchar(200) NOT NULL,
+  `cod_den_coment` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -175,8 +178,17 @@ CREATE TABLE `den_forum` (
   `cod_postagem` int(11) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   `data_hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `tex_den_f` varchar(200) NOT NULL
+  `tex_den_f` varchar(200) NOT NULL,
+  `cod_den_forum` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Fazendo dump de dados para tabela `den_forum`
+--
+
+INSERT INTO `den_forum` (`cod_postagem`, `cod_usuario`, `data_hora`, `tex_den_f`, `cod_den_forum`) VALUES
+(29, 349, '2018-08-29 18:01:20', 'awdasdawd', 1),
+(30, 343, '2018-08-29 18:02:27', 'postagem 30', 2);
 
 -- --------------------------------------------------------
 
@@ -201,7 +213,8 @@ INSERT INTO `postagens_forum` (`cod_postagem`, `status_postagem`, `texto_postage
 (22, 1, 'Tenho 19 anos, perdi meu emprego que era horrivel mas era o que pagava a minha faculdade, devido a isso tive que trancar meu curso. Fiz algo imperdoÃ¡vel Ã  minha namorada na impulsividade e acabei magoando e perdendo o amor da minha vida, meu pai nÃ£o liga para mim e faz questÃ£o de criticar tudo o que faÃ§o chegando a jÃ¡ ter dito na minha cara que eu nÃ£o tenho nenhuma capacidade em me formar na graduaÃ§Ã£o que escolhi (engenharia mecÃ¢nica) pagava minha faculdade com meu salÃ¡rio e ainda assim ele me criticava sinto um vazio enorme e me sinto sozinho nÃ£o vejo soluÃ§Ã£o pra nada e penso diariamente em suicidio mas nÃ£o tenho coragem o que me faz sentir pior ainda', ' Me sinto um monstro nÃ£o aguento mais viver', '2018-08-13 18:13:51', 343),
 (27, 1, 'Apesar disto, a avicultura e a suinocultura\r\nencerraram 2015 com diversos recordes: na\r\nproduÃ§Ã£o e nas exportaÃ§Ãµes de frangos; na\r\nproduÃ§Ã£o e no consumo per capita de suÃ­nos;\r\nna produÃ§Ã£o e no consumo per capita\r\nde ovos. A carne de frango, consolidado\r\ncomo quarto item da pauta exportadora nacional,\r\nalcanÃ§ou em 2015 os trÃªs melhores\r\nresultados mensais da histÃ³ria das exportaÃ§Ãµes\r\ndo setor.\r\nNovos mercados abriram as portas para\r\naves e ovos, e outras foram reabertas para\r\nsuÃ­nos. Outros grandes importadores (como\r\nChina e MÃ©xico) ampliaram os nÃºmeros de\r\nplantas habilitadas (32, no total). ', 'MENSAGEM DO PRESIDENTE', '2018-08-13 23:34:25', 346),
 (28, 1, 'Preciso de conselhos como lidar com um adolescente de 11 anos pois esta apresentando um comportamento muito agressivo,mentiroso, esta respondendo como nunca fez,enfrentando e achando que e esta certo em tudo. sou separada e o pai nao da assistÃªncia alguma para ele ele tem um irmÃ£o de 8 anos que ele acha que pode mandar no irmÃ£o.estou namorando ele gosta do meu namorado se da bem com ele mais sente ciumes dele comigo. disse que eu nÃ£o preciso de uma pessoa para cuidar de mim porque ele toma conta de mim . o que devo fazer?', ' adolescentes como lidar?', '2018-08-14 00:05:40', 346),
-(29, 1, 'adawdasdwdasdawd', 'dsdasdawdasd', '2018-08-14 11:19:11', 349);
+(29, 1, 'adawdasdwdasdawd', 'dsdasdawdasd', '2018-08-14 11:19:11', 349),
+(30, 1, 'sla\r\n', 'postagem numero massa', '2018-08-29 18:02:07', 343);
 
 -- --------------------------------------------------------
 
@@ -281,6 +294,7 @@ ALTER TABLE `conversa`
 -- Índices de tabela `den_chat`
 --
 ALTER TABLE `den_chat`
+  ADD PRIMARY KEY (`cod_den_chat`),
   ADD KEY `cod_usuario` (`cod_usuario`),
   ADD KEY `fk_den_chat_conversa1_idx` (`conversa_cod_mensagem`);
 
@@ -288,6 +302,7 @@ ALTER TABLE `den_chat`
 -- Índices de tabela `den_coment`
 --
 ALTER TABLE `den_coment`
+  ADD PRIMARY KEY (`cod_den_coment`),
   ADD KEY `cod_comentario` (`cod_comentario`),
   ADD KEY `cod_usuario` (`cod_usuario`);
 
@@ -295,6 +310,7 @@ ALTER TABLE `den_coment`
 -- Índices de tabela `den_forum`
 --
 ALTER TABLE `den_forum`
+  ADD PRIMARY KEY (`cod_den_forum`),
   ADD KEY `cod_postagem` (`cod_postagem`),
   ADD KEY `cod_usuario` (`cod_usuario`);
 
@@ -326,17 +342,32 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `cod_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `cod_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de tabela `conversa`
 --
 ALTER TABLE `conversa`
   MODIFY `cod_mensagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
+-- AUTO_INCREMENT de tabela `den_chat`
+--
+ALTER TABLE `den_chat`
+  MODIFY `cod_den_chat` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de tabela `den_coment`
+--
+ALTER TABLE `den_coment`
+  MODIFY `cod_den_coment` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de tabela `den_forum`
+--
+ALTER TABLE `den_forum`
+  MODIFY `cod_den_forum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de tabela `postagens_forum`
 --
 ALTER TABLE `postagens_forum`
-  MODIFY `cod_postagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `cod_postagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
