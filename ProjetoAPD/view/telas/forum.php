@@ -32,10 +32,8 @@ if (isset($_SESSION['logado'])) {
 
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
+
+    <script src="../telas/assets/jquery-3.3.1.min.js"></script>
     <script src="../semantic/dist/semantic.min.js"></script>
 
 
@@ -177,9 +175,11 @@ if (isset($_SESSION['logado'])) {
     </style>
 
     <script src="assets/library/jquery.min.js"></script>
+
     <script src="../semantic/dist/components/visibility.js"></script>
     <script src="../semantic/dist/components/sidebar.js"></script>
     <script src="../semantic/dist/components/transition.js"></script>
+    <script src="../semantic/dist/semantic.js"></script>
     <script>
         $(document)
             .ready(function () {
@@ -201,10 +201,17 @@ if (isset($_SESSION['logado'])) {
                 $('.ui.sidebar')
                     .sidebar('attach events', '.toc.item')
                 ;
+                $(".botaoModal").click(function() {
+                    $('#teste').modal('show');
+                });
 
-            })
-        ;
+            });
+
     </script>
+
+
+
+
 </head>
 <body class="pushable">
 
@@ -323,6 +330,29 @@ if (isset($_SESSION['logado'])) {
       <div class="metadata">
         <div class="date"><?= $postagem['data_postagem'] ?></div>
       </div>
+
+        <button class="botaoModal">BOTAO</button>
+
+
+
+<!--/////////////////////////////////////////////////////////////////////-->
+       <div class="partiu">
+        <div class="ui modal" id="teste">
+            <form action="../../controller/acoesFor.php?acao=denuncia" method="POST">
+                Digite aqui sua denúncia
+                <input type="textarea" name="texto">
+                <input type="hidden" name="cod_postagem" value="<?= $postagem['cod_postagem'] ?>">
+                <input type="hidden" name="cod_usuario" value="<?= $postagem['usuario_cod_usuario'] ?>">
+                <input type="submit" name="Enviar denuncia">
+            </form>
+        </div>
+      </div>
+<!--        ///////////////////////////////////////////////////-->
+<!---->
+
+
+
+
       <div class="ui fitted divider"></div>
 
       <div class="text">

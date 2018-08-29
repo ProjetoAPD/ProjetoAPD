@@ -5,6 +5,7 @@ session_start();
 require_once "../model/CrudUsuario.php";
 require_once "../model/CrudPostagem.php";
 require_once "../model/CrudComentario.php";
+require_once "../model/CrudDenuncias.php";
 
 
 if (isset($_GET['acao'])){
@@ -67,11 +68,16 @@ if (isset($_GET['acao'])){
 
         case "denuncia":
 
-            $cod_postagem = $_GET['cod_postagem'];
+            $cod_postagem = $_POST['cod_postagem'];
+            $texto = $_POST['texto'];
+            $usuario = $_POST['cod_usuario'];
 
-            $denuncia = new Denuncia_forum()
+            $denuncia = new Denuncia_forum($texto, $cod_postagem, $usuario, null, null);
             $c1 = new CrudDenuncias();
-            $ci =
+            $c1->insertDenunciaForum($denuncia);
 
+            header('Location: ../view/telas/forum.php');
+
+            break;
     }
 }

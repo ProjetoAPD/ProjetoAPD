@@ -18,7 +18,7 @@ class CrudDenuncias
     // INSERT DENUNCIAS ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public function insertDenunciaForum(Denuncia_forum $den){
 
-        $sql = "INSERT INTO den_forum (text_den_f, cod_postagem, cod_usuario, data_hora) VALUES ('" . $den->getTextDenF() . "','" . $den->getCodPostagem() . "','" . $den->getCodUsuario() . "','" . $den->getDataHora() . "')";
+        $sql = "INSERT INTO den_forum (tex_den_f, cod_postagem, cod_usuario) VALUES ('" . $den->getTextDenF() . "','" . $den->getCodPostagem() . "','" . $den->getCodUsuario() . "')";
 
         try {
             $this->conexao->exec($sql);
@@ -30,7 +30,7 @@ class CrudDenuncias
 
     public function insertDenunciaChat(Denuncia_chat $den){
 
-        $sql = "INSERT INTO den_chat (text_den_chat, conversa_cod_mensagem, cod_usuario, dt_den_chat) VALUES ('" . $den->getTextDenChat() . "','" . $den->getConversaCodMensagem() . "','" . $den->getCodUsuario() . "','" . $den->getDtDenChat() . "')";
+        $sql = "INSERT INTO den_chat (tex_den_chat, conversa_cod_mensagem, cod_usuario) VALUES ('" . $den->getTextDenChat() . "','" . $den->getConversaCodMensagem() . "','" . $den->getCodUsuario() . "')";
 
         try {
             $this->conexao->exec($sql);
@@ -42,7 +42,7 @@ class CrudDenuncias
 
     public function insertDenunciaComentario(Denuncia_comentario $den){
 
-        $sql = "INSERT INTO den_coment (text_den_c, cod_comentario, cod_usuario, data_hora) VALUES ('" . $den->getTextDenC() . "','" . $den->getCodComentario() . "','" . $den->getCodUsuario() . "','" . $den->getDataHora() . "')";
+        $sql = "INSERT INTO den_coment (tex_den_c, cod_comentario, cod_usuario) VALUES ('" . $den->getTextDenC() . "','" . $den->getCodComentario() . "','" . $den->getCodUsuario() . "')";
 
         try {
             $this->conexao->exec($sql);
