@@ -281,7 +281,7 @@
 
 						<div class="ui segment" id="ui_segment_perfil">
 							<i class="lock icon">Senha</i>
-								<h2 id="texto_senha"><?= $user->getSenha(); ?></h2>
+								<h2 id="texto_senha" type="password"><?= $user->getSenha(); ?></h2>
 
 							</div>
                             <br>

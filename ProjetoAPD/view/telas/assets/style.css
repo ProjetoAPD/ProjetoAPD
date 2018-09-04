@@ -315,3 +315,11 @@ l{
     border-color: #4C2C63;
 
 }
+
+#allchat{
+    padding-top:1.5%;
+    background-color: red/*#fffcf0*/;
+}
+#usulist{
+    padding: 1rem;
+}

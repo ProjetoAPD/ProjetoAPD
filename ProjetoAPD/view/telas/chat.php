@@ -241,6 +241,15 @@ if (!isset($_SESSION['logado'])) {
             }
         }
 
+        .ui.unstackable.table{
+            padding: 0px;
+            height: 500px;
+            width:401px;
+        }
+        #psicologos{
+            text-align: intial;
+        }
+
 
 
     </style>
@@ -357,15 +366,15 @@ if (!isset($_SESSION['logado'])) {
 
 
                 <!--------------------------------- USUARIOS -------------------------------->
-                <div class="ui two column middle aligned very relaxed stackable grid">
+                <div class="ui two column middle aligned very relaxed stackable grid" id="allchat">
 
-                    <div class="column">
+                    <div id="usulist">
 
-                        <br>
+                     
 
                         <div class="ui comments">
 
-                            <table class="ui selectable unstackable table">
+                            <table class="ui unstackable table">
                                 <thead>
                                     <th>
                                         <div>
@@ -386,7 +395,7 @@ if (!isset($_SESSION['logado'])) {
                                 </thead>
 
                                 <td>
-                                    <div id="usuarios">
+                                    <div id="usuarios" class="ui selectable unstackable table">
                                     <?php foreach($listaUsuarios as $usuario):
 
                                         $cod_usuario1 = $_SESSION['cod_usuario'];
@@ -398,12 +407,12 @@ if (!isset($_SESSION['logado'])) {
                                         if ($obj == true){
 
                                         ?>
-                                    <div class="ui vertical segments">
+                                   <div class="ui middle aligned selection list">
 
                                         <div class="column">
-                                            <div class="ui horizontal segments">
+                                            <div class="ui selectable horizontal segments">
 
-                                                    <div class="column">
+                                                    <div class="column ">
                                                         <a href="?usuario2=<?= $usuario->getCodUsuario() ?>"><button class="ui basic red button">
                                                             <i class="icon red user"></i>
                                                         </button></a>
@@ -420,12 +429,16 @@ if (!isset($_SESSION['logado'])) {
                                     </div>
                                     <?php } endforeach; ?>
                                     </div>
-                                    <!---------------------- PSICOLOGOS ----------------------------------------------------->
+
+
+
+                                    <!-- ------PSICOLOGOS------ -->
+                     
                                     <div class="column" id="psicologos">
                                         <div class="ui comments">
 
-                                            <br>
-                                            <table class="ui selectable unstackable table">
+                                            
+                                            <table class="ui unstackable table">
                                                 <thead>
                                                 <tr>
 
