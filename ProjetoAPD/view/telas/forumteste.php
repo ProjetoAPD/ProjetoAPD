@@ -32,11 +32,11 @@ if (isset($_SESSION['logado'])) {
 
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
-
-    <script src="../telas/assets/jquery-3.3.1.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
     <script src="../semantic/dist/semantic.min.js"></script>
-
-
 
 
     <style type="text/css">
@@ -175,11 +175,9 @@ if (isset($_SESSION['logado'])) {
     </style>
 
     <script src="assets/library/jquery.min.js"></script>
-
     <script src="../semantic/dist/components/visibility.js"></script>
     <script src="../semantic/dist/components/sidebar.js"></script>
     <script src="../semantic/dist/components/transition.js"></script>
-    <script src="../semantic/dist/semantic.js"></script>
     <script>
         $(document)
             .ready(function () {
@@ -201,20 +199,10 @@ if (isset($_SESSION['logado'])) {
                 $('.ui.sidebar')
                     .sidebar('attach events', '.toc.item')
                 ;
-                $(".botaoDenunciaPost").click(function() {
-                    $('#teste').modal('show');
-                });
-                $(".botaoDenunciaComent").click(function() {
-                    $('#testeComent').modal('show');
-                });
 
-            });
-
+            })
+        ;
     </script>
-
-
-
-
 </head>
 <body class="pushable">
 
@@ -273,7 +261,13 @@ if (isset($_SESSION['logado'])) {
         <!-- Postar -->
         <?php
         if (isset($_SESSION['logado'])) {
+
+
+
             ?>
+            <div background="red">
+  aaaaaaaaaaaaaaaaaaaaaaaaaa
+            </div>
 
             <div id="poster">
               <br>
@@ -323,39 +317,14 @@ if (isset($_SESSION['logado'])) {
 
   <div class="comment" id="post">
     <a class="avatar">
-
             <img src="assets/images/avatar/tom.jpg">
-
     </a>
     <div class="content">
       <?php $usu = $crud->getUsuarioPostagem($postagem['cod_postagem']); ?>
-      <a class="ui header author"><?= $usu['nome'] ?></a>
+      <a class="ui header author "><?= $usu['nome'] ?></a>
       <div class="metadata">
-        <div class="date"><?= $postagem['data_postagem'] ?></div>
+        <div class="date">tempo</div>
       </div>
-
-        <button class="botaoDenunciaPost">Denunciar</button>
-
-
-
-<!--/////////////////////////////////////////////////////////////////////-->
-       <div class="partiu">
-        <div class="" id="teste">
-            <form action="../../controller/acoesFor.php?acao=denunciaPost" method="POST">
-                Digite aqui sua denúncia
-                <input type="textarea" name="texto">
-                <input type="hidden" name="cod_postagem" value="<?= $postagem['cod_postagem'] ?>">
-                <input type="hidden" name="cod_usuario" value="<?= $postagem['usuario_cod_usuario'] ?>">
-                <input type="submit" name="Enviar denuncia">
-            </form>
-        </div>
-      </div>
-<!--        ///////////////////////////////////////////////////-->
-<!---->
-
-
-
-
       <div class="ui fitted divider"></div>
 
       <div class="text">
@@ -368,8 +337,7 @@ if (isset($_SESSION['logado'])) {
 
          <?php if (isset($_SESSION['logado'])){
                 if ($postagem['usuario_cod_usuario'] == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
-        <a type="button" class="right floated ui red labeled icon button" href="../../controller/acoesFor.php?acao=excluir&cod_postagem=<?= $postagem['cod_postagem'] ?>" >
-          <i class="large trash icon"></i><p>Excluir</p></a>
+        <a type="button" class="mini ui red labeled icon button" href="../../controller/acoesFor.php?acao=excluir&cod_postagem=<?= $postagem['cod_postagem'] ?>" ><i class="small trash icon"></i><p>excluir</p></a>
 
   <?php }} ?>
 
@@ -410,32 +378,7 @@ if (isset($_SESSION['logado'])) {
     </a>
     <div class="content">
       <a class="author"><?= $usucomentario['nome'] ?></a>
-
-
-
-<!--        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRUMAR A DATA COMENTARIO-->
-        <div class="date"><?= $postagem['data_postagem'] ?></div>
-<!--        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRUMAR A DATA COMENTARIO-->
-
-
-
-        <!--/////////////////////////////////////////////////////////////////////-->
-        <button class="botaoDenunciaComent">Denunciar</button>
-
-            <div class="" id="testeComent">
-                <form action="../../controller/acoesFor.php?acao=denunciaComent" method="POST">
-                    Digite aqui sua denúncia
-                    <input type="textarea" name="texto">
-                    <input type="hidden" name="cod_comentario" value="<?= $comentario['cod_comentario'] ?>">
-                    <input type="hidden" name="cod_usuario" value="<?= $comentario['usuario_cod_usuario'] ?>">
-                    <input type="submit" name="Enviar denuncia">
-                </form>
-            </div>
-
-        <!--        ///////////////////////////////////////////////////-->
-        <!---->
-
-        <div class="ui fitted divider"></div>
+      <div class="ui fitted divider"></div>
       <div class="text">
         <?= $comentario['texto_comentario'] ?>
       </div>
@@ -446,8 +389,8 @@ if (isset($_SESSION['logado'])) {
 
 
 
-    <a type="button" class="mini ui  red labeled icon button" href="../../controller/acoesFor.php?acao=excluirComent&cod_comentario=<?= $comentario['cod_comentario'] ?>"" >
-      <i class=" trash icon"></i><p>Excluir</p>
+    <a type="button" class="mini ui  red labeled icon button" href="href="../../controller/acoesFor.php?acao=excluirComent&cod_comentario=<?= $comentario['cod_comentario'] ?>"" >
+      <i class=" trash icon"></i><p>excluir</p>
 
       <?php }} ?>
     </a>

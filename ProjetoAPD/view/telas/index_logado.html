@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="assets/images/nome.png">
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>ProjetoAPD</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="../semantic/dist/semantic.min.js"></script>
+
+    <style type="text/css">
+
+        .hidden.menu {
+            display: none;
+        }
+
+        .masthead.segment {
+            min-height: 500px;
+            padding: 1em 0em;
+        }
+        .masthead .logo.item img {
+            margin-right: 1em;
+        }
+        .masthead .ui.menu .ui.button {
+            margin-left: 0.5em;
+        }
+        .masthead h1.ui.header {
+            margin-top: 15%;
+            margin-bottom: 0em;
+            font-size: 4em;
+            font-weight: normal;
+        }
+        .masthead h2 {
+            font-size: 1.7em;
+            font-weight: normal;
+        }
+
+        .ui.vertical.stripe {
+            padding: 8em 0em;
+        }
+        .ui.vertical.stripe h3 {
+            font-size: 2em;
+        }
+        .ui.vertical.stripe .button + h3,
+        .ui.vertical.stripe p + h3 {
+            margin-top: 3em;
+        }
+        .ui.vertical.stripe .floated.image {
+            clear: both;
+        }
+        .ui.vertical.stripe p {
+            font-size: 1.33em;
+        }
+        .ui.vertical.stripe button{
+            width: 20em;
+            height: 5em;
+        }
+
+        .ui.vertical.stripe .horizontal.divider {
+            margin: 3em 0em;
+        }
+
+        .quote.stripe.segment {
+            padding: 0em;
+        }
+        .quote.stripe.segment .grid .column {
+            padding-top: 5em;
+            padding-bottom: 5em;
+        }
+
+        .footer.segment {
+            padding: 5em 0em;
+        }
+
+        .secondary.pointing.menu .toc.item {
+            display: none;
+        }
+
+        .link{
+            color: black;
+
+        }
+
+        .ui.inverted.vertical.masthead.center.aligned.segment{
+            background-color: #4C2C63;
+
+        }
+        .ui.inverted.vertical.footer.segment{
+            background-color: #4C2C63;
+
+        }
+
+        #following{
+            background-color: #4C2C63;
+        }
+
+
+
+        @media only screen and (max-width: 700px) {
+            .ui.fixed.menu {
+                display: none !important;
+            }
+            .secondary.pointing.menu .item,
+            .secondary.pointing.menu .menu {
+                display: none;
+            }
+            .secondary.pointing.menu .toc.item {
+                display: block;
+            }
+            .masthead.segment {
+                min-height: 350px;
+
+            }
+            .masthead h1.ui.header {
+                font-size: 2em;
+                margin-top: 1.5em;
+            }
+            .masthead h2 {
+                margin-top: 0.5em;
+                font-size: 1.5em;
+            }
+        }
+
+
+
+    </style>
+
+    <script src="assets/library/jquery.min.js"></script>
+    <script src="../dist/components/visibility.js"></script>
+    <script src="../dist/components/sidebar.js"></script>
+    <script src="../dist/components/transition.js"></script>
+    <script>
+        $(document)
+            .ready(function() {
+
+                // fix menu when passed
+                $('.masthead')
+                    .visibility({
+                        once: false,
+                        onBottomPassed: function() {
+                            $('.fixed.menu').transition('fade in');
+                        },
+                        onBottomPassedReverse: function() {
+                            $('.fixed.menu').transition('fade out');
+                        }
+                    })
+                ;
+
+                // create sidebar and attach to menu open
+                $('.ui.sidebar')
+                    .sidebar('attach events', '.toc.item')
+                ;
+
+            })
+        ;
+    </script>
+</head>
+<body>
+
+
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+    <a class="item" href="index.php">Home</a>
+    <a class="item" href="forum.html">Fórum</a>
+    <a class="active item" href="login.php">Minha conta</a>
+
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment">
+
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <a class="toc item">
+                    <i class="sidebar icon"></i>
+                </a>
+                <a class="item" href="index.php">Home</a>
+                <a class="item" href="forum.html">Fórum</a>
+                <a class="active item" href="chat.php">Chat</a>
+                <div class="right item">
+                    <a class="ui inverted button" href="perfil.php">Minha conta</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ui text container">
+            <h1 class="ui inverted header">
+                ProjetoAPD
+            </h1>
+            <h2>Ajuda psicológica online e de graça!</h2>
+        </div>
+
+    </div>
+
+    <div class="ui vertical stripe quote segment">
+        <div class="ui equal width stackable internally celled grid">
+            <div class="center aligned row">
+                <div class="column">
+                    <h3>Fale!</h3>
+                    <p>Fale! Compartilhe para alguem seus problemas, você poderá ouvir outras opiniões e pontos de vistas e quem sabe ser ajudado a solucionar o que te intriga!</p>
+                    <!--<p>That is what they all say about us</p>-->
+                    <div class="purple ui buttons">
+                        <a href="chat.php"> <button class="ui button">Fale com usuários dispostos para uma ajuda amigável</button></a>
+                        <a href="chat.php"> <button class="ui button">Fale com um psicólogo online para ajuda profissional</button></a>
+
+                    </div>
+
+                </div>
+                <div class="column">
+                    <h3>Escute!</h3>
+                    <p>Escute! Ouça e ajude. Outros usuários precisam de sua ajuda para tornar os dias delas melhores!\</p>
+                    <a href="chat.php"> <button class="purple ui button">Ajude um usuário</button></a>
+
+                    <!--<p><img src="assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys</p>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui horizontal stripe segment" id="lforum">
+
+
+        <div class="ui text container">
+            <a href="forum.html">
+                <div class="ui segment">
+                    <h3 class="ui header">
+                        <i class="users icon"></i>Fórum
+                    </h3>
+                    <p>Aqui poderá ver debates, publicações e problemas que já foram solucionados ou precisam de soluções. Veja e tente ajudar alguém ou procure alguém que já tenha o mesmo problema que o seu!</p>
+            </a>
+        </div>
+    </div>
+
+
+
+
+</div>
+<h4 class="ui horizontal header divider">
+    <a href="#">Voltar ao topo</a>
+</h4>
+
+
+
+
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
+
+            <div class="four wide column">
+
+                <div class="ui inverted link list">
+
+                    <a href="#" class="item"><i class="twitter icon"></i></a>
+
+                </div>
+
+            </div>
+
+
+            <div class="four wide column">
+                <h4 class="ui inverted header">ProjetoAPD: Los Tansos</h4>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>
+

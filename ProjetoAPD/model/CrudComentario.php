@@ -59,6 +59,20 @@ class CrudComentario
 
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // CORRIGIR SAPORRA
+    public function deleteComentariosPostagem(int $codigo){
+
+        $sql = "DELETE FROM comentario WHERE cod_comentario = comentario_cod_comentario".$codigo;
+
+        try{
+            $this->conexao->exec($sql);
+        }catch (PDOException $e){
+            return $e;
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public function deleteComentarioUsu(int $codigoUsuario){
 
         $sql = "DELETE FROM comentario WHERE usuario_cod_usuario=".$codigoUsuario;

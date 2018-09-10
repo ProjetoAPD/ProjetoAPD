@@ -66,7 +66,7 @@ if (isset($_GET['acao'])){
 
             break;
 
-        case "denuncia":
+        case "denunciaPost":
 
             $cod_postagem = $_POST['cod_postagem'];
             $texto = $_POST['texto'];
@@ -75,6 +75,20 @@ if (isset($_GET['acao'])){
             $denuncia = new Denuncia_forum($texto, $cod_postagem, $usuario, null, null);
             $c1 = new CrudDenuncias();
             $c1->insertDenunciaForum($denuncia);
+
+            header('Location: ../view/telas/forum.php');
+
+            break;
+
+        case "denunciaComent":
+
+            $cod_comentario = $_POST['cod_comentario'];
+            $texto = $_POST['texto'];
+            $usuario = $_POST['cod_usuario'];
+
+            $denuncia = new Denuncia_comentario($texto, $cod_comentario, $usuario, null, null);
+            $c1 = new CrudDenuncias();
+            $c1->insertDenunciaComentario($denuncia);
 
             header('Location: ../view/telas/forum.php');
 
