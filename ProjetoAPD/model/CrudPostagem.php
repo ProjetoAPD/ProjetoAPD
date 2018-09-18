@@ -63,8 +63,15 @@ class CrudPostagem
 
     public function deletePostagem($codigo){
 
+        //DELETA AS DENUNCIAS
+        $sql = "DELETE FROM den_forum WHERE cod_postagem=".$codigo;
+        try{
+            $this->conexao->exec($sql);
+        }catch (PDOException $e){
+            return $e;
+        }
+        //DELETA A POSTAGEM
         $sql = "DELETE FROM postagens_forum WHERE cod_postagem=".$codigo;
-
         try{
             $this->conexao->exec($sql);
         }catch (PDOException $e){

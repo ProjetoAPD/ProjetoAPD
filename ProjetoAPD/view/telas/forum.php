@@ -339,7 +339,9 @@ if (isset($_SESSION['logado'])) {
 
 
 <!--/////////////////////////////////////////////////////////////////////-->
-       <div class="partiu">
+        <?php if (isset($_SESSION['logado'])) {  ?>
+
+        <div class="partiu">
         <div class="" id="teste">
             <form action="../../controller/acoesFor.php?acao=denunciaPost" method="POST">
                 Digite aqui sua denúncia
@@ -350,7 +352,10 @@ if (isset($_SESSION['logado'])) {
             </form>
         </div>
       </div>
-<!--        ///////////////////////////////////////////////////-->
+
+        <?php } ?>
+
+        <!--        ///////////////////////////////////////////////////-->
 <!---->
 
 
@@ -418,8 +423,9 @@ if (isset($_SESSION['logado'])) {
 <!--        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRUMAR A DATA COMENTARIO-->
 
 
-
         <!--/////////////////////////////////////////////////////////////////////-->
+        <?php if (isset($_SESSION['logado'])) {  ?>
+
         <button class="botaoDenunciaComent">Denunciar</button>
 
             <div class="" id="testeComent">
@@ -432,8 +438,9 @@ if (isset($_SESSION['logado'])) {
                 </form>
             </div>
 
+        <?php } ?>
         <!--        ///////////////////////////////////////////////////-->
-        <!---->
+
 
         <div class="ui fitted divider"></div>
       <div class="text">
