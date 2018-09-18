@@ -2,14 +2,14 @@
 
 class Denuncia_chat
 {
-    private $text_den_chat;
+    private $mensagem_den_chat;
     private $conversa_cod_mensagem;
     private $cod_usuario;
     private $dt_den_chat;
     private $cod_den_chat;
 
-    public function __construct($text_den_chat=null, $conversa_cod_mensagem=null, $cod_usuario=null, $dt_den_chat=null, $cod_den_chat=null){
-        $this->text_den_chat = $text_den_chat;
+    public function __construct($mensagem_den_chat=null, $conversa_cod_mensagem=null, $cod_usuario=null, $dt_den_chat=null, $cod_den_chat=null){
+        $this->mensagem_den_chat = $mensagem_den_chat;
         $this->conversa_cod_mensagem = $conversa_cod_mensagem;
         $this->cod_usuario = $cod_usuario;
         $this->dt_den_chat = $dt_den_chat;
@@ -24,8 +24,8 @@ class Denuncia_chat
     }
 
 
-    public function getTextDenChat(){
-        return $this->text_den_chat;
+    public function getMensagemDenChat(){
+        return $this->mensagem_den_chat;
     }
     public function setTextDenChat($text_den_chat){
         $this->text_den_chat = $text_den_chat;

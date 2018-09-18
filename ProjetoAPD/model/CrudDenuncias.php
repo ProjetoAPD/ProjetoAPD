@@ -30,7 +30,7 @@ class CrudDenuncias
 
     public function insertDenunciaChat(Denuncia_chat $den){
 
-        $sql = "INSERT INTO den_chat (tex_den_chat, conversa_cod_mensagem, cod_usuario) VALUES ('" . $den->getTextDenChat() . "','" . $den->getConversaCodMensagem() . "','" . $den->getCodUsuario() . "')";
+        $sql = "INSERT INTO den_chat (mensagem_den_chat, conversa_cod_mensagem, cod_usuario) VALUES ('" . $den->getMensagemDenChat() . "','" . $den->getConversaCodMensagem() . "','" . $den->getCodUsuario() . "')";
 
         try {
             $this->conexao->exec($sql);
@@ -114,6 +114,16 @@ class CrudDenuncias
         return $usuDenComent;
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    public function getMensagemDenChat(int $cod_mensagem){
+
+        $sql = "SELECT texto FROM conversa WHERE cod_mensagem = ".$cod_mensagem;
+        $resultado = $this->conexao->query($sql);
+
+        $mensagem = $resultado->fetch(PDO::FETCH_ASSOC);
+        return $mensagem['texto'];
+    }
+
 
 
     //DELETE DENUNCIAS -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -86,8 +86,15 @@ class CrudComentario
 
     public function deleteComentarioUsu(int $codigoUsuario){
 
-        $sql = "DELETE FROM comentario WHERE usuario_cod_usuario=".$codigoUsuario;
+        $sql = "DELETE FROM den_coment WHERE den_coment.cod_usuario=".$codigoUsuario;
+        try{
+            $this->conexao->exec($sql);
+        }catch (PDOException $e){
+            return $e;
+        }
 
+
+        $sql = "DELETE FROM comentario WHERE usuario_cod_usuario=".$codigoUsuario;
         try{
             $this->conexao->exec($sql);
         }catch (PDOException $e){

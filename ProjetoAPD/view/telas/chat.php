@@ -5,6 +5,7 @@ session_start();
 require_once("../../model/Usuario.php");
 require_once("../../model/CrudUsuario.php");
 require_once("../../model/CrudMensagem.php");
+require_once("../../model/CrudDenuncias.php");
 
 $user = new CrudUsuario();
 //pega apenas usuarios do tipo psicologos
@@ -518,18 +519,16 @@ if (!isset($_SESSION['logado'])) {
                                             <h3 id="enviada">
                                                 <div class="ui comment">
                                                     <?= $mensagem['texto'] ?>
-
                                                 </div>
                                             </h3>
 
                                         <?php }else{ ?>
 
                                             <h3 id="recebida">
-
                                                 <?= $mensagem['texto'] ?>
-
-
+                                                <a href="../../controller/acoesChat.php?acao=denuncia&cod_mensagem=<?=$mensagem['cod_mensagem']?>&cod_usuario=<?=$usuario2?> " style="color:black"><i class="exclamation triangle icon"></i></a>
                                             </h3>
+
 
 
                                         <?php } ?>
@@ -547,7 +546,7 @@ if (!isset($_SESSION['logado'])) {
                                         <input type="text" name="mensagem">
                                     </div>
                                     <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
-                                    <input class="ui simple green button" type="submit" name="Enviar">
+                                    <input class="ui simple green button" type="submit" name="Enviar" <?php if(!isset($_GET['usuario2'])){echo "disabled";} ?> >
 
 
                                 </form>
