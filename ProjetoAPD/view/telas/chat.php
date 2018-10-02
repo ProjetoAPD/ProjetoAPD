@@ -66,17 +66,16 @@ if (!isset($_SESSION['logado'])) {
 
         #mensagens{
             width: 100%;
-
             background-color: white;
-            height: 500px;
-            overflow: auto;
+            height: 560px;
+        
         }
 
 
         #enviada{
             text-align: left;
-            color: black;
-            background: #adadad;
+            color: white;
+            background: #301742;
             border:1px black solid;
             border-radius: 2px;
             margin-left: 2px;
@@ -108,11 +107,10 @@ if (!isset($_SESSION['logado'])) {
 
 
         #chat{
-            background-color: #4C2C63;
+            background-color: #301742;
             padding-top:1px;
             padding-bottom:1px;
-            border-color: grey;
-            border-radius: 2px;
+   
         }
 
         /*////////////////////////////////////////////*/
@@ -239,6 +237,7 @@ if (!isset($_SESSION['logado'])) {
 
             .column {
                 background: white;
+                padding:0 6px;
             }
         }
 
@@ -250,6 +249,17 @@ if (!isset($_SESSION['logado'])) {
         #psicologos{
             text-align: intial;
         }
+        #coluna{
+           width:61%;
+           margin: 0px;
+           padding: 0px;
+        }
+        #formulario_mensagem{
+            padding: 0 1%;
+            height: 100%;            
+        }
+
+
 
 
 
@@ -362,8 +372,10 @@ if (!isset($_SESSION['logado'])) {
                 <?php } ?>
 
             </div>
-
-            <div class="container">
+            <br>
+           
+    
+            <div class="container" >
 
 
                 <!--------------------------------- USUARIOS -------------------------------->
@@ -489,7 +501,7 @@ if (!isset($_SESSION['logado'])) {
                             </table>
                         </div></div>
 
-                    <div class=" column">
+                    <div class=" column" id="coluna">
                         <!-- CHAAAAT -->
 
                         <div class="ui container" id="chat">
@@ -516,18 +528,23 @@ if (!isset($_SESSION['logado'])) {
                                     foreach ($mensagens as $mensagem):
                                         if ($mensagem['cod_usuario1'] == $usuario1){ ?>
 
-                                            <h3 id="enviada">
-                                                <div class="ui comment">
+                                            <p id="enviada">
+                                               
                                                     <?= $mensagem['texto'] ?>
-                                                </div>
-                                            </h3>
+                                                
+                                            </p>
 
                                         <?php }else{ ?>
 
-                                            <h3 id="recebida">
+                                            <p id="recebida">
                                                 <?= $mensagem['texto'] ?>
-                                                <a href="../../controller/acoesChat.php?acao=denuncia&cod_mensagem=<?=$mensagem['cod_mensagem']?>&cod_usuario=<?=$usuario2?> " style="color:black"><i class="exclamation triangle icon"></i></a>
-                                            </h3>
+                                                
+                                                <button class="negative mini circular ui icon button" href="../../controller/acoesChat.php?acao=denuncia&cod_mensagem=<?=$mensagem['cod_mensagem']?>&cod_usuario=<?=$usuario2?> ">
+                                                     <i class="exclamation small triangle icon"></i>
+                                                   </button>
+                                                  
+
+                                            </p>
 
 
 
@@ -535,24 +552,29 @@ if (!isset($_SESSION['logado'])) {
 
                                     <?php endforeach; }?>
 
+
                             </div>
+                            <form class="ui form" method="post" action="../../controller/acoesChat.php?acao=enviar">
 
-                            <br>
+                                
+                                    <div class="ui fluid action input">
+                                        <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
+                                              <input type="text" name="mensagem">
+                                              <button class="ui simple green icon button"" type="submit" name="Enviar" <?php if(!isset($_GET['usuario2'])){echo "disabled";} ?> >
+                                                enviar
+                                                <i class="send icon"></i>
 
-                            <div class="ui header" id="formulario_mensagem">
-                                <form class="ui form" method="post" action="../../controller/acoesChat.php?acao=enviar">
-
-                                    <div class="ui input">
-                                        <input type="text" name="mensagem">
-                                    </div>
-                                    <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
-                                    <input class="ui simple green button" type="submit" name="Enviar" <?php if(!isset($_GET['usuario2'])){echo "disabled";} ?> >
+                                              </button>
+                                          </div>
 
 
                                 </form>
-                            </div>
+
+                          
                         </div>
                     </div>
+
+
                     <!-- CHAAAAT -->
 
             </div>

@@ -317,8 +317,10 @@ l{
 }
 
 #allchat{
+    border:1px white solid;
+  border-radius:20px;
+  background-color: #301742;
     padding-top:1.5%;
-    background-color: red/*#fffcf0*/;
 }
 #usulist{
     padding: 1rem;
