@@ -225,40 +225,135 @@ if (isset($_SESSION['logado'])) {
                 </div>
 
 
-                <div class="ui comments">
 
-                    <br>
-                    <table class="ui selectable unstackable table">
-                        <thead>
-                        <tr>
-                            <th>Codigo Postagem</th>
-                            <th>Nome do usuário</th>
-                            <th>Texto Denúncia</th>
-                            <th>Data Denúncia</th>
-                            <th class="right aligned">#</th>
-                        </tr>
-                        </thead>
+                <!--FORUM----------------------------------------------------------------------------------------------------------------->
+                <div id="den_forum">
+                    <div class="ui comments">
 
-                        <tr>
-                            <?php
+                        <br>
+                        <table class="ui selectable unstackable table">
+                            <thead>
+                            <tr>
+                                <th>Codigo postagem</th>
+                                <th>Nome do usuário</th>
+                                <th>Postagem denunciada</th>
+                                <th>Texto denúncia</th>
+                                <th>Data denúncia</th>
+                                <th class="right aligned">#</th>
+                            </tr>
+                            </thead>
 
-                            $b = new CrudDenuncias();
-                            $denuncias = $b->getDenunciasForum();
-print_r($denuncias);
-                            foreach($denuncias as $denuncia): ?>
-                            <td><?= $denuncia['cod_postagem'] ?></td>
-                            <td><?= $b->getUsuarioDenunciaForum($denuncia['cod_den_forum']) ?></td>
-                            <td><?= $denuncia['tex_den_f'] ?></td>
-                            <td><?= $denuncia['data_hora'] ?></td>
+                            <tr>
+                                <?php
 
-                            <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
-                        </tr>
-                        <?php endforeach; ?>
+                                $b = new CrudDenuncias();
+                                $denuncias = $b->getDenunciasForum();
+
+                                foreach($denuncias as $denuncia): ?>
+                                <td><?= $denuncia['cod_postagem'] ?></td>
+                                <td><?= $b->getUsuarioDenunciaForum($denuncia['cod_den_forum']) ?></td>
+                                <td><?= $b->getPostagemDenForum($denuncia['cod_postagem']) ?></td>
+                                <td><?= $denuncia['tex_den_f'] ?></td>
+                                <td><?= $denuncia['data_hora'] ?></td>
+
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
+                            </tr>
+                            <?php endforeach; ?>
 
 
-                    </table>
+                        </table>
 
+                    </div>
                 </div>
+                <!------------------------------------------------------------------------------------------------------------------------------>
+
+
+
+                <!--CHAT----------------------------------------------------------------------------------------------------------------->
+                <div id="den_chat">
+                    <div class="ui comments">
+
+                        <br>
+                        <table class="ui selectable unstackable table">
+                            <thead>
+                            <tr>
+                                <th>Codigo mensagem</th>
+                                <th>Nome do usuário</th>
+                                <th>Mensagem denunciada</th>
+                                <th>Texto denúncia</th>
+                                <th>Data Denúncia</th>
+                                <th class="right aligned">#</th>
+                            </tr>
+                            </thead>
+
+                            <tr>
+                                <?php
+
+                                $b = new CrudDenuncias();
+                                $denuncias = $b->getDenunciasChat();
+
+                                foreach($denuncias as $denuncia): ?>
+                                <td><?= $denuncia['conversa_cod_mensagem'] ?></td>
+                                <td><?= $b->getUsuarioDenunciaChat($denuncia['cod_den_chat']) ?></td>
+                                <td><?= $b->getMensagemDenChat($denuncia['conversa_cod_mensagem']) ?></td>
+                                <td><?= $denuncia['texto_den_chat'] ?></td>
+                                <td><?= $denuncia['dt_den_chat'] ?></td>
+
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
+                            </tr>
+                            <?php endforeach; ?>
+
+
+                        </table>
+
+                    </div>
+                </div>
+                <!------------------------------------------------------------------------------------------------------------------------------>
+
+
+                <!--COMENTARIO----------------------------------------------------------------------------------------------------------------->
+                <div id="den_forum">
+                    <div class="ui comments">
+
+                        <br>
+                        <table class="ui selectable unstackable table">
+                            <thead>
+                            <tr>
+                                <th>Codigo Comentario</th>
+                                <th>Nome do usuário</th>
+                                <th>Postagem</th>
+                                <th>Comentario denunciado</th>
+                                <th>Texto denúncia</th>
+                                <th>Data Denúncia</th>
+                                <th class="right aligned">#</th>
+                            </tr>
+                            </thead>
+
+                            <tr>
+                                <?php
+
+                                $b = new CrudDenuncias();
+                                $denuncias = $b->getDenunciasComentario();
+
+                                foreach($denuncias as $denuncia): ?>
+                                <td><?= $denuncia['cod_den_coment'] ?></td>
+                                <td><?= $b->getUsuarioDenunciaComentario($denuncia['cod_den_coment']) ?></td>
+                                <td><?= $b->getPostagemDenForumFromComent($denuncia['']) ?></td>
+                                <td><?= $b->getComentarioDenComent($denuncia['']) ?></td>
+                                <td><?= $denuncia['texto_den_chat'] ?></td>
+                                <td><?= $denuncia['dt_den_chat'] ?></td>
+
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
+                            </tr>
+                            <?php endforeach; ?>
+
+
+                        </table>
+
+                    </div>
+                </div>
+                <!------------------------------------------------------------------------------------------------------------------------------>
+
 
 
 

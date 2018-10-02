@@ -89,20 +89,20 @@ class CrudDenuncias
     // GET USUARIOS DENUNCIAS -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public function getUsuarioDenunciaForum($cod_denuncia){
 
-        $sql = "SELECT nome FROM usuario, den_forum where cod_usuario = usuario_cod_usuario and cod_den_forum = ".$cod_denuncia;
+        $sql = "SELECT nome FROM usuario, den_forum where usuario.cod_usuario = den_forum.cod_usuario and cod_den_forum =".$cod_denuncia;
         $resultado = $this->conexao->query($sql);
 
         $usuDenForum = $resultado->fetch(PDO::FETCH_ASSOC);
-        return $usuDenForum;
+        return $usuDenForum['nome'];
     }
 
     public function getUsuarioDenunciaChat($cod_denuncia){
 
-        $sql = "SELECT nome FROM usuario, den_chat where cod_usuario = usuario_cod_usuario and cod_den_chat = ".$cod_denuncia;
+        $sql = "SELECT nome FROM usuario, den_chat where usuario.cod_usuario = den_chat.cod_usuario and cod_den_chat =".$cod_denuncia;
         $resultado = $this->conexao->query($sql);
 
         $usuDenChat = $resultado->fetch(PDO::FETCH_ASSOC);
-        return $usuDenChat;
+        return $usuDenChat['nome'];
     }
 
     public function getUsuarioDenunciaComentario($cod_denuncia){
@@ -111,7 +111,7 @@ class CrudDenuncias
         $resultado = $this->conexao->query($sql);
 
         $usuDenComent = $resultado->fetch(PDO::FETCH_ASSOC);
-        return $usuDenComent;
+        return $usuDenComent['nome'];
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -123,6 +123,37 @@ class CrudDenuncias
         $mensagem = $resultado->fetch(PDO::FETCH_ASSOC);
         return $mensagem['texto'];
     }
+
+    public function getPostagemDenForum(int $cod_postagem){
+
+        $sql = "SELECT texto_postagem FROM postagens_forum WHERE cod_postagem = ".$cod_postagem;
+        $resultado = $this->conexao->query($sql);
+
+        $mensagem = $resultado->fetch(PDO::FETCH_ASSOC);
+        return $mensagem['texto_postagem'];
+    }
+
+    public function getComentarioDenComent(int $cod_comentario){
+
+        $sql = "SELECT texto_comentario FROM comentario WHERE cod_comentario = ".$cod_comentario;
+        $resultado = $this->conexao->query($sql);
+
+        $mensagem = $resultado->fetch(PDO::FETCH_ASSOC);
+        return $mensagem['texto_comentario'];
+    }
+
+
+//    ARRUMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR-------------------------------------------------------------------------------------------
+    public function getPostagemDenForumFromComent(int $cod_comentario){
+
+        $sql = "SELECT texto_postagem FROM postagens_forum, comentario WHERE cod_postagem = postagem_cod_postagem AND cod_comentario ".$cod_comentario;
+        $resultado = $this->conexao->query($sql);
+
+        $mensagem = $resultado->fetch(PDO::FETCH_ASSOC);
+        return $mensagem['texto_postagem'];
+    }
+//    ---------------------------------------------------------------------------------------------------------
+
 
 
 

@@ -68,7 +68,7 @@ if (!isset($_SESSION['logado'])) {
             width: 100%;
 
             background-color: white;
-            height: 550px;
+            height: 500px;
             overflow: auto;
         }
 
@@ -111,7 +111,8 @@ if (!isset($_SESSION['logado'])) {
             background-color: #4C2C63;
             padding-top:1px;
             padding-bottom:1px;
-            border:black 1px ridge;
+            border-color: grey;
+            border-radius: 2px;
         }
 
         /*////////////////////////////////////////////*/
@@ -238,7 +239,6 @@ if (!isset($_SESSION['logado'])) {
 
             .column {
                 background: white;
-                padding:0 6px;
             }
         }
 
@@ -250,18 +250,6 @@ if (!isset($_SESSION['logado'])) {
         #psicologos{
             text-align: intial;
         }
-        #coluna{
-           width:61%;
-           margin: 0px;
-           padding: 0px;
-        }
-        #formulario_mensagem{
-            padding: 0 1%;
-            height: 100%;
-            
-        }
-
-
 
 
 
@@ -501,7 +489,7 @@ if (!isset($_SESSION['logado'])) {
                             </table>
                         </div></div>
 
-                    <div class=" column" id="coluna">
+                    <div class=" column">
                         <!-- CHAAAAT -->
 
                         <div class="ui container" id="chat">
@@ -549,21 +537,16 @@ if (!isset($_SESSION['logado'])) {
 
                             </div>
 
-                          
+                            <br>
 
                             <div class="ui header" id="formulario_mensagem">
                                 <form class="ui form" method="post" action="../../controller/acoesChat.php?acao=enviar">
 
-                                
-                                    <div class="ui fluid action input">
-                                        <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
-                                              <input type="text" name="mensagem">
-                                              <button class="ui simple green icon button"" type="submit" name="Enviar" <?php if(!isset($_GET['usuario2'])){echo "disabled";} ?> >
-                                                enviar
-                                                <i class="send icon"></i>
-
-                                              </button>
-                                          </div>
+                                    <div class="ui input">
+                                        <input type="text" name="mensagem">
+                                    </div>
+                                    <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
+                                    <input class="ui simple green button" type="submit" name="Enviar" <?php if(!isset($_GET['usuario2'])){echo "disabled";} ?> >
 
 
                                 </form>

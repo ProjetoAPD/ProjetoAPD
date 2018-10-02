@@ -70,6 +70,30 @@ if (isset($_GET['acao'])){
 
             break;
 
+        case "deleteDenuncia":
+
+            $cod_usuario = $_GET['cod_usuario'];
+
+            //deleta comentarios do usuario
+            $a = new CrudComentario();
+            $a->deleteComentarioUsu($cod_usuario);
+
+            //deleta postagens do usuario
+            $b = new CrudPostagem();
+            $b->deletePostagemUsu($cod_usuario);
+
+            //deleta mensagens do usuario
+            $c = new CrudMensagem();
+            $c->deleteMesagensUsu($cod_usuario);
+
+            //deleta o usuario
+            $c1 = new CrudUsuario();
+            $c1->deleteUsuario($cod_usuario);
+
+            header('Location: ../view/telas/denuncias.php');
+
+            break;
+
         case "login":
             $user = new Usuario(null, $_POST['email'], $_POST['senha']);
             $c1 = new CrudUsuario();
