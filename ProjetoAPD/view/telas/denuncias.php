@@ -225,9 +225,14 @@ if (isset($_SESSION['logado'])) {
                 </div>
 
 
+                <div class="ui center aligned container">
+
 
                 <!--FORUM----------------------------------------------------------------------------------------------------------------->
                 <div id="den_forum">
+                    <br>
+                    <br>
+                    <h2>Denúncias fórum</h2>
                     <div class="ui comments">
 
                         <br>
@@ -271,6 +276,9 @@ if (isset($_SESSION['logado'])) {
 
                 <!--CHAT----------------------------------------------------------------------------------------------------------------->
                 <div id="den_chat">
+                    <br>
+                    <br>
+                    <h2>Denúncias chat</h2>
                     <div class="ui comments">
 
                         <br>
@@ -315,6 +323,9 @@ if (isset($_SESSION['logado'])) {
 
                 <!--COMENTARIO----------------------------------------------------------------------------------------------------------------->
                 <div id="den_coment">
+                    <br>
+                    <br>
+                    <h2>Denúncias chat</h2>
                     <div class="ui comments">
 
                         <br>
@@ -340,7 +351,7 @@ if (isset($_SESSION['logado'])) {
                                 foreach($denuncias as $denuncia): ?>
                                 <td><?= $denuncia['cod_den_coment'] ?></td>
                                 <td><?= $b->getUsuarioDenunciaComentario($denuncia['cod_den_coment']) ?></td>
-                                <td><?= "arrumar essa merda"//$b->getPostagemDenForumFromComent($denuncia['']) ?></td>
+                                <td><?= $b->getPostagemDenForumFromComent($denuncia['cod_comentario']) ?></td>
                                 <td><?= $b->getComentarioDenComent($denuncia['cod_comentario']) ?></td>
                                 <td><?= $denuncia['tex_den_c'] ?></td>
                                 <td><?= $denuncia['data_hora'] ?></td>
@@ -360,7 +371,7 @@ if (isset($_SESSION['logado'])) {
 
 
 
-
+                </div>
             </div>
         </div>
         </body>

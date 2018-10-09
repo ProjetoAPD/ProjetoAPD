@@ -146,7 +146,7 @@ class CrudDenuncias
 //    ARRUMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR-------------------------------------------------------------------------------------------
     public function getPostagemDenForumFromComent(int $cod_comentario){
 
-        $sql = "SELECT texto_postagem FROM postagens_forum, comentario WHERE cod_postagem = postagem_cod_postagem AND cod_comentario ".$cod_comentario;
+        $sql = "SELECT texto_postagem FROM postagens_forum, comentario WHERE postagens_forum.cod_postagem = comentario.postagem_cod_postagem AND comentario.cod_comentario =".$cod_comentario;
         $resultado = $this->conexao->query($sql);
 
         $mensagem = $resultado->fetch(PDO::FETCH_ASSOC);
