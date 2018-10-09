@@ -318,7 +318,11 @@ if (!isset($_SESSION['logado'])) {
             });
         });
 
-
+    </script>
+    <script>
+        <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] = "denunciado"){?>
+            alert('Sua denúncia foi registrada');
+        <?php } ?>
     </script>
 
 </head>
@@ -538,10 +542,10 @@ if (!isset($_SESSION['logado'])) {
 
                                             <p id="recebida">
                                                 <?= $mensagem['texto'] ?>
-                                                
-                                                <button class="negative mini circular ui icon button" href="../../controller/acoesChat.php?acao=denuncia&cod_mensagem=<?=$mensagem['cod_mensagem']?>&cod_usuario=<?=$usuario2?> ">
+
+                                                <a href="../../controller/acoesChat.php?acao=denuncia&cod_mensagem=<?=$mensagem['cod_mensagem']?>&cod_usuario=<?=$usuario2?> "><button class="negative mini circular ui icon button">
                                                      <i class="exclamation small triangle icon"></i>
-                                                   </button>
+                                                   </button></a>
                                                   
 
                                             </p>

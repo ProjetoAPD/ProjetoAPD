@@ -107,7 +107,7 @@ class CrudDenuncias
 
     public function getUsuarioDenunciaComentario($cod_denuncia){
 
-        $sql = "SELECT nome FROM usuario, den_coment where cod_usuario = usuario_cod_usuario and cod_den_coment = ".$cod_denuncia;
+        $sql = "SELECT nome FROM usuario, den_coment where usuario.cod_usuario = den_coment.cod_usuario and cod_den_coment =".$cod_denuncia;
         $resultado = $this->conexao->query($sql);
 
         $usuDenComent = $resultado->fetch(PDO::FETCH_ASSOC);

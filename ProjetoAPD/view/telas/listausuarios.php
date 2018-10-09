@@ -238,6 +238,7 @@ if (isset($_SESSION['logado'])) {
                         <p>Olá <?= $user->getNome() ?> </p>
 
                         <?php if ($user->getCodTipoUsuario() == 1) { ?>
+                            <a class="ui inverted button" href="denuncias.php">Lista de denúncias</a>
                             <a class="ui inverted button" href="listausuarios.php">Lista de usuários</a>
                         <?php } ?>
 

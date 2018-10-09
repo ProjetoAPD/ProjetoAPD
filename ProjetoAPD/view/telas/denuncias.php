@@ -280,7 +280,7 @@ if (isset($_SESSION['logado'])) {
                                 <th>Codigo mensagem</th>
                                 <th>Nome do usuário</th>
                                 <th>Mensagem denunciada</th>
-                                <th>Texto denúncia</th>
+<!--                                <th>Texto denúncia</th>-->
                                 <th>Data Denúncia</th>
                                 <th class="right aligned">#</th>
                             </tr>
@@ -296,7 +296,7 @@ if (isset($_SESSION['logado'])) {
                                 <td><?= $denuncia['conversa_cod_mensagem'] ?></td>
                                 <td><?= $b->getUsuarioDenunciaChat($denuncia['cod_den_chat']) ?></td>
                                 <td><?= $b->getMensagemDenChat($denuncia['conversa_cod_mensagem']) ?></td>
-                                <td><?= $denuncia['texto_den_chat'] ?></td>
+<!--                                <td>--><?php//= $denuncia['mensagem_den_chat'] ?><!--</td>-->
                                 <td><?= $denuncia['dt_den_chat'] ?></td>
 
                                 <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
@@ -311,8 +311,10 @@ if (isset($_SESSION['logado'])) {
                 <!------------------------------------------------------------------------------------------------------------------------------>
 
 
+
+
                 <!--COMENTARIO----------------------------------------------------------------------------------------------------------------->
-                <div id="den_forum">
+                <div id="den_coment">
                     <div class="ui comments">
 
                         <br>
@@ -338,10 +340,10 @@ if (isset($_SESSION['logado'])) {
                                 foreach($denuncias as $denuncia): ?>
                                 <td><?= $denuncia['cod_den_coment'] ?></td>
                                 <td><?= $b->getUsuarioDenunciaComentario($denuncia['cod_den_coment']) ?></td>
-                                <td><?= $b->getPostagemDenForumFromComent($denuncia['']) ?></td>
-                                <td><?= $b->getComentarioDenComent($denuncia['']) ?></td>
-                                <td><?= $denuncia['texto_den_chat'] ?></td>
-                                <td><?= $denuncia['dt_den_chat'] ?></td>
+                                <td><?= "arrumar essa merda"//$b->getPostagemDenForumFromComent($denuncia['']) ?></td>
+                                <td><?= $b->getComentarioDenComent($denuncia['cod_comentario']) ?></td>
+                                <td><?= $denuncia['tex_den_c'] ?></td>
+                                <td><?= $denuncia['data_hora'] ?></td>
 
                                 <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
                             </tr>

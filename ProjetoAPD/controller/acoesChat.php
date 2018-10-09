@@ -27,16 +27,16 @@ if (isset($_GET['acao'])){
 
         case "denuncia":
 
-            $cod_mensagem = $_GET['cod_mensagem'];
-            $usuarioDenunciado = $_GET['cod_usuario'];
+           $cod_mensagem = $_GET['cod_mensagem'];
+           $usuarioDenunciado = $_GET['cod_usuario'];
 
             $a = new CrudDenuncias();
             $mensagem = $a->getMensagemDenChat($cod_mensagem);
 
-            $c1 = new Denuncia_chat($mensagem, $cod_mensagem, $usuarioDenunciado, null, null);
+            $c1 = new Denuncia_chat($mensagem, $cod_mensagem, $usuarioDenunciado);
             $a->insertDenunciaChat($c1);
 
-            header("Location: ../view/telas/chat.php?usuario2=$usuarioDenunciado");
+            header("Location: ../view/telas/chat.php?mensagem=denunciado&usuario2=$usuarioDenunciado");
 
             break;
     }
