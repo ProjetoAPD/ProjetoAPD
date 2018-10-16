@@ -68,8 +68,11 @@ class CrudUsuario
 
     public function insertUsuario(Usuario $usu)
     {
+        //BASE 64 CRIPTOGRAFIA
+        $senhaCrip = $usu->getSenha();
+        $senhaCrip = base64_encode($senhaCrip);
 
-        $sql = "INSERT INTO usuario (nome, email, senha, cod_tipo_usuario) VALUES ('" . $usu->getNome() . "','" . $usu->getEmail() . "','" . $usu->getSenha() . "','" . $usu->getCodTipoUsuario() . "')";
+        $sql = "INSERT INTO usuario (nome, email, senha, cod_tipo_usuario) VALUES ('" . $usu->getNome() . "','" . $usu->getEmail() . "','" . $senhaCrip . "','" . $usu->getCodTipoUsuario() . "')";
 
         try {
             $this->conexao->exec($sql);
@@ -109,7 +112,14 @@ class CrudUsuario
 
     public function loginUsuario(Usuario $user)
     {
-        $sql = $this->conexao->prepare("SELECT * FROM usuario WHERE email = '{$user->getEmail()}' AND senha = '{$user->getSenha()}'");
+        //CRIPTO BASE64
+        $senha = $user->getSenha();
+        $senhaCript = base64_encode($senha);
+
+        print_r($senhaCript);
+
+        $sql = $this->conexao->prepare("SELECT * FROM usuario WHERE email = '{$user->getEmail()}' AND senha = '{$senhaCript}'");
+
         $sql->execute();
         $count = $sql->rowCount();
 
@@ -120,10 +130,10 @@ class CrudUsuario
                 session_start();
 
                 $_SESSION['logado'] = 'sim';
-
                 $_SESSION['usuario'] = $usu['nome'];
                 $_SESSION['email'] = $usu['email'];
                 $_SESSION['senha'] = $usu['senha'];
+
                 $_SESSION['cod_tipo_usuario'] = $usu['cod_tipo_usuario'];
                 $_SESSION['cod_usuario'] = $usu['cod_usuario'];
 
