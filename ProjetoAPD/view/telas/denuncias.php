@@ -228,7 +228,8 @@ if (isset($_SESSION['logado'])) {
                 <div class="ui center aligned container">
 
 
-                <!--FORUM----------------------------------------------------------------------------------------------------------------->
+
+                        <!--FORUM----------------------------------------------------------------------------------------------------------------->
                 <div id="den_forum">
                     <br>
                     <br>
@@ -307,7 +308,7 @@ if (isset($_SESSION['logado'])) {
 <!--                                <td>--><?php//= $denuncia['mensagem_den_chat'] ?><!--</td>-->
                                 <td><?= $denuncia['dt_den_chat'] ?></td>
 
-                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
                             </tr>
                             <?php endforeach; ?>
 
@@ -356,7 +357,7 @@ if (isset($_SESSION['logado'])) {
                                 <td><?= $denuncia['tex_den_c'] ?></td>
                                 <td><?= $denuncia['data_hora'] ?></td>
 
-                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=delete&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
                             </tr>
                             <?php endforeach; ?>
 
