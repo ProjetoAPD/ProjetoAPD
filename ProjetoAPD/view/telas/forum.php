@@ -461,7 +461,7 @@ if (isset($_SESSION['logado'])) {
 
                                 <div class="date"><?= $comentario['dt_comentario'] ?></div>
 
-                                <button class="ui red basic cancel inverted " id="denComButton<?php echo $comentario['cod_comentario']?>">
+                                <button class="ui red basic cancel inverted  " id="denComButton<?php echo $comentario['cod_comentario']?>">
                                     <i class="remove icon"></i>
                                     denunciar
                                 </button>

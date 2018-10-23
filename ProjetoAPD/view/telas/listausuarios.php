@@ -258,7 +258,6 @@ if (isset($_SESSION['logado'])) {
                     <th>Codigo</th>
                     <th>Nome</th>
                     <th>Email</th>
-                    <th>Senha</th>
                     <th>Tipo usuario</th>
                     <th class="right aligned">#</th>
                 </tr>
@@ -269,7 +268,6 @@ if (isset($_SESSION['logado'])) {
                     <td><?= $usuario->getCodUsuario() ?></td>
                     <td><?= $usuario->getNome() ?></td>
                     <td><?= $usuario->getEmail() ?></td>
-                    <td><?= $usuario->getSenha() ?></td>
                     <td>
                         <?php if ($usuario->getCodTipoUsuario() == 2){
                             echo "Psicólogo";
