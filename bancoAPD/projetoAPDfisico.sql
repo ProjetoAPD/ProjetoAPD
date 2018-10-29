@@ -245,13 +245,13 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `nome`, `email`, `senha`, `cod_tipo_usuario`) VALUES
-(340, 'Leonardo Edenir', 'leonardo@edenir', 'leonardo', 1),
-(341, 'Leonardo Adriano', 'leonardo@adriano', 'leonardo', 2),
-(343, 'Guilherme Boing', 'guilherme@boing', 'guilherme', 3),
-(345, 'Florence Doyle', 'florence@doyle', 'florence', 2),
-(346, 'Riley English', 'riley@english', 'riley', 3),
-(347, 'Latoria Maxwell', 'latoria@maxwell', 'latoria', 3),
-(349, 'pc@pc', 'PC@PC', 'pc', 3);
+(340, 'Leonardo Edenir', 'leonardo@edenir', 'bGVvbmFyZG8=', 1),
+(341, 'Leonardo Adriano', 'leonardo@adriano', 'bGVvbmFyZG8=', 2),
+(343, 'Guilherme Boing', 'guilherme@boing', 'Z3VpbGhlcm1lCg==', 3),
+(345, 'Florence Doyle', 'florence@doyle', 'ZmxvcmVuY2U=', 2),
+(346, 'Riley English', 'riley@english', 'cmlsZXk=', 3),
+(347, 'Latoria Maxwell', 'latoria@maxwell', 'bGF0b3JpYQ==', 3),
+(349, 'pc@pc', 'PC@PC', 'cGM=', 3);
 
 --
 -- Índices de tabelas apagadas
