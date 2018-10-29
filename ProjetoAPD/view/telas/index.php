@@ -183,6 +183,7 @@ if (isset($_SESSION['logado'])) {
 //    }
 //}   ?>
 
+
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
     <a class="active item" href="index.php">Home</a>
@@ -192,7 +193,6 @@ if (isset($_SESSION['logado'])) {
 
     <a class="item" href="cadastro.php">Cadastre-se</a>
 </div>
-
 
 <!-- Page Contents -->
 <div class="pusher">

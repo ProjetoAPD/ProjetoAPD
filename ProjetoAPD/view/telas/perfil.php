@@ -208,40 +208,53 @@
 
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
-  <a class="active item" href="index.php">Home</a>
-  <a class="item" href="forum.php">Fórum</a>
-  <a class="item" href="login.php">Login</a>
-  
-  <a class="item" href="cadastro.php">Cadastre-se</a>
+    <a class="item" href="index.php">Home</a>
+    <a class="item" href="chat.php">Chat</a>
+    <a class="item" href="forum.php">Fórum</a>
+    <a class="item" href="login.php">Login</a>
+
+    <a class="item" href="cadastro.php">Cadastre-se</a>
 </div>
 
 
 <!-- Page Contents -->
-<div class="pusher grid">
-  <div class="ui inverted vertical masthead center aligned segment">
+<div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment">
 
-	    <div class="ui container">
-	      <div class="ui large secondary inverted pointing menu">
-	        <a class="toc item">
-	          <i class="sidebar icon"></i>
-	        </a>
-	        <a class="active item" href="index.php">Home</a>
-	        <a class="item" href="forum.php">Fórum</a>
-	        <a class="item" href="chat.php">Chat</a>
-	        <a class="item">
-	        <div class="right item">
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <a class="toc item">
+                    <i class="sidebar icon"></i>
+                </a>
+                <a class="item" href="index.php">Home</a>
+                <a class="item" href="forum.php">Fórum</a>
+                <a class="item" href="chat.php">Chat</a>
+
+                <?php if (!isset($_SESSION['logado'])) { ?>
+
+                    <div class="right item">
+                        <a class="ui inverted button" href="login.php">Login</a>
+                        <a class="ui inverted button" href="cadastro.php">Cadastre-se</a>
+                    </div>
+
+                <?php } else { ?>
+
+                    <div class="right item">
+                        <h4 id="textin">Olá <?= $user->getNome() ?></h4>
+
+                        <?php if ($user->getCodTipoUsuario() == 1) { ?>
+                            <a class="ui inverted button" href="listausuarios.php">Lista de usuários</a>
+                        <?php } ?>
+
+                        <a class="ui inverted button" href="perfil.php">Minha conta</a>
+                        <a class="ui inverted button" href="../../controller/acoesUsu.php?acao=sair">Sair</a>
+                    </div>
+
+                <?php } ?>
 
 
-                <div class="right item">
-                    <p>Olá <?= $user->getNome() ?></p>
-                    <a class="ui inverted button" href="perfil.php">Minha conta</a>
-                    <a class="ui inverted button" href="../../controller/acoesUsu.php?acao=sair">Sair</a>
-                </div>
-
-
-	        </div>
-	        </a>
-	      </div>
+            </div>
+        </div>
 
 
 
@@ -263,7 +276,7 @@
 						</div>
 
                         <div class="ui segment" id="ui_segment_perfil">
-							<i class="user outline icon">Tipo de usuario</i>
+							<i class="user outline icon">Tipo_usuario</i>
 							<h2 id="texto_usuario">
                                 <?php if ($user->getCodTipoUsuario() == 2){
 							        echo "Psicólogo";
@@ -279,11 +292,7 @@
 
 
 
-						<div class="ui segment" id="ui_segment_perfil">
-							<i class="lock icon">Senha</i>
-								<h2 id="texto_senha" type="password"><?= $user->getSenha(); ?></h2>
 
-							</div>
                             <br>
 							<div class="ui center aligned two column grid" id="botoes">
 								<div class="">

@@ -205,7 +205,7 @@ if (isset($_SESSION['logado'])) {
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu left">
     <a class="item" href="index.php">Home</a>
-    <a class="active item" href="forum.php">Fórum</a>
+    <a class="item" href="forum.php">Fórum</a>
     <a class="item" href="chat.php">Chat</a>
     <a class="item" href="login.php">Login</a>
     <a class="item" href="cadastro.php">Cadastre-se</a>
@@ -222,7 +222,7 @@ if (isset($_SESSION['logado'])) {
                     <i class="sidebar icon"></i>
                 </a>
                 <a class="item" href="index.php">Home</a>
-                <a class="active item" href="forum.php">Fórum</a>
+                <a class="item" href="forum.php">Fórum</a>
                 <a class="item" href="chat.php">Chat</a>
 
                 <?php if (!isset($_SESSION['logado'])){ ?>
@@ -235,7 +235,7 @@ if (isset($_SESSION['logado'])) {
                 <?php } else { ?>
 
                     <div class="right item">
-                        <p>Olá <?= $user->getNome() ?> </p>
+                        <h4 id="textin">Olá <?= $user->getNome() ?></h4>
 
                         <?php if ($user->getCodTipoUsuario() == 1) { ?>
                             <a class="ui inverted button" href="denuncias.php">Lista de denúncias</a>

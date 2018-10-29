@@ -279,7 +279,7 @@ if (isset($_SESSION['logado'])) {
 
 
                     <div class="right item">
-                        <p>Olá <?= $user->getNome() ?> </p>
+                        <h4 id="textin">Olá <?= $user->getNome() ?></h4>
 
                         <?php if ($user->getCodTipoUsuario() == 1) { ?>
                             <a class="ui inverted button" href="listausuarios.php">Lista de usuários</a>

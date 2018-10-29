@@ -1,8 +1,13 @@
 <?php
 
-    require_once("../../model/Usuario.php");
-    $usu = new Usuario();
-    session_start();
+session_start();
+
+require_once("../../model/Usuario.php");
+require_once("../../model/CrudUsuario.php");
+$c = new CrudUsuario();
+$user = $c->getUsuario($_SESSION['cod_usuario']);
+
+
 
 ?>
 
@@ -201,7 +206,8 @@
 
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
-    <a class="active item" href="index.php">Home</a>
+    <a class="item" href="index.php">Home</a>
+    <a class="item" href="chat.php">Chat</a>
     <a class="item" href="forum.php">Fórum</a>
     <a class="item" href="login.php">Login</a>
 
@@ -218,15 +224,35 @@
                 <a class="toc item">
                     <i class="sidebar icon"></i>
                 </a>
-                <a class="active item" href="index.php">Home</a>
+                <a class="item" href="index.php">Home</a>
                 <a class="item" href="forum.php">Fórum</a>
                 <a class="item" href="chat.php">Chat</a>
-                <a class="item">
+
+                <?php if (!isset($_SESSION['logado'])) { ?>
+
                     <div class="right item">
-                        <a class="ui inverted button" href="perfil.php">Minha conta</a>
+                        <a class="ui inverted button" href="login.php">Login</a>
+                        <a class="ui inverted button" href="cadastro.php">Cadastre-se</a>
                     </div>
-                </a>
+
+                <?php } else { ?>
+
+                    <div class="right item">
+                        <h4 id="textin">Olá <?= $user->getNome() ?></h4>
+
+                        <?php if ($user->getCodTipoUsuario() == 1) { ?>
+                            <a class="ui inverted button" href="listausuarios.php">Lista de usuários</a>
+                        <?php } ?>
+
+                        <a class="ui inverted button" href="perfil.php">Minha conta</a>
+                        <a class="ui inverted button" href="../../controller/acoesUsu.php?acao=sair">Sair</a>
+                    </div>
+
+                <?php } ?>
+
+
             </div>
+        </div>
 
 
             <!-- corpo do formulario -->

@@ -88,7 +88,10 @@ class CrudUsuario
 
         $userOld = $this->getUsuario($usu->getCodUsuario());
 
-        $sql = "UPDATE usuario SET cod_usuario = '{$userOld->getCodUsuario()}', cod_tipo_usuario = '{$userOld->getCodTipoUsuario()}', nome = '{$usu->getNome()}', email = '{$userOld->getEmail()}' , senha = '{$usu->getSenha()}' WHERE cod_usuario ='{$usu->getCodUsuario()}'";
+        $senha = $usu->getSenha();
+        $senhaCript = base64_encode($senha);
+
+        $sql = "UPDATE usuario SET cod_usuario = '{$userOld->getCodUsuario()}', cod_tipo_usuario = '{$userOld->getCodTipoUsuario()}', nome = '{$usu->getNome()}', email = '{$userOld->getEmail()}' , senha = '{$senhaCript}' WHERE cod_usuario ='{$usu->getCodUsuario()}'";
 
         try {
             $this->conexao->exec($sql);
