@@ -316,7 +316,37 @@ if (!isset($_SESSION['logado'])) {
 
 
             });
+
+
         });
+            function getUrlVars()
+            {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for(var i = 0; i < hashes.length; i++)
+                {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            }
+
+
+            window.setInterval(carrega, 1000);
+            var usuario2 = '';
+            function carrega(usuario2) {
+                usuario2 = getUrlVars()["usuario2"];
+                $.get('mensagens.php',
+                    {
+                        usuario2 : usuario2
+                    }, function(data){
+                        $('#mensagens').html(data);
+                        $('#usuario2').val(usuario2);
+                    });
+            }
+
+
 
     </script>
     <script>
@@ -429,8 +459,8 @@ if (!isset($_SESSION['logado'])) {
                                         <div class="column">
                                             <div class="ui selectable horizontal segments">
 
-                                                    <div class="column ">
-                                                        <a href="?usuario2=<?= $usuario->getCodUsuario() ?>"><button class="ui basic red button">
+                                                    <div class="column">
+                                                        <a href="?usuario2=<?= $usuario->getCodUsuario() ?>" id="usuario2"><button class="ui basic red button">
                                                             <i class="icon red user"></i>
                                                         </button></a>
                                                     </div>
@@ -510,51 +540,8 @@ if (!isset($_SESSION['logado'])) {
 
                         <div class="ui container" id="chat">
                             <div class="ui comments" id="mensagens" style="border-radius: 4px;">
-                                <?php
 
-                                if (isset($_GET['usuario2'])){
-                                    $usuario1 = $_SESSION['cod_usuario'];
-                                    $usuario2 = $_GET['usuario2'];
-
-                                    $c1 = new CrudMensagem();
-                                    $mensagens = $c1->getMensagens($usuario1, $usuario2);
-
-                                    $c2 = new CrudUsuario();
-                                    $usuarioConversa = $c2->getUsuario($usuario2);
-                                    ?> <div class="ui horizontal divider">
-                                        <p id="nome" class="middle aligned"> <?= $usuarioConversa->getNome()?>
-                                        </p>
-
-                                    </div>
-                                    <hr>
-
-                                    <?php
-                                    foreach ($mensagens as $mensagem):
-                                        if ($mensagem['cod_usuario1'] == $usuario1){ ?>
-
-                                            <p id="enviada">
-                                               
-                                                    <?= $mensagem['texto'] ?>
-                                                
-                                            </p>
-
-                                        <?php }else{ ?>
-
-                                            <p id="recebida">
-                                                <?= $mensagem['texto'] ?>
-
-                                                <a href="../../controller/acoesChat.php?acao=denuncia&cod_mensagem=<?=$mensagem['cod_mensagem']?>&cod_usuario=<?=$usuario2?> "><button class="negative mini circular ui icon button">
-                                                     <i class="exclamation small triangle icon"></i>
-                                                   </button></a>
-                                                  
-
-                                            </p>
-
-
-
-                                        <?php } ?>
-
-                                    <?php endforeach; }?>
+                                <?php include_once('mensagens.php'); ?>
 
 
                             </div>
@@ -562,7 +549,7 @@ if (!isset($_SESSION['logado'])) {
 
                                 
                                     <div class="ui fluid action input">
-                                        <input type="hidden" name="usuario2" value=" <?= $_GET['usuario2'] ?> ">
+                                        <input type="hidden" name="usuario2" value="<?= $_GET['usuario2'] ?> ">
                                               <input type="text" name="mensagem">
                                               <button class="ui simple green icon button"" type="submit" name="Enviar" <?php if(!isset($_GET['usuario2'])){echo "disabled";} ?> >
                                                 enviar
@@ -572,7 +559,7 @@ if (!isset($_SESSION['logado'])) {
                                           </div>
 
 
-                                </form>
+                            </form>
 
                           
                         </div>
