@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION['cod_usuario'])) {
+    session_start();
+} 
 require_once("../../model/Usuario.php");
 require_once("../../model/CrudUsuario.php");
 require_once("../../model/CrudMensagem.php");
