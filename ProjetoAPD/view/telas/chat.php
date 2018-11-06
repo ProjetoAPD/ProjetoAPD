@@ -68,7 +68,7 @@ if (!isset($_SESSION['logado'])) {
             width: 100%;
             background-color: white;
             height: 560px;
-        
+            overflow: auto;        
         }
 
 
@@ -333,7 +333,7 @@ if (!isset($_SESSION['logado'])) {
             }
 
 
-            window.setInterval(carrega, 100);
+            window.setInterval(carrega, 10);
             var usuario2 = '';
             function carrega(usuario2) {
                 usuario2 = getUrlVars()["usuario2"];
@@ -563,12 +563,15 @@ if (!isset($_SESSION['logado'])) {
 
                           
                         </div>
+
                     </div>
+
 
 
                     <!-- CHAAAAT -->
 
             </div>
+
 
 
         </div>

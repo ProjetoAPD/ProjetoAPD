@@ -18,7 +18,7 @@ function mensagens($id_usuario2){
 
         $c2 = new CrudUsuario();
         $usuarioConversa = $c2->getUsuario($usuario2);
-        $msg = "<div class=\"ui horizontal divider\">
+        $msg = "<div class=\"ui horizontal divider\" id=\"chatscroll\">
             <p id=\"nome\" class=\"middle aligned\"> ".$usuarioConversa->getNome()."
             </p>
     
