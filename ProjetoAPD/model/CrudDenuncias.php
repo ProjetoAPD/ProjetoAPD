@@ -159,7 +159,36 @@ class CrudDenuncias
 
     //DELETE DENUNCIAS -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    public function deleteDenunciaPostagem($cod_denuncia){
 
+        $sql = "DELETE FROM den_forum WHERE cod_den_forum = ".$cod_denuncia;
+        try{
+            $this->conexao->exec($sql);
+        }catch (PDOException $e){
+            return $e;
+        }
+    }
+
+    public function deleteDenunciaComent($cod_denuncia){
+
+        $sql = "DELETE FROM den_coment WHERE cod_den_coment = ".$cod_denuncia;
+
+        try{
+            $this->conexao->exec($sql);
+        }catch (PDOException $e){
+            return $e;
+        }
+    }
+
+    public function deleteDenunciaChat($cod_denuncia){
+
+        $sql = "DELETE FROM den_chat WHERE cod_den_chat = ".$cod_denuncia;
+        try{
+            $this->conexao->exec($sql);
+        }catch (PDOException $e){
+            return $e;
+        }
+    }
 
 
 

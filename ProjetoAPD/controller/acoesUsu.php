@@ -70,7 +70,7 @@ if (isset($_GET['acao'])){
 
             break;
 
-        case "deleteDenuncia":
+        case "deleteUsuDenuncia":
 
             $cod_usuario = $_GET['cod_usuario'];
 

@@ -4,7 +4,7 @@ class DBConnection {
     const HOST      = "localhost";
     const NOMEBANCO = "projetoapd";
     const USUARIO   = "root";
-    const SENHA     = "root";
+    const SENHA     = "";
 
     //!!!Substitua daqui para baixo
     public static $conexao = null;

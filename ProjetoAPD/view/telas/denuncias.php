@@ -171,6 +171,11 @@ if (isset($_SESSION['logado'])) {
                     })
                 ;
             </script>
+            <script>
+                <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] = "denPostagemDelete"){?>
+                alert('Denúncia deletada com sucesso');
+                <?php } ?>
+            </script>
 
         </head>
         <body>
@@ -262,7 +267,8 @@ if (isset($_SESSION['logado'])) {
                                 <td><?= $denuncia['tex_den_f'] ?></td>
                                 <td><?= $denuncia['data_hora'] ?></td>
 
-                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteUsuDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Banir usuário</a> |
+                                    <a href="../../controller/acoesDen.php?acao=deleteDenunciaPostagem&cod_denuncia=<?= $denuncia['cod_den_forum'] ?>">Excluir</a></td>
                             </tr>
                             <?php endforeach; ?>
 
@@ -308,7 +314,9 @@ if (isset($_SESSION['logado'])) {
 <!--                                <td>--><?php//= $denuncia['mensagem_den_chat'] ?><!--</td>-->
                                 <td><?= $denuncia['dt_den_chat'] ?></td>
 
-                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteUsuDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Banir usuário</a> |
+                                    <a href="../../controller/acoesDen.php?acao=deleteDenunciaChat&cod_denuncia=<?= $denuncia['cod_den_chat'] ?>">Excluir</a></td>
+
                             </tr>
                             <?php endforeach; ?>
 
@@ -326,7 +334,7 @@ if (isset($_SESSION['logado'])) {
                 <div id="den_coment">
                     <br>
                     <br>
-                    <h2>Denúncias chat</h2>
+                    <h2>Denúncias comentários</h2>
                     <div class="ui comments">
 
                         <br>
@@ -357,7 +365,9 @@ if (isset($_SESSION['logado'])) {
                                 <td><?= $denuncia['tex_den_c'] ?></td>
                                 <td><?= $denuncia['data_hora'] ?></td>
 
-                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Excluir</a></td>
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteUsuDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Banir usuário</a> |
+                                    <a href="../../controller/acoesDen.php?acao=deleteDenunciaComent&cod_denuncia=<?= $denuncia['cod_den_coment'] ?>">Excluir</a></td>
+
                             </tr>
                             <?php endforeach; ?>
 
