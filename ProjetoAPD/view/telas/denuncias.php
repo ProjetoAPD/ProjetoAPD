@@ -174,7 +174,10 @@ if (isset($_SESSION['logado'])) {
             <script>
                 <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] = "denPostagemDelete"){?>
                 alert('Denúncia deletada com sucesso');
+                <?php }elseif(isset($_GET['mensagem']) and $_GET['mensagem'] = "usuarioDeletado"){ ?>
+                alert('Usuário banido com sucesso');
                 <?php } ?>
+
             </script>
 
         </head>
@@ -233,8 +236,7 @@ if (isset($_SESSION['logado'])) {
                 <div class="ui center aligned container">
 
 
-
-                        <!--FORUM----------------------------------------------------------------------------------------------------------------->
+                <!--FORUM----------------------------------------------------------------------------------------------------------------->
                 <div id="den_forum">
                     <br>
                     <br>

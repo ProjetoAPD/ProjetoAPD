@@ -44,7 +44,7 @@ class CrudMensagem
     public function deleteMesagensUsu($cod_usuario){
 
 
-        $sql = "DELETE FROM den_chat WHERE cod_usuario1=".$cod_usuario;
+        $sql = "DELETE FROM den_chat WHERE cod_usuario=".$cod_usuario;
         try{
             $this->conexao->exec($sql);
         }catch (PDOException $e){

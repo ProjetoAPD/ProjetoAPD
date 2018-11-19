@@ -350,8 +350,8 @@ if (!isset($_SESSION['logado'])) {
 
     </script>
     <script>
-        <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] = "denPostagemDelete"){?>
-            alert('A denúncia foi apagada');
+        <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] = "denunciado"){?>
+            alert('O usuário foi denunciado');
         <?php } ?>
     </script>
 

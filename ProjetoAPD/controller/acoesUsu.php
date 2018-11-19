@@ -74,6 +74,8 @@ if (isset($_GET['acao'])){
 
             $cod_usuario = $_GET['cod_usuario'];
 
+
+
             //deleta comentarios do usuario
             $a = new CrudComentario();
             $a->deleteComentarioUsu($cod_usuario);
@@ -90,7 +92,7 @@ if (isset($_GET['acao'])){
             $c1 = new CrudUsuario();
             $c1->deleteUsuario($cod_usuario);
 
-            header('Location: ../view/telas/denuncias.php');
+            header('Location: ../view/telas/denuncias.php?mensagem=usuarioDeletado');
 
             break;
 
