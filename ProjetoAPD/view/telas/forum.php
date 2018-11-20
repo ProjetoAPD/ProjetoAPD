@@ -487,7 +487,7 @@ if (isset($_SESSION['logado'])) {
                                                 </div>
                                         </div>
                                         <div class="actions">
-                                            <button type="submit" class="ui green ok inverted button"name="Enviar denuncia"> ><i class="checkmark icon"></i>enviar</button>
+                                            <button type="submit" class="ui green ok inverted button"name="Enviar denuncia"> <i class="checkmark icon"></i>enviar</button>
                                         </div>
 
                                     </div>

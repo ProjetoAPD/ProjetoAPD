@@ -35,9 +35,9 @@ function mensagens($id_usuario2){
                 $msg.="
                 <p id=\"recebida\">
                     $mensagem[texto]
-                    <a href=\"../../controller/acoesChat.php?acao=denuncia&cod_mensagem=$mensagem[cod_mensagem]&cod_usuario=$usuario2 \"><button class=\"negative mini circular ui icon button\">
-                            <i class=\"exclamation small triangle icon\"></i>
-                     </button></a>
+                    <a href=\"../../controller/acoesChat.php?acao=denuncia&cod_mensagem=$mensagem[cod_mensagem]&cod_usuario=$usuario2 \" class='denunciachato'>
+                            <i class=\"exclamation red triangle icon\"></i>
+                     </a>
                 </p>";
             }
 

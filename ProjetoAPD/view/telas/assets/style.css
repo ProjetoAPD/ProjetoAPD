@@ -57,17 +57,8 @@ l{
 
 
 #chat a{
-    width: 10%;
+
     border-radius:5px;
-    padding: 5px 5px;
-    text-align:center;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor: pointer;
-    text-decoration:none;
-    color:#ffffff;
-    background-color:#ffffff;
 }
 
 #conteudo{
