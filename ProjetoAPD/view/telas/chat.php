@@ -333,7 +333,7 @@ if (!isset($_SESSION['logado'])) {
             }
 
 
-            window.setInterval(carrega, 10000000);
+            window.setInterval(carrega, 1);
             var usuario2 = '';
             function carrega(usuario2) {
                 usuario2 = getUrlVars()["usuario2"];
