@@ -173,9 +173,9 @@ if (isset($_SESSION['logado'])) {
             </script>
             <script>
                 <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] = "denPostagemDelete"){?>
-                alert('Denúncia deletada com sucesso');
+                    alert('Denúncia excluída com sucesso');
                 <?php }elseif(isset($_GET['mensagem']) and $_GET['mensagem'] = "usuarioDeletado"){ ?>
-                alert('Usuário banido com sucesso');
+                    alert('Usuário banido com sucesso');
                 <?php } ?>
 
             </script>
@@ -247,7 +247,6 @@ if (isset($_SESSION['logado'])) {
                         <table class="ui selectable unstackable table">
                             <thead>
                             <tr>
-                                <th>Codigo postagem</th>
                                 <th>Nome do usuário</th>
                                 <th>Postagem denunciada</th>
                                 <th>Texto denúncia</th>
@@ -263,7 +262,6 @@ if (isset($_SESSION['logado'])) {
                                 $denuncias = $b->getDenunciasForum();
 
                                 foreach($denuncias as $denuncia): ?>
-                                <td><?= $denuncia['cod_postagem'] ?></td>
                                 <td><?= $b->getUsuarioDenunciaForum($denuncia['cod_den_forum']) ?></td>
                                 <td><?= $b->getPostagemDenForum($denuncia['cod_postagem']) ?></td>
                                 <td><?= $denuncia['tex_den_f'] ?></td>
@@ -294,7 +292,6 @@ if (isset($_SESSION['logado'])) {
                         <table class="ui selectable unstackable table">
                             <thead>
                             <tr>
-                                <th>Codigo mensagem</th>
                                 <th>Nome do usuário</th>
                                 <th>Mensagem denunciada</th>
 <!--                                <th>Texto denúncia</th>-->
@@ -310,7 +307,6 @@ if (isset($_SESSION['logado'])) {
                                 $denuncias = $b->getDenunciasChat();
 
                                 foreach($denuncias as $denuncia): ?>
-                                <td><?= $denuncia['conversa_cod_mensagem'] ?></td>
                                 <td><?= $b->getUsuarioDenunciaChat($denuncia['cod_den_chat']) ?></td>
                                 <td><?= $b->getMensagemDenChat($denuncia['conversa_cod_mensagem']) ?></td>
 <!--                                <td>--><?php//= $denuncia['mensagem_den_chat'] ?><!--</td>-->
@@ -343,7 +339,6 @@ if (isset($_SESSION['logado'])) {
                         <table class="ui selectable unstackable table">
                             <thead>
                             <tr>
-                                <th>Codigo Comentario</th>
                                 <th>Nome do usuário</th>
                                 <th>Postagem</th>
                                 <th>Comentario denunciado</th>
@@ -360,7 +355,6 @@ if (isset($_SESSION['logado'])) {
                                 $denuncias = $b->getDenunciasComentario();
 
                                 foreach($denuncias as $denuncia): ?>
-                                <td><?= $denuncia['cod_den_coment'] ?></td>
                                 <td><?= $b->getUsuarioDenunciaComentario($denuncia['cod_den_coment']) ?></td>
                                 <td><?= $b->getPostagemDenForumFromComent($denuncia['cod_comentario']) ?></td>
                                 <td><?= $b->getComentarioDenComent($denuncia['cod_comentario']) ?></td>

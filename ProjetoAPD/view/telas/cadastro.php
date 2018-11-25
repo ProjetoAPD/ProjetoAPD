@@ -58,13 +58,13 @@
           Cadastre-se
         </div>
       </h2>
-      <form method="post" class="ui large form" action="../../controller/acoesUsu.php?acao=cadastrar">
+      <form method="post" class="ui large form" action="../../controller/acoesUsu.php?acao=cadastrar" autocomplete="off">
         <!-- usuario -->
         <div class="ui stacked segment">
           <div class="field">
             <div class="ui left icon input">
               <i class="user outline icon"></i>
-              <input type="text" name="usuario" placeholder="Nome de usuário">
+              <input type="text" name="usuario" placeholder="Nome de usuário" >
             </div>
           </div>
           <!-- email -->

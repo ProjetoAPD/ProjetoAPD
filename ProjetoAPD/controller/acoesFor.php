@@ -76,7 +76,7 @@ if (isset($_GET['acao'])){
             $c1 = new CrudDenuncias();
             $c1->insertDenunciaForum($denuncia);
 
-            header('Location: ../view/telas/forum.php');
+            header('Location: ../view/telas/forum.php?mensagem=postagemDenunciada');
 
             break;
 
@@ -90,7 +90,7 @@ if (isset($_GET['acao'])){
             $c1 = new CrudDenuncias();
             $c1->insertDenunciaComentario($denuncia);
 
-            header('Location: ../view/telas/forum.php');
+            header('Location: ../view/telas/forum.php?mensagem=comentarioDenunciado');
 
             break;
     }

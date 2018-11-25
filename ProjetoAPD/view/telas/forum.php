@@ -40,6 +40,14 @@ if (isset($_SESSION['logado'])) {
 
 
     <style type="text/css">
+        
+    #fundoindex{
+          background-image: radial-gradient(transparent, #4c2b63),linear-gradient(to bottom,transparent, #4c2b63),url("assets/images/branquin.png");
+          padding: 25px;
+          background-repeat: no-repeat;
+          background-size: auto;
+        }
+
         .hidden{
             display: none;
         }
@@ -236,6 +244,13 @@ if (isset($_SESSION['logado'])) {
             });
 
     </script>
+    <script>
+        <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] == 'postagemDenunciada') { ?>
+            alert('Postagem denunciada');
+        <?php }elseif (isset($_GET['mensagem']) and $_GET['mensagem'] == 'comentarioDenunciado') { ?>
+            alert('Comentario denunciado');
+        <?php } ?>
+    </script>
 
 
 
@@ -256,7 +271,7 @@ if (isset($_SESSION['logado'])) {
 
 <!-- Page Contents -->
 <div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui inverted vertical masthead center aligned segment" id="fundoindex">
 
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
@@ -360,11 +375,12 @@ if (isset($_SESSION['logado'])) {
 
 
                     </div>
-                    <button class="ui red basic cancel inverted " id="denPostButton<?php echo $postagem['cod_postagem']?>">
-                        <i class="remove icon"></i>
-                        denunciar
-                    </button>
-
+                        <?php if (isset($_SESSION['logado'])) { ?>
+                            <button class="ui red basic cancel inverted " id="denPostButton<?=$postagem['cod_postagem']?>">
+                                <i class="remove icon"></i>
+                                Denunciar
+                            </button>
+                        <?php } ?>
 
 
                     <!--/////////////////////////////////////////////////////////////////////-->
@@ -460,12 +476,12 @@ if (isset($_SESSION['logado'])) {
                                 <a class="author"><?= $usucomentario['nome'] ?></a>
 
                                 <div class="date"><?= $comentario['dt_comentario'] ?></div>
-
-                                <button class="ui red basic cancel inverted" id="denComButton<?php echo $comentario['cod_comentario']?>">
-                                    <i class="remove icon"></i>
-                                    denunciar
-                                </button>
-
+                                <?php if (isset($_SESSION['logado'])) { ?>    
+                                    <button class="ui red basic cancel inverted" id="denComButton<?php echo $comentario['cod_comentario']?>">
+                                        <i class="remove icon"></i>
+                                        denunciar
+                                    </button>
+                                <?php } ?>    
                                 <!--/////////////////////////////////////////////////////////////////////-->
 
                                 <?php if (isset($_SESSION['logado'])) {  ?>

@@ -264,7 +264,7 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
 
                                 <div class="ui segment" id="ui_segment_perfil">
                                     <i class="user icon">Email</i>
-                                    <h2 id="texto_email">projetoapd@gmail.com</h2>
+                                    <h2 id="texto_email"><?= $user->getEmail() ?></h2>
                                 </div>
 
 

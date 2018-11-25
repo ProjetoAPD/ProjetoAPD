@@ -16,8 +16,8 @@ $listaUsuarios = $user->getUsuarios();
 
 if (!isset($_SESSION['logado'])) {
 
-    header('Location: index.php?erro=naologado');
-
+    header('Location: index.php?erro=1');
+ 
 
 }else{
     $c = new CrudUsuario();
@@ -72,7 +72,7 @@ if (!isset($_SESSION['logado'])) {
         }
 
         #psicologos, #usuarios{
-            height: 510px;
+            height: 490px;
             overflow: auto;
         }
 
@@ -338,7 +338,7 @@ if (!isset($_SESSION['logado'])) {
             }
 
 
-            window.setInterval(carrega, 1);
+            window.setInterval(carrega, 1000);
             var usuario2 = '';
             function carrega(usuario2) {
                 usuario2 = getUrlVars()["usuario2"];
@@ -550,12 +550,12 @@ if (!isset($_SESSION['logado'])) {
 
 
                             </div>
-                            <form class="ui form" method="post" action="../../controller/acoesChat.php?acao=enviar">
+                            <form class="ui form" method="post" action="../../controller/acoesChat.php?acao=enviar" autocomplete="off">
 
                                 
                                     <div class="ui fluid action input">
                                         <input type="hidden" name="usuario2" value="<?= $_GET['usuario2'] ?> ">
-                                              <input type="text" name="mensagem">
+                                              <input type="text" name="mensagem" <?php if (isset($_GET['usuario2'])) { echo "autofocus"; } ?> >
                                               <button class="ui simple green icon button"" type="submit" name="Enviar" <?php if(!isset($_GET['usuario2'])){echo "disabled";} ?> >
                                                 enviar
                                                 <i class="send icon"></i>

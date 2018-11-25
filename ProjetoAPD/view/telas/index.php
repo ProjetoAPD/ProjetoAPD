@@ -37,13 +37,9 @@ if (isset($_SESSION['logado'])) {
     <style type="text/css">
     #fundoindex{
       background-image: radial-gradient(transparent, #4c2b63),linear-gradient(to bottom,transparent, #4c2b63),url("assets/images/branquin.png");
-
-
-
       padding: 25px;
-
       background-repeat: no-repeat;
-    background-size: auto;
+      background-size: auto;
     }
 
         .ui.button{
@@ -183,6 +179,11 @@ if (isset($_SESSION['logado'])) {
             })
         ;
     </script>
+    <script>
+        <?php if (isset($_GET['erro']) and $_GET['erro'] == 1) { ?>
+            alert("Faça login ou cadastre-se para participar de nosso chat");
+        <?php } ?>
+    </script>
 </head>
 <body>
 <!---->
@@ -247,24 +248,20 @@ if (isset($_SESSION['logado'])) {
             <h1 class="ui inverted header">
                 ProjetoAPD
             </h1>
-            <h2>Ajuda psicológica online e de graça!</h2>
+            <h2>Ajuda psicológica online e gratuita!</h2>
         </div>
-
     </div>
 
     <div class="center aligned row">
-        <?php
-        if (!isset($_SESSION['logado'])) {
-            ?>
-
+        <?php if (!isset($_SESSION['logado'])) { ?>
 
             <div id="aviso_nao_logado">
+                <br>
                 <h1>Faça login ou cadastre-se para participar do nosso chat!</h1>
             </div>
 
-            <?php
-        } else {
-            ?>
+            <?php } else { ?>
+                <br>
             <a href="chat.php">
                 <div class="ui massive basic violet buttons">
                     <button class="ui button"><?php
@@ -299,7 +296,8 @@ if (isset($_SESSION['logado'])) {
             </div>
         </div>
 
-
+<br>
+<br>
     </div>
 
     </div>
@@ -324,7 +322,7 @@ if (isset($_SESSION['logado'])) {
 
             <div class="three wide column">
                 <p>Guilherme Henrique Boing</p>
-                <p>Leonardo Adriano Viera</p>
+                <p>Leonardo Adriano Vieira</p>
                 <p>Leonardo Edenir Rodrigues Graciano</p>
 
             </div>
