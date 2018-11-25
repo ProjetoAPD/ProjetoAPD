@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.8.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 16/10/2018 às 09:06
--- Versão do servidor: 5.7.21-0ubuntu0.16.04.1
--- Versão do PHP: 7.0.22-0ubuntu0.16.04.1
+-- Host: 127.0.0.1
+-- Generation Time: 25-Nov-2018 às 19:06
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `projetoapd`
+-- Database: `projetoapd`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `cfp`
+-- Estrutura da tabela `cfp`
 --
 
 CREATE TABLE `cfp` (
@@ -33,7 +35,7 @@ CREATE TABLE `cfp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `cfp`
+-- Extraindo dados da tabela `cfp`
 --
 
 INSERT INTO `cfp` (`registro`, `nome_psicologo`, `cpf`) VALUES
@@ -93,7 +95,7 @@ INSERT INTO `cfp` (`registro`, `nome_psicologo`, `cpf`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `comentario`
+-- Estrutura da tabela `comentario`
 --
 
 CREATE TABLE `comentario` (
@@ -105,17 +107,22 @@ CREATE TABLE `comentario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `comentario`
+-- Extraindo dados da tabela `comentario`
 --
 
 INSERT INTO `comentario` (`cod_comentario`, `dt_comentario`, `texto_comentario`, `postagem_cod_postagem`, `usuario_cod_usuario`) VALUES
-(15, '2018-10-16 11:48:43', 'Oi Victor! Acho que essa coisa de descrever o que a gente sente Ã© um pouco difÃ­cil, eu sofro de ansiedade e tenho crises de pÃ¢nico, mas nÃ£o consigo descrever bem. Parece que as palavras que eu uso para descrever tudo nÃ£o sÃ£o o suficiente. Ã‰ uma sensaÃ§Ã£o muito ruim, como se vocÃª perdesse o controle de tudo, como se vocÃª nÃ£o tivesse a capacidade de controlar o prÃ³prio corpo. O meu coraÃ§Ã£o acelerava, parecia que meu peito estava sendo esmagado, ficava com tontura, vontade de vomitar.  Aqui na comunidade tem vÃ¡rios artigos, eu salvei esses aqui logo que entrei, dÃ¡ uma olhada, e com certeza tem mais: https://br.mundopsicologos.com/artigos/5-pensamentos-de-uma-pessoa-ansiosa https://br.mundopsicologos.com/artigos/stress-sobrecarga-psicologica https://br.mundopsicologos.com/artigos/como-identificar-uma-crise-de-panico Mas o melhor Ã© vocÃª ir em algum mÃ©dico, porque por mais que a gente ache que tem uma coisa, sÃ³ o mÃ©dico vai poder te diagnosticar e te passar um tratamento. Faz tempo que vocÃª tem se sentindo ansioso?', 32, 341),
-(16, '2018-10-16 11:49:23', 'Victor, acredito que possa ser da ansiedade sim. NÃ£o sou mÃ©dico, entÃ£o nÃ£o posso te dizer nada com certeza, mas pode ser que esses teus tremores sejam uma resposta do teu corpo Ã  ansiedade. Eu tambÃ©m tinha tremores, principalmente quando eu estava tendo as crises de pÃ¢nico, e junto a sensaÃ§Ã£o era horrÃ­vel. VocÃª nunca chegou a ir em algum mÃ©dico para ver o que realmente estÃ¡ acontecendo com vocÃª? Eu sei bem como Ã© conviver com a ansiedade e eu relutei bastante para buscar ajuda no inÃ­cio, deixei as coisas tomarem uma proporÃ§Ã£o desnecessÃ¡ria.', 31, 341);
+(18, '2018-11-25 12:22:33', 'Tiago, nÃ£o deixe com que as pessoas te coloquem para baixo. Acredite em vocÃª mesma, assim vocÃª conseguirÃ¡ alcanÃ§ar os teus objetivos. Se eles nÃ£o acreditam em vocÃª, prove para eles que vocÃª consegue sim, que vocÃª pode fazer o que vocÃª quiser! VocÃª jÃ¡ acabou os estudos?', 32, 356),
+(19, '2018-11-25 12:23:13', 'Ainda nÃ£o estou no 3 ano jÃ¡.', 32, 360),
+(20, '2018-11-25 12:23:52', 'Luana, acho que a melhor coisa que vocÃª tem a fazer Ã© focar no teu futuro, nÃ£o deixe que a opiniÃ£o das pessoas te influencie. Eu tinha problemas com a minha mÃ£e e a melhor coisa que eu fiz foi sair de casa, minha vida mudou completamente! Quando a gente se desprende de pessoas que nos colocam para baixo as coisas comeÃ§am a dar certo.', 32, 359),
+(22, '2018-11-25 12:26:48', 'Oi Evelyn. A minha mÃ£e tambÃ©m Ã© autoritÃ¡ria e adora ficar falando o que eu devo fazer ou nÃ£o da minha vida. Sei como Ã© essa coisa de estar sempre sendo controlada. A minha mÃ£e adora uma manipulaÃ§Ã£o tambÃ©m, o que faz com que eu me sinta um ser humano horrÃ­vel. Eu sei que essas coisas sÃ£o difÃ­ceis, mas a gente tambÃ©m nÃ£o pode deixar de viver a nossa vida por causa delas, nÃ©.  VocÃª jÃ¡ tentou conversar com ela sobre tudo isso?', 33, 360),
+(23, '2018-11-25 12:27:23', 'A minha vida tb Ã© um inferno dentro de casa.. meus pais sÃ³ sabem brigar entre eles e estÃ£o sempre descontando td em mim.. nÃ£o aguento mais.. eu sÃ³ queria sumir de casa, minha irmÃ£ saiu de casa, queria ir morar com ela mas ela nÃ£o deixou.. eu tb nÃ£o posso fazer nd.. nÃ£o me deixam sair.. estÃ£o sempre reclamando de td..  Ã© horrÃ­vel viver assim..', 33, 359),
+(24, '2018-11-25 12:35:08', 'OlÃ¡ Gulherme, obrigado por confiar no nosso fÃ³rum para dividir seu problema. Te passo uma lista de psicÃ³logos na sua cidade especialistas em alcoolismo: https://goo.gl/bHfGRU. Para saber se atendem convÃªnio, vocÃª deve entrar em contato diretamente.  Se tiver qualquer outra dÃºvida, entre em contato conosco. Atenciosamente, Leonardo - Equipe ProjetoAPD', 34, 340),
+(26, '2018-11-25 13:23:06', 'VocÃª precisa Ã© se ligar que vocÃª nÃ£o Ã© nada e nunca vai ser!', 33, 343);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `conversa`
+-- Estrutura da tabela `conversa`
 --
 
 CREATE TABLE `conversa` (
@@ -127,17 +134,19 @@ CREATE TABLE `conversa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `conversa`
+-- Extraindo dados da tabela `conversa`
 --
 
 INSERT INTO `conversa` (`cod_usuario1`, `cod_usuario2`, `texto`, `cod_mensagem`, `dt_mensagem`) VALUES
-(340, 345, 'olÃ¡, estou com problemas', 26, '2018-10-16 11:51:59'),
-(340, 341, 'oi, serÃ¡ que vocÃª poderia me ajudar?', 27, '2018-10-16 11:52:15');
+(362, 347, 'olÃ¡', 3, '2018-11-25 13:58:39'),
+(362, 347, 'vocÃª poderia me ajudar?', 4, '2018-11-25 13:58:49'),
+(362, 347, 'estou com problemas na famÃ­lia e nÃ£o sei o que fazer', 5, '2018-11-25 13:59:04'),
+(347, 362, 'nÃ£o, lide sozinha com seus problemas', 11, '2018-11-25 14:05:11');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `den_chat`
+-- Estrutura da tabela `den_chat`
 --
 
 CREATE TABLE `den_chat` (
@@ -149,31 +158,38 @@ CREATE TABLE `den_chat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `den_chat`
+-- Extraindo dados da tabela `den_chat`
 --
 
 INSERT INTO `den_chat` (`cod_usuario`, `mensagem_den_chat`, `dt_den_chat`, `conversa_cod_mensagem`, `cod_den_chat`) VALUES
-(340, 'oi, serÃ¡ que vocÃª poderia me ajudar?', '2018-10-16 11:52:43', 27, 5),
-(340, 'olÃ¡, estou com problemas', '2018-10-16 11:53:14', 26, 6);
+(347, 'nÃ£o, lide sozinha com seus problemas', '2018-11-25 14:15:21', 11, 3);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `den_coment`
+-- Estrutura da tabela `den_coment`
 --
 
 CREATE TABLE `den_coment` (
   `cod_comentario` int(11) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   `data_hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `tex_den_c` varchar(200) NOT NULL,
+  `tex_den_c` varchar(200) CHARACTER SET utf8 NOT NULL,
   `cod_den_coment` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `den_coment`
+--
+
+INSERT INTO `den_coment` (`cod_comentario`, `cod_usuario`, `data_hora`, `tex_den_c`, `cod_den_coment`) VALUES
+(26, 343, '2018-11-25 13:45:36', 'Comentário ofensivo e desnecessário', 1),
+(18, 356, '2018-11-25 13:46:31', 'Acredito que isso não vá ajudar no problema e ainda vá colocar o usuário para baixo', 2);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `den_forum`
+-- Estrutura da tabela `den_forum`
 --
 
 CREATE TABLE `den_forum` (
@@ -184,10 +200,17 @@ CREATE TABLE `den_forum` (
   `cod_den_forum` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `den_forum`
+--
+
+INSERT INTO `den_forum` (`cod_postagem`, `cod_usuario`, `data_hora`, `tex_den_f`, `cod_den_forum`) VALUES
+(36, 358, '2018-11-25 13:54:35', 'O usuÃ¡rio estÃ¡ incentivando o suicÃ­dio', 2);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `postagens_forum`
+-- Estrutura da tabela `postagens_forum`
 --
 
 CREATE TABLE `postagens_forum` (
@@ -200,16 +223,20 @@ CREATE TABLE `postagens_forum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `postagens_forum`
+-- Extraindo dados da tabela `postagens_forum`
 --
 
 INSERT INTO `postagens_forum` (`cod_postagem`, `status_postagem`, `texto_postagem`, `titulo_postagem`, `data_postagem`, `usuario_cod_usuario`) VALUES
-(31, 1, 'Tou sofrendo junto com minha filha , pois ela passa mal , e nao sei mas o que fazer , e ansiedade deixar ela sem ar , sem fome , nÃ£o dorme direito.', 'Minha filha se isola', '2018-10-16 11:45:18', 347);
+(32, 1, 'Meu padrasto nÃ£o aceita meu namorado namoramos a 1 ano e toda vez que saÃ­mos ele faz intriga pra minha mÃ£e brigar comigo. Vou fazer 18 anos e na minha casa nÃ£o tenho opiniÃ£o em nada, quero ser independente mais sempre que tento eles me esnobam e me colocam pra baixo flanado que nÃ£o vou ser ninguÃ©m. Eu nÃ£o sei mais o que fazer toda vez que passo por isso eu penso em desistir das coisas', ' Padrasto', '2018-11-25 12:18:08', 360),
+(33, 1, 'Ando meio perdida ultimamente, Ã s vezes eu piro no stress de algum momento q eu passo Ã© quero me dopar de remÃ©dios. Minha vida e um verdadeiro inferno sabe, minha mÃ£e sÃ³ faz reclamar cmg e xingar e xingar... sÃ³ mora eu e ela entÃ£o eu escuto tudo eu sou a culpada d tudo, estamos passando por problemas financeiros oq que piora ainda mais. Eu nÃ£o posso sair-se-Ã¡ quase lugar nenhum pq eu to sem grana seus amigos te chamam pra tudo que Ã© lugar atÃ© q um dos meus amigos fala q vai parar de me chamar pq vc nunca vai. AÃ­ passa o Ã³dio nÃ© de vc nÃ£o sair c sua galera de nÃ£o ter aquela vida q vc quer ter. EntÃ£o minha vida e um verdadeiro inferno. Tenho um menino q eu gosto a gente jÃ¡ namorava sÃ³ q terminamos por causa de minha mÃ£e e atÃ© hj nÃ£o conseguimos nos desconectar pq a gente se gosta morro de vontade de voltar c ele, sÃ³ nÃ£o volto por causa de minha mÃ£e. Sabe aquela sensaÃ§Ã£o q vc ta deixando de viver sua vida pra â€œdeixar as coisas na paz c sua mÃ£e?â€ Enfim Ã© isso q eu ri fazendo to largando minha vida minha felicidade pra nÃ£o brigar c ela. To passando por muito Ã³dio por dentro nÃ£o sei oq eu faÃ§o quero uma ajuda. NÃ£o quero comentar c nenhumas das minhas amigas. Aaaaa', 'NÃ£o sei oque fazer, minha vida tÃ¡ um verdadeiro desastre', '2018-11-25 12:25:38', 362),
+(34, 1, 'AlguÃ©m sabe de algum psicÃ³logo bom voltado para dependÃªncia do Ã¡lcool que atenda Sul AmÃ©rica em SÃ£o JosÃ© dos Campos sp', 'DependÃªncia do alcool', '2018-11-25 12:33:16', 343),
+(36, 1, 'NÃ³s estamos perdendo tempo, nÃ£o hÃ¡ o que fazer e a vida nÃ£o faz sentido, ponham fim em suas vidas ', 'A vida nÃ£o vale a pena', '2018-11-25 13:53:37', 358),
+(39, 1, 'Posso ter defeitos, viver ansioso e ficar irritado algumas vezes, mas nÃ£o esqueÃ§o de que minha vida Ã© a maior empresa do mundo. E que posso evitar que ela vÃ¡ Ã  falÃªncia.<br />\r\nSer feliz Ã© reconhecer que vale a pena viver, apesar de todos os desafios, incompreensÃµes e perÃ­odos de crise.<br />\r\nSer feliz Ã© deixar de ser vÃ­tima dos problemas e se tornar autor da prÃ³pria histÃ³ria.<br />\r\nÃ‰ atravessar desertos fora de si, mas ser capaz de encontrar um oÃ¡sis no recÃ´ndito da sua alma.<br />\r\nÃ‰ agradecer a Deus a cada manhÃ£ pelo milagre da vida.<br />\r\nSer feliz Ã© nÃ£o ter medo dos prÃ³prios sentimentos. Ã‰ saber falar de si mesmo. Ã‰ ter coragem para ouvir um â€œnÃ£oâ€. Ã‰ ter seguranÃ§a para receber uma crÃ­tica, mesmo que injusta.', 'Sobre a vida', '2018-11-25 17:50:26', 345);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tipo_usuario`
+-- Estrutura da tabela `tipo_usuario`
 --
 
 CREATE TABLE `tipo_usuario` (
@@ -218,7 +245,7 @@ CREATE TABLE `tipo_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `tipo_usuario`
+-- Extraindo dados da tabela `tipo_usuario`
 --
 
 INSERT INTO `tipo_usuario` (`cod_tipo_usuario`, `descricao_tipo_usuario`) VALUES
@@ -229,7 +256,7 @@ INSERT INTO `tipo_usuario` (`cod_tipo_usuario`, `descricao_tipo_usuario`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuario`
+-- Estrutura da tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -241,30 +268,41 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `usuario`
+-- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `nome`, `email`, `senha`, `cod_tipo_usuario`) VALUES
 (340, 'Leonardo Edenir', 'leonardo@edenir', 'bGVvbmFyZG8=', 1),
 (341, 'Leonardo Adriano', 'leonardo@adriano', 'bGVvbmFyZG8=', 2),
-(343, 'Guilherme Boing', 'guilherme@boing', 'Z3VpbGhlcm1lCg==', 3),
+(343, 'Guilherme Boing', 'guilherme@boing', 'Z3VpbGhlcm1l', 3),
 (345, 'Florence Doyle', 'florence@doyle', 'ZmxvcmVuY2U=', 2),
-(346, 'Riley English', 'riley@english', 'cmlsZXk=', 3),
-(347, 'Latoria Maxwell', 'latoria@maxwell', 'bGF0b3JpYQ==', 3),
-(349, 'pc@pc', 'PC@PC', 'cGM=', 3);
+(346, 'Riley English', 'riley@english', 'cmlsZXk=', 2),
+(347, 'Latoria Maxwell', 'latoria@maxwell', 'bGF0b3JpYQ==', 2),
+(350, 'Nella Barnett', 'nella@barnett', 'bmVsbGE=', 2),
+(351, 'Candida Cottrell', 'candida@cottrell', 'Y2FuZGlkYQ==', 2),
+(352, 'Jordon Shields', 'jordon@shields', 'am9yZG9u', 2),
+(353, 'Joesph Sheppard', 'joesph@sheppard', 'am9lc3Bo', 2),
+(354, 'Carol Psicologa', 'carol@psicologa', 'Y2Fyb2w=', 2),
+(355, 'Lynn Carpenter', 'lynn@carpenter', 'bHlubg==', 2),
+(356, 'Louis Henry', 'louis@henry', 'bG91aXM=', 2),
+(357, 'admin', 'admin@admin', 'YWRtaW4=', 1),
+(358, 'FÃ¡bio Ribeiro', 'fabio@ribeiro', 'ZmFiaW8=', 3),
+(359, 'Vinicius Almeida', 'vinicius@almeida', 'dmluaWNpdXM=', 3),
+(360, 'Tiago Correia', 'tiago@correia', 'dGlhZ28=', 3),
+(362, 'Evelyn Oliveira', 'evelyn@oliveira', 'ZXZlbHlu', 3);
 
 --
--- Índices de tabelas apagadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices de tabela `cfp`
+-- Indexes for table `cfp`
 --
 ALTER TABLE `cfp`
   ADD PRIMARY KEY (`registro`);
 
 --
--- Índices de tabela `comentario`
+-- Indexes for table `comentario`
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`cod_comentario`),
@@ -272,7 +310,7 @@ ALTER TABLE `comentario`
   ADD KEY `fk_comentario_usuario1_idx` (`usuario_cod_usuario`);
 
 --
--- Índices de tabela `conversa`
+-- Indexes for table `conversa`
 --
 ALTER TABLE `conversa`
   ADD PRIMARY KEY (`cod_mensagem`),
@@ -280,7 +318,7 @@ ALTER TABLE `conversa`
   ADD KEY `cod_usuario2` (`cod_usuario2`);
 
 --
--- Índices de tabela `den_chat`
+-- Indexes for table `den_chat`
 --
 ALTER TABLE `den_chat`
   ADD PRIMARY KEY (`cod_den_chat`),
@@ -288,7 +326,7 @@ ALTER TABLE `den_chat`
   ADD KEY `fk_den_chat_conversa1_idx` (`conversa_cod_mensagem`);
 
 --
--- Índices de tabela `den_coment`
+-- Indexes for table `den_coment`
 --
 ALTER TABLE `den_coment`
   ADD PRIMARY KEY (`cod_den_coment`),
@@ -296,7 +334,7 @@ ALTER TABLE `den_coment`
   ADD KEY `cod_usuario` (`cod_usuario`);
 
 --
--- Índices de tabela `den_forum`
+-- Indexes for table `den_forum`
 --
 ALTER TABLE `den_forum`
   ADD PRIMARY KEY (`cod_den_forum`),
@@ -304,113 +342,121 @@ ALTER TABLE `den_forum`
   ADD KEY `cod_usuario` (`cod_usuario`);
 
 --
--- Índices de tabela `postagens_forum`
+-- Indexes for table `postagens_forum`
 --
 ALTER TABLE `postagens_forum`
   ADD PRIMARY KEY (`cod_postagem`),
   ADD KEY `fk_postagens_forum_usuario1_idx1` (`usuario_cod_usuario`);
 
 --
--- Índices de tabela `tipo_usuario`
+-- Indexes for table `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
   ADD PRIMARY KEY (`cod_tipo_usuario`);
 
 --
--- Índices de tabela `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`cod_usuario`),
   ADD KEY `fk_usuario_tipo_usuario1_idx1` (`cod_tipo_usuario`);
 
 --
--- AUTO_INCREMENT de tabelas apagadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `comentario`
+-- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `cod_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `cod_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
--- AUTO_INCREMENT de tabela `conversa`
+-- AUTO_INCREMENT for table `conversa`
 --
 ALTER TABLE `conversa`
-  MODIFY `cod_mensagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `cod_mensagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
--- AUTO_INCREMENT de tabela `den_chat`
+-- AUTO_INCREMENT for table `den_chat`
 --
 ALTER TABLE `den_chat`
-  MODIFY `cod_den_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cod_den_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT de tabela `den_coment`
+-- AUTO_INCREMENT for table `den_coment`
 --
 ALTER TABLE `den_coment`
-  MODIFY `cod_den_coment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cod_den_coment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT de tabela `den_forum`
+-- AUTO_INCREMENT for table `den_forum`
 --
 ALTER TABLE `den_forum`
-  MODIFY `cod_den_forum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cod_den_forum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT de tabela `postagens_forum`
+-- AUTO_INCREMENT for table `postagens_forum`
 --
 ALTER TABLE `postagens_forum`
-  MODIFY `cod_postagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `cod_postagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
 --
--- AUTO_INCREMENT de tabela `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=350;
+  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=363;
+
 --
--- Restrições para dumps de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Restrições para tabelas `comentario`
+-- Limitadores para a tabela `comentario`
 --
 ALTER TABLE `comentario`
   ADD CONSTRAINT `fk_comentario_usuario1` FOREIGN KEY (`usuario_cod_usuario`) REFERENCES `usuario` (`cod_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para tabelas `conversa`
+-- Limitadores para a tabela `conversa`
 --
 ALTER TABLE `conversa`
   ADD CONSTRAINT `conversa_ibfk_1` FOREIGN KEY (`cod_usuario1`) REFERENCES `usuario` (`cod_usuario`),
   ADD CONSTRAINT `conversa_ibfk_2` FOREIGN KEY (`cod_usuario2`) REFERENCES `usuario` (`cod_usuario`);
 
 --
--- Restrições para tabelas `den_chat`
+-- Limitadores para a tabela `den_chat`
 --
 ALTER TABLE `den_chat`
   ADD CONSTRAINT `den_chat_ibfk_1` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`),
   ADD CONSTRAINT `fk_den_chat_conversa1` FOREIGN KEY (`conversa_cod_mensagem`) REFERENCES `conversa` (`cod_mensagem`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para tabelas `den_coment`
+-- Limitadores para a tabela `den_coment`
 --
 ALTER TABLE `den_coment`
   ADD CONSTRAINT `den_coment_ibfk_1` FOREIGN KEY (`cod_comentario`) REFERENCES `comentario` (`cod_comentario`),
   ADD CONSTRAINT `den_coment_ibfk_2` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`);
 
 --
--- Restrições para tabelas `den_forum`
+-- Limitadores para a tabela `den_forum`
 --
 ALTER TABLE `den_forum`
   ADD CONSTRAINT `den_forum_ibfk_1` FOREIGN KEY (`cod_postagem`) REFERENCES `postagens_forum` (`cod_postagem`),
   ADD CONSTRAINT `den_forum_ibfk_2` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`);
 
 --
--- Restrições para tabelas `postagens_forum`
+-- Limitadores para a tabela `postagens_forum`
 --
 ALTER TABLE `postagens_forum`
   ADD CONSTRAINT `fk_postagens_forum_usuario1` FOREIGN KEY (`usuario_cod_usuario`) REFERENCES `usuario` (`cod_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para tabelas `usuario`
+-- Limitadores para a tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `fk_usuario_tipo_usuario1` FOREIGN KEY (`cod_tipo_usuario`) REFERENCES `tipo_usuario` (`cod_tipo_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
