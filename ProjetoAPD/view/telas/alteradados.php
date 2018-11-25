@@ -79,7 +79,7 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
 	  width: 20em;
 	  height: 5em;
 	}
-	
+
     .ui.vertical.stripe .horizontal.divider {
       margin: 3em 0em;
     }
@@ -103,7 +103,7 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
 	.link{
 		color: black;
 
-	}	
+	}
 
 	.ui.inverted.vertical.masthead.center.aligned.segment{
 		background-color: #4C2C63;
@@ -111,7 +111,7 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
 	}
 	.ui.inverted.vertical.footer.segment{
 		background-color: #4C2C63;
-          
+
 	}
 
 	/* CSS do corpo do site _____________________________________________________________________________*/
@@ -130,7 +130,7 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
     .content {
       color: white;
     }
-    
+
     .ui.fluid.large.teal.submit.button{
       color:white;
     }
@@ -155,7 +155,7 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
       }
       .masthead.segment {
         min-height: 350px;
-          
+
       }
       .masthead h1.ui.header {
         font-size: 2em;
@@ -166,7 +166,7 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
         font-size: 1.5em;
       }
     }
-	
+
 
 
   </style>
@@ -282,6 +282,11 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
                                         <div class="ui input">
                                           <input type="password" name="senha">
                                         </div>
+
+                                        <h4><i class="lock icon"></i>Digite a novamente a nova senha</h4>
+                                        <div class="ui input">
+                                          <input type="password" >
+                                        </div>
                                     </div>
 
                                     <br>
@@ -315,10 +320,10 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
 
 
 
-<!-- ______________________________________ 
+<!-- ______________________________________
 
 
-<style>          
+<style>
     @media only screen and (max-width: 700px) {
       .ui.fixed.menu {
         display: none !important;
@@ -332,7 +337,7 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
       }
       .masthead.segment {
         min-height: 350px;
-          
+
       }
       .masthead h1.ui.header {
         font-size: 2em;
@@ -347,8 +352,3 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
  </style>
 
 -->
-
-
-
-
-

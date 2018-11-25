@@ -40,7 +40,7 @@ if (isset($_SESSION['logado'])) {
 
 
     <style type="text/css">
-        
+
     #fundoindex{
           background-image: radial-gradient(transparent, #4c2b63),linear-gradient(to bottom,transparent, #4c2b63),url("assets/images/branquin.png");
           padding: 25px;
@@ -376,7 +376,7 @@ if (isset($_SESSION['logado'])) {
 
                     </div>
                         <?php if (isset($_SESSION['logado'])) { ?>
-                            <button class="ui red basic cancel inverted " id="denPostButton<?=$postagem['cod_postagem']?>">
+                            <button class="mini ui  negative basic button" id="denPostButton<?=$postagem['cod_postagem']?>">
                                 <i class="remove icon"></i>
                                 Denunciar
                             </button>
@@ -477,12 +477,12 @@ if (isset($_SESSION['logado'])) {
                                 <div class="metadata">
                                     <div class="date"><?= $comentario['dt_comentario'] ?></div>
                                 </div>
-                                <?php if (isset($_SESSION['logado'])) { ?>    
-                                    <button class="ui red basic cancel inverted" id="denComButton<?php echo $comentario['cod_comentario']?>">
+                                <?php if (isset($_SESSION['logado'])) { ?>
+                                    <button class="mini ui  negative basic button" id="denComButton<?php echo $comentario['cod_comentario']?>">
                                         <i class="remove icon"></i>
                                         denunciar
                                     </button>
-                                <?php } ?>    
+                                <?php } ?>
                                 <!--/////////////////////////////////////////////////////////////////////-->
 
                                 <?php if (isset($_SESSION['logado'])) {  ?>
@@ -495,8 +495,8 @@ if (isset($_SESSION['logado'])) {
                                             <form action="../../controller/acoesFor.php?acao=denunciaComent" method="POST" autocomplete="off">
                                                 <div class="ui form">
                                                     <h4 class="ui dividing header">Dê um motivo da sua denuncia contra esse comentario</h4>
-                                                    <input type="" name="cod_postagem" value="<?= $comentario['cod_comentario'] ?>">
-                                                    <input type="" name="cod_usuario" value="<?= $postagem['usuario_cod_usuario'] ?>">
+                                                    <input type="hidden" name="cod_postagem" value="<?= $comentario['cod_comentario'] ?>">
+                                                    <input type="hidden" name="cod_usuario" value="<?= $postagem['usuario_cod_usuario'] ?>">
                                                     <div class="field">
                                                         <label>Motivo</label>
                                                         <textarea name="texto"></textarea>
