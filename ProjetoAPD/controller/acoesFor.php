@@ -14,7 +14,7 @@ if (isset($_GET['acao'])){
         case "postar":
 
             $titulo = $_POST['titulo'];
-            $texto = $_POST['texto'];
+            $texto = nl2br($_POST['texto']);
             $cod_usuario = $_SESSION['cod_usuario'];
 
 

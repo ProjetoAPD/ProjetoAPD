@@ -272,14 +272,16 @@ $user = $c->getUsuario($_SESSION['cod_usuario']);
 
                                     <div class="ui segment" id="ui_segment_perfil">
                                         <h4><i class="user outline icon"></i>Novo nome de usuario</h4>
-                                        <input type="text" name="nome_usuario" ">
+                                          <div class="ui input">
+                                            <input type="text" name="nome_usuario">
+                                          </div>
                                     </div>
 
                                     <div class="ui segment" id="ui_segment_perfil">
-                                        <h4>Digite a nova senha<i class="lock icon"></i></h4>
-
-                                        <input type="password" name="senha">
-
+                                        <h4><i class="lock icon"></i>Digite a nova senha</h4>
+                                        <div class="ui input">
+                                          <input type="password" name="senha">
+                                        </div>
                                     </div>
 
                                     <br>

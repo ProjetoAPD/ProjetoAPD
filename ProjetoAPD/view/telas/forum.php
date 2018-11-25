@@ -339,7 +339,7 @@ if (isset($_SESSION['logado'])) {
         }else {?>
             <br>
             <div class="ui horizontal divider" id="branco">
-                <h2>Bem vindo ao nosso forum, faça cadastro/login para criar uma postagem!</h2>
+                <h2>Bem vindo ao nosso forum, faça login ou cadastre-se para participar!</h2>
 
             </div>
 
@@ -474,8 +474,9 @@ if (isset($_SESSION['logado'])) {
                             </a>
                             <div class="content">
                                 <a class="author"><?= $usucomentario['nome'] ?></a>
-
-                                <div class="date"><?= $comentario['dt_comentario'] ?></div>
+                                <div class="metadata">
+                                    <div class="date"><?= $comentario['dt_comentario'] ?></div>
+                                </div>
                                 <?php if (isset($_SESSION['logado'])) { ?>    
                                     <button class="ui red basic cancel inverted" id="denComButton<?php echo $comentario['cod_comentario']?>">
                                         <i class="remove icon"></i>
