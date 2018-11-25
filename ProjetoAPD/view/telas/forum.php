@@ -306,7 +306,7 @@ if (isset($_SESSION['logado'])) {
                     <h2 class="center aligned">Bem vindo ao nosso forum, colabore com a comunidade fazendo sua postagem!</h2>
                 </div>
 
-                <form method="post" action="../../controller/acoesFor.php?acao=postar">
+                <form method="post" action="../../controller/acoesFor.php?acao=postar" autocomplete="off">
 
                     <label>Título</label>
                     <br>
@@ -378,7 +378,7 @@ if (isset($_SESSION['logado'])) {
                                 Denunciar uma postagem
                             </div>
                             <div class="content">
-                                <form action="../../controller/acoesFor.php?acao=denunciaPost" method="POST">
+                                <form action="../../controller/acoesFor.php?acao=denunciaPost" method="POST" autocomplete="off">
                                 <div class="ui form">
                                     <h4 class="ui dividing header">Dê um motivo da sua denuncia contra essa postagem</h4>
                                     <input type="hidden" name="cod_postagem" value="<?= $postagem['cod_postagem'] ?>">
@@ -429,7 +429,7 @@ if (isset($_SESSION['logado'])) {
 
 
 
-                    <form method="post" action="../../controller/acoesFor.php?acao=comentar">
+                    <form method="post" action="../../controller/acoesFor.php?acao=comentar" autocomplete="off">
                         <div class="ui fluid action input" id="comake">
                             <input type="text" name="comentario"  placeholder="Comente aqui...">
                             <button type="submit" class="ui button"><i class="pencil alternate icon"></i><p>Enviar</p></button>
@@ -475,7 +475,7 @@ if (isset($_SESSION['logado'])) {
                                             Denunciar um comentario
                                         </div>
                                         <div class="content">
-                                            <form action="../../controller/acoesFor.php?acao=denunciaComent" method="POST">
+                                            <form action="../../controller/acoesFor.php?acao=denunciaComent" method="POST" autocomplete="off">
                                                 <div class="ui form">
                                                     <h4 class="ui dividing header">Dê um motivo da sua denuncia contra esse comentario</h4>
                                                     <input type="" name="cod_postagem" value="<?= $comentario['cod_comentario'] ?>">
