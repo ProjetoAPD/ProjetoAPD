@@ -35,6 +35,16 @@ if (isset($_SESSION['logado'])) {
 
 
     <style type="text/css">
+    #fundoindex{
+      background-image: radial-gradient(transparent, #4c2b63),linear-gradient(to bottom,transparent, #4c2b63),url("assets/images/branquin.png");
+
+
+
+      padding: 25px;
+
+      background-repeat: no-repeat;
+    background-size: auto;
+    }
 
         .ui.button{
             background-color: #4C2C63;
@@ -196,7 +206,7 @@ if (isset($_SESSION['logado'])) {
 
 <!-- Page Contents -->
 <div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui inverted vertical masthead center aligned segment" id="fundoindex">
 
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
@@ -256,7 +266,7 @@ if (isset($_SESSION['logado'])) {
         } else {
             ?>
             <a href="chat.php">
-                <div class="ui massive purple buttons">
+                <div class="ui massive basic violet buttons">
                     <button class="ui button"><?php
                     if ($user->getCodTipoUsuario() != 2) {
                         echo "Fale com um psicólogo";
@@ -307,14 +317,15 @@ if (isset($_SESSION['logado'])) {
             </div>
 
             <div class="ten wide column ">
-                <h4 class="ui inverted header">ProjetoAPD: IFC-Araquari 2018</h4>
+                <h4 class="ui inverted header">ProjetoAPD</h4>
+                <p>IFC-Araquari</p>
+                <p>2018</p>
             </div>
 
             <div class="three wide column">
                 <p>Guilherme Henrique Boing</p>
-
-                    <p>Leonardo Adriano Viera</p>
-                    <p>Leonardo Edenir Rodrigues Graciano</p>
+                <p>Leonardo Adriano Viera</p>
+                <p>Leonardo Edenir Rodrigues Graciano</p>
 
             </div>
         </div>
