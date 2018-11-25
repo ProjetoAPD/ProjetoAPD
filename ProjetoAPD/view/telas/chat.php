@@ -71,6 +71,11 @@ if (!isset($_SESSION['logado'])) {
             overflow: auto;        
         }
 
+        #psicologos, #usuarios{
+            height: 510px;
+            overflow: auto;
+        }
+
 
         #enviada{
             text-align: left;
