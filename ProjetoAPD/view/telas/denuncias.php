@@ -172,10 +172,10 @@ if (isset($_SESSION['logado'])) {
                 ;
             </script>
             <script>
-                <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] = "denPostagemDelete"){?>
-                    alert('Denúncia excluída com sucesso');
-                <?php }elseif(isset($_GET['mensagem']) and $_GET['mensagem'] = "usuarioDeletado"){ ?>
+                <?php if(isset($_GET['mensagem']) and $_GET['mensagem'] == "usuarioDeletado"){ ?>
                     alert('Usuário banido com sucesso');
+                <?php } elseif (isset($_GET['mensagem']) and $_GET['mensagem'] == "denPostagemDelete"){?>
+                    alert('Denúncia excluída com sucesso');
                 <?php } ?>
 
             </script>

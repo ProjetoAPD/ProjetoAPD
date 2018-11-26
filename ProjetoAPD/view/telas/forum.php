@@ -389,7 +389,7 @@ if (isset($_SESSION['logado'])) {
                     <?php if (isset($_SESSION['logado'])) {  ?>
 
 
-                        <div class="ui fullscreen modal transition" id="denPostModal<?php echo $postagem['cod_postagem']?>">
+                        <div class="ui fullscreen modal transition" id="denPostModal<?=$postagem['cod_postagem']?>">
                             <div class="header">
                                 Denunciar uma postagem
                             </div>
@@ -406,7 +406,7 @@ if (isset($_SESSION['logado'])) {
                                 </div>
                             </div>
                             <div class="actions">
-                                <button type="submit" class="ui green ok inverted button"name="Enviar denuncia"><i class="checkmark icon"></i>enviar</button>
+                                <button type="submit" class="ui green ok inverted button"name="Enviar denuncia"><i class="checkmark icon"></i>Enviar</button>
                             </div>
                             </form>
                         </div>
@@ -504,7 +504,7 @@ if (isset($_SESSION['logado'])) {
                                                 </div>
                                         </div>
                                         <div class="actions">
-                                            <button type="submit" class="ui green ok inverted button"name="Enviar denuncia"> <i class="checkmark icon"></i>enviar</button>
+                                            <button type="submit" class="ui green ok inverted button"name="Enviar denuncia"> <i class="checkmark icon"></i>Enviar</button>
                                         </div>
 
                                     </div>

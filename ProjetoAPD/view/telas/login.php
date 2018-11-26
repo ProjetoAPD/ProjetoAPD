@@ -81,16 +81,8 @@
 
           <?php } ?>
       </div>
-
-
-
-
-
     </form>
-
-
-
-
+    
     <div class="ui message">
       Não cadastrado? <a href="cadastro.php">Cadastre-se</a>
     </div>
