@@ -82,9 +82,9 @@ if (isset($_GET['acao'])){
 
         case "denunciaComent":
 
-            $cod_comentario = $_POST['cod_comentario'];
-            $texto = $_POST['texto'];
-            $usuario = $_POST['cod_usuario'];
+            echo $cod_comentario = $_POST['cod_comentario'];
+            echo $texto = $_POST['texto'];
+            echo $usuario = $_POST['cod_usuario'];
 
             $denuncia = new Denuncia_comentario($texto, $cod_comentario, $usuario, null, null);
             $c1 = new CrudDenuncias();

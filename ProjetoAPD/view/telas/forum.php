@@ -411,7 +411,7 @@ if (isset($_SESSION['logado'])) {
                             </form>
                         </div>
 
-                    <?php }else{}?>
+                    <?php } ?>
 
 
                     <!--        ///////////////////////////////////////////////////-->
@@ -478,16 +478,16 @@ if (isset($_SESSION['logado'])) {
                                     <div class="date"><?= $comentario['dt_comentario'] ?></div>
                                 </div>
                                 <?php if (isset($_SESSION['logado'])) { ?>
-                                    <button class="mini ui  negative basic button" id="denComButton<?php echo $comentario['cod_comentario']?>">
+                                    <button class="mini ui  negative basic button" id="denComButton<?=$comentario['cod_comentario']?>">
                                         <i class="remove icon"></i>
-                                        denunciar
+                                        Denunciar
                                     </button>
                                 <?php } ?>
                                 <!--/////////////////////////////////////////////////////////////////////-->
 
                                 <?php if (isset($_SESSION['logado'])) {  ?>
 
-                                    <div class="ui fullscreen modal transition" id="denComModal<?php echo $comentario['cod_comentario']?>">
+                                    <div class="ui fullscreen modal transition" id="denComModal<?=$comentario['cod_comentario']?>">
                                         <div class="header">
                                             Denunciar um comentario
                                         </div>
@@ -495,8 +495,8 @@ if (isset($_SESSION['logado'])) {
                                             <form action="../../controller/acoesFor.php?acao=denunciaComent" method="POST" autocomplete="off">
                                                 <div class="ui form">
                                                     <h4 class="ui dividing header">Dê um motivo da sua denuncia contra esse comentario</h4>
-                                                    <input type="hidden" name="cod_postagem" value="<?= $comentario['cod_comentario'] ?>">
-                                                    <input type="hidden" name="cod_usuario" value="<?= $postagem['usuario_cod_usuario'] ?>">
+                                                    <input type="hidden" name="cod_comentario" value="<?= $comentario['cod_comentario'] ?>">
+                                                    <input type="hidden" name="cod_usuario" value="<?= $comentario['usuario_cod_usuario'] ?>">
                                                     <div class="field">
                                                         <label>Motivo</label>
                                                         <textarea name="texto"></textarea>
@@ -510,7 +510,7 @@ if (isset($_SESSION['logado'])) {
                                     </div>
                                     </form>
 
-                                <?php }else{}?>
+                                <?php } ?>
                                 <!--        ///////////////////////////////////////////////////-->
 
 
