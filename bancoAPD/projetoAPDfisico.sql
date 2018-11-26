@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 25-Nov-2018 às 19:06
+-- Generation Time: 26-Nov-2018 às 22:14
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -174,7 +174,7 @@ CREATE TABLE `den_coment` (
   `cod_comentario` int(11) NOT NULL,
   `cod_usuario` int(11) NOT NULL,
   `data_hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `tex_den_c` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `tex_den_c` varchar(200) NOT NULL,
   `cod_den_coment` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -183,8 +183,8 @@ CREATE TABLE `den_coment` (
 --
 
 INSERT INTO `den_coment` (`cod_comentario`, `cod_usuario`, `data_hora`, `tex_den_c`, `cod_den_coment`) VALUES
-(26, 343, '2018-11-25 13:45:36', 'Comentário ofensivo e desnecessário', 1),
-(18, 356, '2018-11-25 13:46:31', 'Acredito que isso não vá ajudar no problema e ainda vá colocar o usuário para baixo', 2);
+(26, 343, '2018-11-25 13:45:36', 'ComentÃ¡rio ofensivo e desnecessÃ¡rio', 1),
+(18, 356, '2018-11-25 13:46:31', 'Acredito que isso nÃ£o vÃ¡ ajudar no problema e ainda vÃ¡ colocar o usuÃ¡rio para baixo', 2);
 
 -- --------------------------------------------------------
 
