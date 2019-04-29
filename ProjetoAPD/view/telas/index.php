@@ -182,6 +182,8 @@ if (isset($_SESSION['logado'])) {
     <script>
         <?php if (isset($_GET['erro']) and $_GET['erro'] == 1) { ?>
             alert("Faça login ou cadastre-se para participar de nosso chat");
+        <?php }elseif (isset($_GET['erro']) and $_GET['erro'] == 'naologado') { ?>
+            alert("cucagado")
         <?php } ?>
     </script>
 </head>
@@ -314,7 +316,7 @@ if (isset($_SESSION['logado'])) {
                 <img src="assets/images/logo_ifc_branco.png" width="35%">
             </div>
 
-            <div class="ten wide column ">
+            <div class="ten wide column">
                 <h4 class="ui inverted header">ProjetoAPD</h4>
                 <p>IFC-Araquari</p>
                 <p>2018</p>
@@ -324,14 +326,13 @@ if (isset($_SESSION['logado'])) {
                 <p>Guilherme Henrique Boing</p>
                 <p>Leonardo Adriano Vieira</p>
                 <p>Leonardo Edenir Rodrigues Graciano</p>
-
             </div>
         </div>
-            </div>
+    </div>
 
 
 
-        </div>
+</div>
 
 </div>
 
