@@ -182,19 +182,10 @@ if (isset($_SESSION['logado'])) {
     <script>
         <?php if (isset($_GET['erro']) and $_GET['erro'] == 1) { ?>
             alert("Faça login ou cadastre-se para participar de nosso chat");
-        <?php }elseif (isset($_GET['erro']) and $_GET['erro'] == 'naologado') { ?>
-            alert("cucagado")
         <?php } ?>
     </script>
 </head>
 <body>
-<!---->
-<?php
-//if (isset($_GET['erro'])){
-//    if ($_GET['erro'] == 'naologado'){
-//        alerta();
-//    }
-//}   ?>
 
 
 <!-- Sidebar Menu -->
