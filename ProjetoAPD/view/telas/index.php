@@ -32,152 +32,11 @@ if (isset($_SESSION['logado'])) {
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     <script src="../semantic/dist/semantic.min.js"></script>
+    <script src="assets/js.js"></script>
 
 
-    <style type="text/css">
-    #fundoindex{
-      background-image: radial-gradient(transparent, #4c2b63),linear-gradient(to bottom,transparent, #4c2b63),url("assets/images/branquin.png");
-      padding: 25px;
-      background-repeat: no-repeat;
-      background-size: auto;
-    }
-
-        .ui.button{
-            background-color: #4C2C63;
-        }
-
-
-        .hidden.menu {
-            display: none;
-        }
-        .masthead.segment {
-            min-height: 500px;
-            padding-top: 1em;
-        }
-        .masthead .logo.item img {
-            margin-right: 1em;
-        }
-        .masthead .ui.menu .ui.button {
-            margin-left: 0.5em;
-        }
-        .masthead h1.ui.header {
-            margin-top: 15%;
-            margin-bottom: 0em;
-            font-size: 4em;
-            font-weight: normal;
-        }
-        .masthead h2 {
-            font-size: 1.7em;
-            font-weight: normal;
-        }
-        .ui.vertical.stripe {
-            padding: 8em 0em;
-        }
-        .ui.vertical.stripe h3 {
-            font-size: 2em;
-        }
-        .ui.vertical.stripe .button + h3,
-        .ui.vertical.stripe p + h3 {
-            margin-top: 3em;
-        }
-        .ui.vertical.stripe .floated.image {
-            clear: both;
-        }
-        .ui.vertical.stripe p {
-            font-size: 1.33em;
-        }
-        .ui.vertical.stripe button {
-            width: 20em;
-            height: 5em;
-        }
-        .ui.vertical.stripe .horizontal.divider {
-            margin: 3em 0em;
-        }
-        .quote.stripe.segment {
-            padding: 0em;
-        }
-        .quote.stripe.segment .grid .column {
-            padding-top: 5em;
-            padding-bottom: 5em;
-        }
-        .footer.segment {
-
-            padding-top: 0px;
-            padding-bottom: 0px;
-        }
-        .secondary.pointing.menu .toc.item {
-            display: none;
-        }
-        .link {
-            color: black;
-        }
-        .ui.inverted.vertical.masthead.center.aligned.segment {
-            background-color: #4C2C63;
-        }
-        .ui.inverted.vertical.footer.segment {
-            background-color: #4C2C63;
-        }
-        .center.aligned.row {
-            padding-top:0.25%;
-            text-align: center;
-            background-color:#fff;
-            margin-top: 20px;
-        }
-
-        @media only screen and (max-width: 700px) {
-            .ui.fixed.menu {
-                display: none !important;
-            }
-            .secondary.pointing.menu .item,
-            .secondary.pointing.menu .menu {
-                display: none;
-            }
-            .secondary.pointing.menu .toc.item {
-                display: block;
-            }
-            .masthead.segment {
-                min-height: 350px;
-            }
-            .masthead h1.ui.header {
-                font-size: 2em;
-                margin-top: 1.5em;
-            }
-            .masthead h2 {
-                margin-top: 0.5em;
-                font-size: 1.5em;
-            }
-        }
-    </style>
-
-
-    <script src="assets/library/jquery.min.js"></script>
-    <script src="../semantic/dist/components/visibility.js"></script>
-    <script src="../semantic/dist/components/sidebar.js"></script>
-    <script src="../semantic/dist/components/transition.js"></script>
     <script>
-        $(document)
-            .ready(function () {
-
-                // fix menu when passed
-                $('.masthead')
-                    .visibility({
-                        once: false,
-                        onBottomPassed: function () {
-                            $('.fixed.menu').transition('fade in');
-                        },
-                        onBottomPassedReverse: function () {
-                            $('.fixed.menu').transition('fade out');
-                        }
-                    })
-                ;
-
-                // create sidebar and attach to menu open
-                $('.ui.sidebar')
-                    .sidebar('attach events', '.toc.item')
-                ;
-
-            })
-        ;
+        
     </script>
     <script>
         <?php if (isset($_GET['erro']) and $_GET['erro'] == 1) { ?>
@@ -304,7 +163,9 @@ if (isset($_SESSION['logado'])) {
     <div class="ui internally celled grid middle aligned">
         <div class="row">
             <div class="three wide column">
-                <img src="assets/images/logo_ifc_branco.png" width="35%">
+                <div class="ui tiny image">
+                    <img src="assets/images/logo_ifc_branco.png">
+                </div>
             </div>
 
             <div class="ten wide column">
