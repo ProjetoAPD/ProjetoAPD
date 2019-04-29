@@ -13,8 +13,8 @@
         display: none;
     }
     .masthead.segment {
-        min-height: 500px;
         padding-top: 1em;
+        min-height: 500px;
     }
     .masthead .logo.item img {
         margin-right: 1em;
@@ -430,3 +430,74 @@ l{
 #usulist{
     padding: 1rem;
 }
+
+
+
+/*CHAT*/
+
+        #mensagens{
+            width: 100%;
+            background-color: white;
+            height: 560px;
+            overflow: auto;        
+        }
+
+        #psicologos, #usuarios{
+            height: 490px;
+            overflow: auto;
+        }
+
+        #enviada{
+            text-align: left;
+            color: white;
+            background: #301742;
+            border:1px black solid;
+            border-radius: 2px;
+            margin-left: 2px;
+            margin-right: 20px;
+            min-width: 10%;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            word-wrap: break-word;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        #recebida{
+            text-align: right;
+            color: white;
+            border:1px white solid;
+            background: #4c2c63;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            margin-left: 20px;
+            margin-right: 2px;
+            word-wrap: break-word;
+            margin-bottom: 10px;
+            margin-top:1px;
+        }
+
+        #chat{
+            background-color: #301742;
+            padding-top:1px;
+            padding-bottom:1px;
+   
+        }
+
+        .ui.unstackable.table{
+            padding: 0px;
+            height: 500px;
+            width:401px;
+        }
+        #psicologos{
+            text-align: intial;
+        }
+        #coluna{
+           width:61%;
+           margin: 0px;
+           padding: 0px;
+        }
+        #formulario_mensagem{
+            padding: 0 1%;
+            height: 100%;            
+        }
