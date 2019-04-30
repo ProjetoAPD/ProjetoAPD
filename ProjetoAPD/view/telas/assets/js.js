@@ -1,5 +1,4 @@
-$(document)
-            .ready(function () {
+        $(document).ready(function () {
 
                 // fix menu when passed
                 $('.masthead')
@@ -23,11 +22,8 @@ $(document)
         ;
 
 
-
-
-// CHAT
-
-$(function() {
+        // CHAT
+        $(function() {
             $("#voltar").hide();
             $("#psicologos").hide();
 
@@ -36,8 +32,6 @@ $(function() {
                 $("#voltar").fadeIn();
                 $("#psicologos").fadeIn();
                 $("#usuarios").hide();
-
-
             });
 
             $('#voltar').click(function () {
@@ -45,13 +39,10 @@ $(function() {
                 $("#novas_msg").fadeIn();
                 $("#usuarios").fadeIn();
                 $("#psicologos").hide();
-
-
             });
-
-
         });
-            function getUrlVars()
+            
+        function getUrlVars()
             {
                 var vars = [], hash;
                 var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');

@@ -1,4 +1,4 @@
-<?php include "base/cabecalho.php"; ?>
+<?php include "base/cabecalho_index.php"; ?>
 
         <div class="ui text container">
             <h1 class="ui inverted header">

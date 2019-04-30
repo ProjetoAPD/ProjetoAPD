@@ -74,8 +74,6 @@ if (isset($_GET['acao'])){
 
             $cod_usuario = $_GET['cod_usuario'];
 
-
-
             //deleta comentarios do usuario
             $a = new CrudComentario();
             $a->deleteComentarioUsu($cod_usuario);
@@ -96,6 +94,7 @@ if (isset($_GET['acao'])){
 
             break;
 
+        
         case "login":
             $user = new Usuario(null, $_POST['email'], $_POST['senha']);
             $c1 = new CrudUsuario();
@@ -105,9 +104,9 @@ if (isset($_GET['acao'])){
                 header('Location: ../view/telas/index.php');
             }
 
-
             break;
 
+        
         case "excluir":
             $id = $_GET['id'];
 
@@ -144,13 +143,17 @@ if (isset($_GET['acao'])){
 
             $crud = new CrudUsuario();
 
+            if ($_POST['senha'] != $_POST['conf_senha']) {
+                header('Location: ../view/telas/alteradados.php?erro=senha');
+            }else{
+                $usu = new Usuario($_POST['nome_usuario'],null , $_POST['senha'], null,  $_GET['cod_usuario']);
+                
+                $crud->updateUsuario($usu);
 
-            $usu = new Usuario($_POST['nome_usuario'],null , $_POST['senha'], null,  $_GET['cod_usuario']);
+                header('Location: ../view/telas/perfil.php');
+            }
 
-            print_r($crud->updateUsuario($usu));
-
-          header('Location: ../view/telas/perfil.php');
-
+            break;
     }
 }
 

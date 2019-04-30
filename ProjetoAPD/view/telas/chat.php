@@ -1,197 +1,24 @@
-<?php
+<?php include "base/cabecalho_generico.php";
 
-session_start();
+    require_once("../../model/CrudMensagem.php");
+    require_once("../../model/CrudDenuncias.php");
 
-require_once("../../model/Usuario.php");
-require_once("../../model/CrudUsuario.php");
-require_once("../../model/CrudMensagem.php");
-require_once("../../model/CrudDenuncias.php");
+    $user = new CrudUsuario();
+    //pega apenas usuarios do tipo psicologos
+    $listaPsicologos = $user->getPsicologos();
 
-$user = new CrudUsuario();
-//pega apenas usuarios do tipo psicologos
-$listaPsicologos = $user->getPsicologos();
+    //pega apenas usuarios do tipo comum
+    $listaUsuarios = $user->getUsuarios();
 
-//pega apenas usuarios do tipo comum
-$listaUsuarios = $user->getUsuarios();
-
-if (!isset($_SESSION['logado'])) {
-
-    header('Location: index.php?erro=1');
- 
-
-}else{
-    $c = new CrudUsuario();
-    $user = $c->getUsuario($_SESSION['cod_usuario']);
-}
-
-
+    if (!isset($_SESSION['logado'])) {
+        header('Location: index.php?erro=1');
+    }else{
+        $c = new CrudUsuario();
+        $user = $c->getUsuario($_SESSION['cod_usuario']);
+    }
 ?>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="icon" href="assets/images/nome.png">
-    <!-- Standard Meta -->
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-    <!-- Site Properties -->
-    <title>ProjetoAPD</title>
-
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
-    <script src="../semantic/dist/semantic.min.js"></script>
-    <script src="assets/js.js"></script>
-
-
-    <!------ Include the above in your HEAD tag ---------->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
-
-    <script>
-        $(document)
-            .ready(function () {
-
-                // fix menu when passed
-                $('.masthead')
-                    .visibility({
-                        once: false,
-                        onBottomPassed: function () {
-                            $('.fixed.menu').transition('fade in');
-                        },
-                        onBottomPassedReverse: function () {
-                            $('.fixed.menu').transition('fade out');
-                        }
-                    })
-                ;
-
-                // create sidebar and attach to menu open
-                $('.ui.sidebar')
-                    .sidebar('attach events', '.toc.item')
-                ;
-
-            })
-        ;
-
-        $(function() {
-            $("#voltar").hide();
-            $("#psicologos").hide();
-
-            $('#novas_msg').click(function () {
-                $("#novas_msg").hide();
-                $("#voltar").fadeIn();
-                $("#psicologos").fadeIn();
-                $("#usuarios").hide();
-
-
-            });
-
-            $('#voltar').click(function () {
-                $("#voltar").hide();
-                $("#novas_msg").fadeIn();
-                $("#usuarios").fadeIn();
-                $("#psicologos").hide();
-
-
-            });
-
-
-        });
-            function getUrlVars()
-            {
-                var vars = [], hash;
-                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-                for(var i = 0; i < hashes.length; i++)
-                {
-                    hash = hashes[i].split('=');
-                    vars.push(hash[0]);
-                    vars[hash[0]] = hash[1];
-                }
-                return vars;
-            }
-
-
-            window.setInterval(carrega, 1000);
-            var usuario2 = '';
-            function carrega(usuario2) {
-                usuario2 = getUrlVars()["usuario2"];
-                $.get('mensagens.php',
-                    {
-                        usuario2 : usuario2
-                    }, function(data){
-                        $('#mensagens').html(data);
-                        $('#usuario2').val(usuario2);
-                    });
-            }
-
-
-
-    </script>
-    <script>
-        <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] = "denunciado"){?>
-            alert('O usuário foi denunciado');
-        <?php } ?>
-    </script>
-
-</head>
-
-<body class="pushable">
-
-
-<!-- Sidebar Menu -->
-<div class="ui vertical inverted sidebar menu left">
-    <a class="item" href="index.php">Home</a>
-    <a class="item" href="forum.php">Fórum</a>
-    <a class="active item" href="chat.php">Chat</a>
-    <a class="item" href="login.php">Login</a>
-    <a class="item" href="cadastro.php">Cadastre-se</a>
-</div>
-
-
-<!-- Page Contents -->
-<div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
-
-        <div class="ui container">
-            <div class="ui large secondary inverted pointing menu">
-                <a class="toc item">
-                    <i class="sidebar icon"></i>
-                </a>
-                <a class="item" href="index.php">Home</a>
-                <a class="item" href="forum.php">Fórum</a>
-                <a class="active item" href="chat.php">Chat</a>
-
-                <?php if (!isset($_SESSION['logado'])){ ?>
-
-                <div class="right item">
-                    <a class="ui inverted button" href="login.php">Login</a>
-                    <a class="ui inverted button" href="cadastro.php">Cadastre-se</a>
-                </div>
-
-                <?php } else { ?>
-
-                <div class="right item">
-                    <h4 id="textin">Olá <?= $user->getNome() ?></h4>
-
-                    <?php if ($user->getCodTipoUsuario() == 1) { ?>
-                    <a class="ui inverted button" href="listausuarios.php">Lista de usuários</a>
-                    <?php } ?>
-
-                    <a class="ui inverted button" href="perfil.php">Minha conta</a>
-                    <a class="ui inverted button" href="../../controller/acoesUsu.php?acao=sair">Sair</a>
-                </div>
-
-                <?php } ?>
-
-            </div>
             <br>
-           
-    
             <div class="container" >
 
 
@@ -204,7 +31,7 @@ if (!isset($_SESSION['logado'])) {
 
                         <div class="ui comments">
 
-                            <table class="ui unstackable table">
+                            <table class="ui unstackable table" id="lista_usu_chat">
                                 <thead>
                                     <th>
                                         <div>
@@ -322,7 +149,7 @@ if (!isset($_SESSION['logado'])) {
                         <!-- CHAAAAT -->
 
                         <div class="ui container" id="chat">
-                            <div class="ui comments" id="mensagens" style="border-radius: 4px;">
+                            <div class="ui comments" id="mensagens" style="border-radius: 0.4em;">
 
                                 <?php include_once('mensagens.php'); ?>
 
@@ -330,38 +157,17 @@ if (!isset($_SESSION['logado'])) {
                             </div>
                             <form class="ui form" method="post" action="../../controller/acoesChat.php?acao=enviar" autocomplete="off">
 
-                                
                                     <div class="ui fluid action input">
                                         <input type="hidden" name="usuario2" value="<?= $_GET['usuario2'] ?> ">
-                                              <input type="text" name="mensagem" <?php if (isset($_GET['usuario2'])) { echo "autofocus"; } ?> >
-                                              <button class="ui simple green icon button"" type="submit" name="Enviar" <?php if(!isset($_GET['usuario2'])){echo "disabled";} ?> >
-                                                enviar
-                                                <i class="send icon"></i>
-
-                                              </button>
-                                          </div>
-
-
+                                        <input type="text" name="mensagem" <?php if (isset($_GET['usuario2'])) { echo "autofocus"; } ?> >
+                                        <button class="ui simple green icon button" type="submit" name="Enviar" <?php if(!isset($_GET['usuario2'])){echo "disabled";} ?>>Enviar<i class="send icon"></i></button>
+                                    </div>
                             </form>
-
-                          
                         </div>
-
                     </div>
-
-
-
-                    <!-- CHAAAAT -->
-
             </div>
-
-
-
         </div>
-
     </div>
-
 </div>
-
 </body>
 </html>

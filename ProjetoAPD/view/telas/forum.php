@@ -1,8 +1,8 @@
-<?php include_once "base/cabecalho.php";
+<?php include "base/cabecalho_forum.php";
 
-        
         require_once("../../model/CrudPostagem.php");
         require_once("../../model/CrudComentario.php");
+
         if (isset($_SESSION['logado'])) {
             ?>
 

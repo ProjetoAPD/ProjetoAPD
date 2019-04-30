@@ -3,8 +3,16 @@
         padding: 25px;
         background-repeat: no-repeat;
         background-size: auto;
+        min-height: 500px;
     }
-
+    
+    #fundoforum{
+        background-image: radial-gradient(transparent, #4c2b63),linear-gradient(to bottom,transparent, #4c2b63),url("../assets/images/branquin.png");
+        padding: 25px;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+    
     .ui.button{
         background-color: #4C2C63;
     }
@@ -14,7 +22,6 @@
     }
     .masthead.segment {
         padding-top: 1em;
-        min-height: 500px;
     }
     .masthead .logo.item img {
         margin-right: 1em;
@@ -484,11 +491,12 @@ l{
    
         }
 
-        .ui.unstackable.table{
+        #lista_usu_chat{
             padding: 0px;
             height: 500px;
             width:401px;
         }
+
         #psicologos{
             text-align: intial;
         }
