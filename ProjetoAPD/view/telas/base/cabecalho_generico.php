@@ -67,7 +67,6 @@ if (isset($_SESSION['logado'])) {
 <!-- Page Contents -->
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment">
-
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
                 <a class="toc item">

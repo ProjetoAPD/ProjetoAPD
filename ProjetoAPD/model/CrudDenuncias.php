@@ -22,11 +22,11 @@ class CrudDenuncias
 
         try {
             $this->conexao->exec($sql);
-
         } catch (PDOException $e) {
             return $e->getMessage();
         }
     }
+
 
     public function insertDenunciaChat(Denuncia_chat $den){
 
@@ -39,6 +39,7 @@ class CrudDenuncias
             return $e->getMessage();
         }
     }
+
 
     public function insertDenunciaComentario(Denuncia_comentario $den){
 
@@ -60,8 +61,21 @@ class CrudDenuncias
 
         $sql = "SELECT * FROM den_forum";
         $resultado = $this->conexao->query($sql);
+        $resultado = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
-        $denunciasForum = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($resultado as $obj) {
+            $cod_postagem = $obj['cod_postagem'];
+            $cod_usuario = $obj['cod_usuario'];
+            $data_hora = $obj['data_hora'];
+            $tex_den_f = $obj['tex_den_f'];
+            $cod_den_forum = $obj['cod_den_forum'];
+
+            $datahora = date_create($data_hora);
+            $datahora = date_format($datahora, 'd/m/y | H:i');
+
+            $denuncia = new Denuncia_forum($tex_den_f, $cod_postagem, $cod_usuario, $datahora, $cod_den_forum);
+            $denunciasForum[] = $denuncia;
+        }
         return $denunciasForum;
     }
 
@@ -69,8 +83,21 @@ class CrudDenuncias
 
         $sql = "SELECT * FROM den_chat";
         $resultado = $this->conexao->query($sql);
+        $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
-        $denunciasChat = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($result as $denuncia){
+            $cod_usuario = $denuncia['cod_usuario'];
+            $mensagem_den_chat = $denuncia['mensagem_den_chat'];
+            $dt_den_chat = $denuncia['dt_den_chat'];
+            $conversa_cod_mensagem = $denuncia['conversa_cod_mensagem'];
+            $cod_den_chat = $denuncia['cod_den_chat'];
+
+            $datahora = date_create($dt_den_chat);
+            $datahora = date_format($datahora, 'd/m/y | H:i');
+
+            $objDenuncia = new Denuncia_chat($mensagem_den_chat, $conversa_cod_mensagem, $cod_usuario, $datahora, $cod_den_chat);
+            $denunciasChat[] = $objDenuncia;
+        }
         return $denunciasChat;
     }
 
@@ -79,7 +106,21 @@ class CrudDenuncias
         $sql = "SELECT * FROM den_coment";
         $resultado = $this->conexao->query($sql);
 
-        $denunciasComent = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        $result = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($result as $denuncia){
+            $cod_comentario = $denuncia['cod_comentario'];
+            $cod_usuario = $denuncia['cod_usuario'];
+            $data_hora = $denuncia['data_hora'];
+            $tex_den_c = $denuncia['tex_den_c'];
+            $cod_den_coment = $denuncia['cod_den_coment'];
+
+            $datahora = date_create($data_hora);
+            $datahora = date_format($datahora, 'd/m/y | H:i');
+
+            $objDenuncia = new Denuncia_comentario($tex_den_c, $cod_comentario, $cod_usuario, $datahora, $cod_den_coment);
+            $denunciasComent[] = $objDenuncia;
+        }
         return $denunciasComent;
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -3,8 +3,8 @@
         require_once("../../model/CrudPostagem.php");
         require_once("../../model/CrudComentario.php");
 
-        if (isset($_SESSION['logado'])) {
-            ?>
+        if (isset($_SESSION['logado'])) { ?>
+
 
         <!-- Postar -->
             <div id="poster">
@@ -43,6 +43,7 @@
     <!-- forum -->
 
     <div class="ui comments center aligned" id="outset">
+    <br>
         <h3 class="ui dividing header center aligned white " id="branco">Postagens</h3>
 
         <!--postagem-->
@@ -56,32 +57,39 @@
             <div class="comment" id="post">
                 <a class="avatar">
 
-                    <img src="assets/images/avatar/tom.jpg">
+                    <img alt="avatar" src="assets/images/avatar/tom.jpg">
 
                 </a>
                 <div class="content">
-                    <?php $usu = $crud->getUsuarioPostagem($postagem['cod_postagem']); ?>
+                    <?php $usu = $crud->getUsuarioPostagem($postagem->getCodPostagem()); ?>
                     <a class="ui header author"><?= $usu['nome'] ?></a>
                     <div class="metadata">
-                        <div class="date"><?= $postagem['data_postagem'] ?></div>
+                        <div class="date"><?= $postagem->getData() ?></div>
 
 
                     </div>
                         <?php if (isset($_SESSION['logado'])) { ?>
-                            <button class="mini ui  negative basic button" id="denPostButton<?=$postagem['cod_postagem']?>">
+                            <button class="mini ui  negative basic button" id="denPostButton<?=$postagem->getCodPostagem() ?>">
                                 <i class="remove icon"></i>
                                 Denunciar
                             </button>
                         <?php } ?>
 
 
-                    <!--/////////////////////////////////////////////////////////////////////-->
-
+                    <!--MODAL DENUNCIA POSTAGEM-->
 
                     <?php if (isset($_SESSION['logado'])) {  ?>
 
+                        <script>
+                            $(document).ready(function(){
+                                $("#denPostButton<?= $postagem->getCodPostagem() ?> ").click(function(){
+                                    $("#denPostModal<?= $postagem->getCodPostagem() ?>")
+                                        .modal('show');
+                                    });
+                                })
+                        </script>
 
-                        <div class="ui fullscreen modal transition" id="denPostModal<?=$postagem['cod_postagem']?>">
+                        <div class="ui fullscreen modal transition" id="denPostModal<?=$postagem->getCodPostagem()?>">
                             <div class="header">
                                 Denunciar uma postagem
                             </div>
@@ -89,26 +97,23 @@
                                 <form action="../../controller/acoesFor.php?acao=denunciaPost" method="POST" autocomplete="off">
                                 <div class="ui form">
                                     <h4 class="ui dividing header">Dê um motivo da sua denuncia contra essa postagem</h4>
-                                    <input type="hidden" name="cod_postagem" value="<?= $postagem['cod_postagem'] ?>">
-                                    <input type="hidden" name="cod_usuario" value="<?= $postagem['usuario_cod_usuario'] ?>">
+                                    <input type="hidden" name="cod_postagem" value="<?= $postagem->getCodPostagem() ?>">
+                                    <input type="hidden" name="cod_usuario" value="<?= $postagem->getCodUsuario() ?>">
                                     <div class="field">
-                                        <label>Motivo</label>
-                                        <textarea name="texto"></textarea>
+                                        <label>Motivo
+                                            <textarea name="texto"></textarea>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="actions">
-                                <button type="submit" class="ui green ok inverted button"name="Enviar denuncia"><i class="checkmark icon"></i>Enviar</button>
+                                <button type="submit" class="ui green ok inverted button" name="Enviar denuncia"><i class="checkmark icon"></i>Enviar</button>
                             </div>
                             </form>
                         </div>
 
                     <?php } ?>
-
-
                     <!--        ///////////////////////////////////////////////////-->
-                    <!---->
-
 
 
 
@@ -116,15 +121,16 @@
 
                     <div class="text">
                         <div class="ui horizontal header left aligned">
-                            <h4 class="ui header"><?= $postagem['titulo_postagem'] ?></h4>
+                            <h4 class="ui header"><?= $postagem->getTitulo() ?></h4>
                         </div>
 
-                        <p><?= $postagem['texto_postagem'] ?></p>
+
+                        <p><?= $postagem->getTexto() ?></p>
 
 
                         <?php if (isset($_SESSION['logado'])){
-                            if ($postagem['usuario_cod_usuario'] == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
-                                <a type="button" class="right floated ui red labeled icon button" href="../../controller/acoesFor.php?acao=excluir&cod_postagem=<?= $postagem['cod_postagem'] ?>" >
+                            if ($postagem->getCodUsuario() == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
+                                <a type="button" class="right floated ui red labeled icon button" href="../../controller/acoesFor.php?acao=excluir&cod_postagem=<?= $postagem->getCodPostagem() ?>" >
                                     <i class="large trash icon"></i><p>Excluir</p></a>
 
                             <?php }} ?>
@@ -143,7 +149,7 @@
                             <button type="submit" class="ui button"><i class="pencil alternate icon"></i><p>Enviar</p></button>
                         </div>
 
-                        <input type="hidden" name="cod_postagem" value="<?= $postagem['cod_postagem'] ?>">
+                        <input type="hidden" name="cod_postagem" value="<?= $postagem->getCodPostagem() ?>">
 
                     </form>
                     <br>
@@ -153,11 +159,10 @@
                 <?php
 
                 $crudcoment = new CrudComentario();
-                $comentarios = $crudcoment->getComentarios($postagem['cod_postagem']);
+                $comentarios = $crudcoment->getComentarios($postagem->getCodPostagem());
 
                 foreach ($comentarios as $comentario){
-                    $usucomentario = $crudcoment->getUsuarioComentario($comentario['cod_comentario'])
-                    ?>
+                    $usucomentario = $crudcoment->getUsuarioComentario($comentario->getCodComentario()) ?>
 
                     <div class="ui container segment comments" id="comment">
                         <div class="comment">
@@ -167,10 +172,10 @@
                             <div class="content">
                                 <a class="author"><?= $usucomentario['nome'] ?></a>
                                 <div class="metadata">
-                                    <div class="date"><?= $comentario['dt_comentario'] ?></div>
+                                    <div class="date"><?= $comentario->getDtComentario() ?></div>
                                 </div>
                                 <?php if (isset($_SESSION['logado'])) { ?>
-                                    <button class="mini ui  negative basic button" id="denComButton<?=$comentario['cod_comentario']?>">
+                                    <button class="mini ui  negative basic button" id="denComButton<?=$comentario->getCodComentario()?>">
                                         <i class="remove icon"></i>
                                         Denunciar
                                     </button>
@@ -179,7 +184,16 @@
 
                                 <?php if (isset($_SESSION['logado'])) {  ?>
 
-                                    <div class="ui fullscreen modal transition" id="denComModal<?=$comentario['cod_comentario']?>">
+                                    <script>
+                                        $(document).ready(function() {
+                                            $("#denComButton<?= $comentario->getCodComentario()?> ").click(function () {
+                                                $("#denComModal<?= $comentario->getCodComentario()?>")
+                                                    .modal('show');
+                                            });
+                                        })
+                                    </script>
+
+                                    <div class="ui fullscreen modal transition" id="denComModal<?=$comentario->getCodComentario()?>">
                                         <div class="header">
                                             Denunciar um comentario
                                         </div>
@@ -187,11 +201,12 @@
                                             <form action="../../controller/acoesFor.php?acao=denunciaComent" method="POST" autocomplete="off">
                                                 <div class="ui form">
                                                     <h4 class="ui dividing header">Dê um motivo da sua denuncia contra esse comentario</h4>
-                                                    <input type="hidden" name="cod_comentario" value="<?= $comentario['cod_comentario'] ?>">
-                                                    <input type="hidden" name="cod_usuario" value="<?= $comentario['usuario_cod_usuario'] ?>">
+                                                    <input type="hidden" name="cod_comentario" value="<?= $comentario->getCodComentario() ?>">
+                                                    <input type="hidden" name="cod_usuario" value="<?= $comentario->getUsuarioCodUsuario() ?>">
                                                     <div class="field">
-                                                        <label>Motivo</label>
-                                                        <textarea name="texto"></textarea>
+                                                        <label>Motivo
+                                                            <textarea name="texto"></textarea>
+                                                        </label>
                                                     </div>
                                                 </div>
                                         </div>
@@ -208,16 +223,16 @@
 
                                 <div class="ui fitted divider"></div>
                                 <div class="text">
-                                    <?= $comentario['texto_comentario'] ?>
+                                    <?= $comentario->getTextoComentario() ?>
                                 </div>
 
                                 <?php if (isset($_SESSION['logado'])){
-                                    if ($comentario['usuario_cod_usuario'] == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
+                                    if ($comentario->getUsuarioCodUsuario() == $_SESSION['cod_usuario'] OR $user->getCodTipoUsuario() == 1){ ?>
 
 
 
 
-                                        <a type="button" class="mini ui  red labeled icon button" href="../../controller/acoesFor.php?acao=excluirComent&cod_comentario=<?= $comentario['cod_comentario'] ?>"" >
+                                        <a type="button" class="mini ui  red labeled icon button" href="../../controller/acoesFor.php?acao=excluirComent&cod_comentario=<?= $comentario->getCodComentario() ?>"" >
                                         <i class=" trash icon"></i><p>Excluir</p>
 
                                     <?php }} ?>
@@ -233,24 +248,9 @@
 
         <br>
         <footer class="ui horizontal header divider">
-            <a href="forum.php">Voltar ao topo</a>
+            <a href="#topo">Voltar ao topo</a>
         </footer>
         <br>
     </div>
-</div>
-
-
-
-
-</div>
-
-<!--fim da postagem-->
-
-
-
-
-
-
-</div>
-</body>
-</html>
+    <br>
+ <?php include "base/rodape.php"; ?>

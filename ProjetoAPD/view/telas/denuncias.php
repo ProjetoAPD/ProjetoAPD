@@ -4,14 +4,50 @@
     require_once("../../model/CrudDenuncias.php");
 
     if (isset($_SESSION['logado']) AND $user->getCodTipoUsuario() == 1){ ?>
+                
+            </div>
+                <div class="ui center aligned container" style="margin-top: 3em">
+
+
+                <script>
+                    $(document).ready(function(){
+
+                        $("#den_forum").hide();
+                        $("#den_chat").hide();
+                        $("#den_coment").hide();
+
+                        $("#butDenForum").click(function(){
+                            $("#den_forum").show();
+                            $("#den_chat").hide();
+                            $("#den_coment").hide();
+                        });
+
+                        $("#butDenChat").click(function(){
+                            $("#den_forum").hide();
+                            $("#den_chat").show();
+                            $("#den_coment").hide();
+                        });
+
+                        $("#butDenComentario").click(function(){
+                            $("#den_forum").hide();
+                            $("#den_chat").hide();
+                            $("#den_coment").show();
+                        });
+
+                    });
+
+                </script>
+
+                <div class="ui buttons">
+                    <button class="ui button" id="butDenForum">Denúncias fórum</button>
+                    <button class="ui button" id="butDenChat">Denúncias chat</button>
+                    <button class="ui button" id="butDenComentario">Denúncias comentários</button>
                 </div>
-                <div class="ui center aligned container">
+
 
                 <!--FORUM----------------------------------------------------------------------------------------------------------------->
                 <div id="den_forum">
-                    <br>
-                    <br>
-                    <h2>Denúncias fórum</h2>
+                    
                     <div class="ui comments">
 
                         <br>
@@ -33,16 +69,26 @@
                                 $denuncias = $b->getDenunciasForum();
 
                                 foreach($denuncias as $denuncia): ?>
-                                <td><?= $b->getUsuarioDenunciaForum($denuncia['cod_den_forum']) ?></td>
-                                <td><?= $b->getPostagemDenForum($denuncia['cod_postagem']) ?></td>
-                                <td><?= $denuncia['tex_den_f'] ?></td>
-                                <td><?= $denuncia['data_hora'] ?></td>
+                                <td><?= $b->getUsuarioDenunciaForum($denuncia->getCodDenForum()) ?></td>
+                                <td><button class="ui button" id="botaoModalTextoDenunciaPostagem<?= $denuncia->getCodDenForum() ?>">Ver postagem denunciada</button></td>
+                                <div class="ui fullscreen modal transition" id="modalTextoDenunciaPostagem<?= $denuncia->getCodDenForum() ?>">
+                                    <p style="padding: 3em;"><?= $b->getPostagemDenForum($denuncia->getCodPostagem()) ?></p>
+                                </div>
+                                <td><?= $denuncia->getTextDenF() ?></td>
+                                <td><?= $denuncia->getDataHora() ?></td>
 
-                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteUsuDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Banir usuário</a> |
-                                    <a href="../../controller/acoesDen.php?acao=deleteDenunciaPostagem&cod_denuncia=<?= $denuncia['cod_den_forum'] ?>">Excluir</a></td>
+                                <script>
+                                    $(document).ready(function(){
+                                        $("#botaoModalTextoDenunciaPostagem<?= $denuncia->getCodDenForum() ?>").click(function () {
+                                            $("#modalTextoDenunciaPostagem<?= $denuncia->getCodDenForum() ?>").modal('show')
+                                        })
+                                    })
+                                </script>
+
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteUsuDenuncia&cod_usuario=<?= $denuncia->getCodUsuario() ?>">Banir usuário</a> |
+                                    <a href="../../controller/acoesDen.php?acao=deleteDenunciaPostagem&cod_denuncia=<?= $denuncia->getCodDenForum() ?>">Excluir</a></td>
                             </tr>
                             <?php endforeach; ?>
-
 
                         </table>
 
@@ -54,9 +100,7 @@
 
                 <!--CHAT----------------------------------------------------------------------------------------------------------------->
                 <div id="den_chat">
-                    <br>
-                    <br>
-                    <h2>Denúncias chat</h2>
+                    
                     <div class="ui comments">
 
                         <br>
@@ -65,7 +109,6 @@
                             <tr>
                                 <th>Nome do usuário</th>
                                 <th>Mensagem denunciada</th>
-<!--                                <th>Texto denúncia</th>-->
                                 <th>Data Denúncia</th>
                                 <th class="right aligned">#</th>
                             </tr>
@@ -78,12 +121,12 @@
                                 $denuncias = $b->getDenunciasChat();
 
                                 foreach($denuncias as $denuncia): ?>
-                                <td><?= $b->getUsuarioDenunciaChat($denuncia['cod_den_chat']) ?></td>
-                                <td><?= $b->getMensagemDenChat($denuncia['conversa_cod_mensagem']) ?></td>
-                                <td><?= $denuncia['dt_den_chat'] ?></td>
+                                <td><?= $b->getUsuarioDenunciaChat($denuncia->getCodDenChat()) ?></td>
+                                <td><?= $b->getMensagemDenChat($denuncia->getConversaCodMensagem()) ?></td>
+                                <td><?= $denuncia->getDtDenChat() ?></td>
 
-                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteUsuDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Banir usuário</a> |
-                                    <a href="../../controller/acoesDen.php?acao=deleteDenunciaChat&cod_denuncia=<?= $denuncia['cod_den_chat'] ?>">Excluir</a></td>
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteUsuDenuncia&cod_usuario=<?= $denuncia->getCodUsuario() ?>">Banir usuário</a> |
+                                    <a href="../../controller/acoesDen.php?acao=deleteDenunciaChat&cod_denuncia=<?= $denuncia->getCodDenChat() ?>">Excluir</a></td>
 
                             </tr>
                             <?php endforeach; ?>
@@ -100,9 +143,7 @@
 
                 <!--COMENTARIO----------------------------------------------------------------------------------------------------------------->
                 <div id="den_coment">
-                    <br>
-                    <br>
-                    <h2>Denúncias comentários</h2>
+                    
                     <div class="ui comments">
 
                         <br>
@@ -125,14 +166,14 @@
                                 $denuncias = $b->getDenunciasComentario();
 
                                 foreach($denuncias as $denuncia): ?>
-                                <td><?= $b->getUsuarioDenunciaComentario($denuncia['cod_den_coment']) ?></td>
-                                <td><?= $b->getPostagemDenForumFromComent($denuncia['cod_comentario']) ?></td>
-                                <td><?= $b->getComentarioDenComent($denuncia['cod_comentario']) ?></td>
-                                <td><?= $denuncia['tex_den_c'] ?></td>
-                                <td><?= $denuncia['data_hora'] ?></td>
+                                <td><?= $b->getUsuarioDenunciaComentario($denuncia->getCodDenComent()) ?></td>
+                                <td><?= $b->getPostagemDenForumFromComent($denuncia->getCodComentario()) ?></td>
+                                <td><?= $b->getComentarioDenComent($denuncia->getCodComentario()) ?></td>
+                                <td><?= $denuncia->getTextDenC() ?></td>
+                                <td><?= $denuncia->getDataHora() ?></td>
 
-                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteUsuDenuncia&cod_usuario=<?= $denuncia['cod_usuario'] ?>">Banir usuário</a> |
-                                    <a href="../../controller/acoesDen.php?acao=deleteDenunciaComent&cod_denuncia=<?= $denuncia['cod_den_coment'] ?>">Excluir</a></td>
+                                <td class="right aligned"><a href="../../controller/acoesUsu.php?acao=deleteUsuDenuncia&cod_usuario=<?= $denuncia->getCodUsuario() ?>">Banir usuário</a> |
+                                    <a href="../../controller/acoesDen.php?acao=deleteDenunciaComent&cod_denuncia=<?= $denuncia->getCodDenComent() ?>">Excluir</a></td>
 
                             </tr>
                             <?php endforeach; ?>
@@ -142,6 +183,8 @@
 
                     </div>
                 </div>
+
+
                 </div>
             </div>
         </div>

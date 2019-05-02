@@ -4,7 +4,7 @@
         <div class="row">
             <div class="three wide column">
                 <div class="ui tiny image">
-                    <img src="assets/images/logo_ifc_branco.png">
+                    <a href="https://araquari.ifc.edu.br/"><img src="assets/images/logo_ifc_branco.png"></a>
                 </div>
             </div>
 

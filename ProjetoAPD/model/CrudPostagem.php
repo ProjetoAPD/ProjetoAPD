@@ -18,7 +18,24 @@ class CrudPostagem
         $sql = "SELECT * FROM postagens_forum order by data_postagem desc";
         $resultado = $this->conexao->query($sql);
 
-        $postagens = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        $postagens_array = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($postagens_array as $postagem){
+
+            $cod_postagem = $postagem['cod_postagem'];
+            $status_postagem = $postagem['status_postagem'];
+            $texto_postagem = $postagem['texto_postagem'];
+            $titulo_postagem = $postagem['titulo_postagem'];
+            $data_postagem = $postagem['data_postagem'];
+            $usuario_cod_usuario = $postagem['usuario_cod_usuario'];
+
+            $datahora = date_create($postagem['data_postagem']);
+            $datahora = date_format($datahora, 'd/m/y | H:i');
+
+            $obj = new Postagem_forum($usuario_cod_usuario, $status_postagem, $texto_postagem, $titulo_postagem, $datahora, $cod_postagem);
+            $postagens[] = $obj;
+        }
+
         return $postagens;
     }
 

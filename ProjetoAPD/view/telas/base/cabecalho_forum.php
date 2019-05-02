@@ -40,7 +40,7 @@ if (isset($_SESSION['logado'])) {
         <?php } ?>
     </script>
 </head>
-<body>
+<body id="topo">
 
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
