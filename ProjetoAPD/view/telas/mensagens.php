@@ -22,22 +22,15 @@ if (isset($_GET['usuario2'])) {
             $c2 = new CrudUsuario();
             $usuarioConversa = $c2->getUsuario($usuario2);
             $msg = "<div class=\"ui horizontal divider\" id=\"chatscroll\">
-                <p id=\"nome\" class=\"middle aligned\"> ".$usuarioConversa->getNome()."
-                </p>
-        
-            </div>
+                        <p id=\"nome\" class=\"middle aligned\"> ".$usuarioConversa->getNome()."</p>
+                    </div>
             <hr>";
             foreach ($mensagens as $mensagem):
                 if ($mensagem['cod_usuario1'] == $usuario1){
-
-                    $msg.="<p id='enviada'>
-                            $mensagem[texto]
-                            </p>";
+                    $msg.="<p id='enviada'>$mensagem[texto]</p>";
                  }else{
 
-                    $msg.="
-                    <p id=\"recebida\">
-                        $mensagem[texto]
+                    $msg.="<p id=\"recebida\">$mensagem[texto]
                         <a href=\"../../controller/acoesChat.php?acao=denuncia&cod_mensagem=$mensagem[cod_mensagem]&cod_usuario=$usuario2 \" class='denunciachato'>
                                 <i class=\"exclamation red triangle icon\"></i>
                          </a>

@@ -45,9 +45,12 @@ if (isset($_SESSION['logado'])) {
         
     </script>
     <script>
-        <?php if (isset($_GET['mensagem']) and $_GET['mensagem'] = "denunciado"){?>
-            alert('O usuário foi denunciado');
-        <?php } ?>
+        <?php if (isset($_GET['mensagem'])){
+            if ($_GET['mensagem'] == "denunciado"){?>
+                alert('O usuário foi denunciado');
+        <?php }elseif ($_GET['mensagem'] == "denPostagemDelete"){ ?>
+                alert('Denúncia excluída');
+        <?php }} ?>
     </script>
 
 </head>

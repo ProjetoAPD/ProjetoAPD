@@ -23,6 +23,7 @@ class CrudMensagem
         $resultado = $this->conexao->query($sql);
 
         $conversa = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
         return $conversa;
     }
 
