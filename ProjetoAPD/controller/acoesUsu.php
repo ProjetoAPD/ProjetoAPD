@@ -60,7 +60,7 @@ if (isset($_GET['acao'])){
 
             //deleta mensagens do usuario
             $c = new CrudMensagem();
-            $c->deleteMesagensUsu($cod_usuario);
+            $c->deleteMensagensUsu($cod_usuario);
 
             //deleta o usuario
             $c1 = new CrudUsuario();
@@ -84,7 +84,7 @@ if (isset($_GET['acao'])){
 
             //deleta mensagens do usuario
             $c = new CrudMensagem();
-            $c->deleteMesagensUsu($cod_usuario);
+            $c->deleteMensagensUsu($cod_usuario);
 
             //deleta o usuario
             $c1 = new CrudUsuario();
@@ -120,7 +120,7 @@ if (isset($_GET['acao'])){
 
             //deleta mensagens do usuario
             $c = new CrudMensagem();
-            $c->deleteMesagensUsu($id);
+            $c->deleteMensagensUsu($id);
 
             //deleta o usuario
             $c1 = new CrudUsuario();

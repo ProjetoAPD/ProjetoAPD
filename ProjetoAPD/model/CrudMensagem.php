@@ -23,7 +23,6 @@ class CrudMensagem
         $resultado = $this->conexao->query($sql);
 
         $conversa = $resultado->fetchAll(PDO::FETCH_ASSOC);
-
         return $conversa;
     }
 
@@ -42,7 +41,7 @@ class CrudMensagem
         }
     }
 
-    public function deleteMesagensUsu($cod_usuario){
+    public function deleteMensagensUsu($cod_usuario){
 
 
         $sql = "DELETE FROM den_chat WHERE cod_usuario=".$cod_usuario;

@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68a7bf54-4ccd-4d91-be4b-3d4d82724f4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoAPD/model/CrudDenuncias.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoAPD/model/CrudDenuncias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoAPD/controller/acoesUsu.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoAPD/controller/acoesUsu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetoAPD/model/CrudMensagem.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoAPD/model/CrudMensagem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoAPD/view/telas/base/cabecalho_generico.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoAPD/view/telas/base/cabecalho_generico.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoAPD/view/telas/denuncias.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoAPD/view/telas/denuncias.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoAPD/view/telas/mensagens.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoAPD/view/telas/mensagens.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +36,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProjetoAPD/model/CrudMensagem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="285">
+              <caret line="43" column="53" lean-forward="true" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjetoAPD/controller/acoesUsu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -209,12 +214,12 @@
       <workItem from="1556900106448" duration="3095000" />
       <workItem from="1557938432846" duration="3029000" />
       <workItem from="1558458041856" duration="1367000" />
-      <workItem from="1558720793905" duration="1171000" />
+      <workItem from="1558720793905" duration="2840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17479000" />
+    <option name="totallyTimeSpent" value="19148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="-4" width="1395" height="904" extended-state="6" />
@@ -337,13 +342,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjetoAPD/model/CrudMensagem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProjetoAPD/model/CrudDenuncias.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2625">
@@ -369,6 +367,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjetoAPD/controller/acoesUsu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjetoAPD/model/CrudMensagem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="43" column="53" lean-forward="true" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
         </state>
       </provider>
     </entry>
